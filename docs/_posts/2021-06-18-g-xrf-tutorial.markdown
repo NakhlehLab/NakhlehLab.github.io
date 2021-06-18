@@ -239,8 +239,8 @@ appropriate for your system) and run the nexus file for each grid point, then
 save the computed log-likelihoods to the file `log_likelihoods.csv`. We can
 convert these log-likelihoods to G-XRFs by subtracting the log-likelihood
 when γ=0 (with the same internal branch length) from each network log-likelihood, and
-visualize them using Python's[matplotlib][matplotlib] library, as in the
-following Python script:
+visualize them using the [matplotlib][matplotlib] Python library, as in the
+following script:
 
 ```python
 import numpy
