@@ -21,7 +21,7 @@ given the below network, the G-XRF is equal to the posterior probability of
 the full network divided by the posterior probability with the same network
 where the branch with inheritance probability γ is removed. The latter
 probability can also be calculated by setting that γ to zero. If we are working
-in log-units, we can take the different in posterior probabilities.
+in log-units, we can take the difference in posterior probabilities.
 
 ![Example species network](/assets/wang-2021-figure-1.jpg)
 
@@ -136,8 +136,10 @@ above newick string, compared with the same numbers in the original network
 string. Replace the network newick string with the tree-like string in the
 nexus file, and run PhyloNet again. The log-likelihood of the trait pattern
 should now be about -7.60. G-XRF is calculated as the ratio of network to
-tree likelihoods, or in log units the difference between log-likelihoods.
-Therefore, the G-XRF for this example is (-7.06) - (-7.60) = 0.54.
+tree posterior probabilities, or in log units the difference between them. If
+we assume a uniform prior over inheritance probabilities, this is equivalent
+to the difference in log-likelihoods. Therefore, the G-XRF for this example
+is (-7.06) - (-7.60) = 0.54.
 
 # Dealing with uncertainty
 
