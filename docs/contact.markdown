@@ -15,9 +15,9 @@ Dr. Luay Nakhleh
 >
 > nakhleh@rice.edu
 >
-> (713)348-3959 (office)
+> (713)-348-3959 (office)
 >
-> (713)348-5930 (fax)
+> (713)-348-5930 (fax)
 
  
 
@@ -25,6 +25,6 @@ Dr. Luay Nakhleh
 
 Mark A. Kessler
 
-> (563)424-0605
+> (563)-424-0605
 >
 > mak17@rice.edu
