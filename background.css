@@ -1,0 +1,11 @@
+#jumboBack {
+        background-image: url('mainBackground.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+       
+}
+
+#publicationsBar {
+        background-color: darkseagreen;
+}
