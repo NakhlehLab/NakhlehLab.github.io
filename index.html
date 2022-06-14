@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Luay Nakhleh Group</title>
+    <title>Headers · Bootstrap v5.1</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -39,16 +39,17 @@
     <link href="headers.css" rel="stylesheet">
     <link href="footers.css" rel="stylesheet">
     <link href="background.css" rel="stylesheet">
+   
   </head>
 
 <body>
     
 
 
-<main>
+<main class="mainContainer">
+  <script src="nav.js" charset="utf-8"></script>
 
   <div class="container">
-
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -56,13 +57,13 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Blog Posts</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Contact</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Software</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">People</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Documentation</a></li>
+        <li><a onclick=SwitchElement(0) class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a onclick=SwitchElement(1) class="nav-link px-2 link-dark">Blog Posts</a></li>
+        <li><a onclick=SwitchElement(2) class="nav-link px-2 link-dark">About</a></li>
+        <li><a onclick=SwitchElement(3) class="nav-link px-2 link-dark">Contact</a></li>
+        <li><a onclick=SwitchElement(4) class="nav-link px-2 link-dark">Software</a></li>
+        <li><a onclick=SwitchElement(5) class="nav-link px-2 link-dark">People</a></li>
+        <li><a onclick=SwitchElement(6) class="nav-link px-2 link-dark">Documentation</a></li>
       </ul>
 
       <div class="col-md-3 text-end">
@@ -71,53 +72,134 @@
     </header>
   </div>
 
-   
-  <div class="container py-4">
+    
+        <div class="container py-4" id="0">
+            
+                <div id="jumboBack" class="p-5 mb-4 bg-light rounded-3">
+                  <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold" style="color:black;">Explore PhyloNet</h1>
+                    <p style="color:black; font-weight: 580;" class="col-md-8 fs-4">A suite of software tools for reconstructing/analyzing phylogenetic networks in the presence of reticulate evolutionary events, as well as inferring species trees despite lineage sorting.</p>
+                    <button style="background-color:darkseagreen" class="btn btn-primary btn-lg" type="button">Download Here</button>
+                  </div>
+                </div>
+            
+                <div class="row align-items-md-stretch">
+                  <div class="col-md-6">
+                    <div id="publicationsBar" class="h-100 p-5 text-white rounded-3">
+                      <h2>Check Out Our Publications</h2>
+                      <p>Read and learn about some of our recent projects, publications, and breakthroughs in the field of phylogenetics here!</p>
+                      <button class="btn btn-outline-light" type="button">Learn More</button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                      <h2>Tutorials</h2>
+                      <p>Learn how to use the most popular functionality of PhyloNet in easy to understand walkthroughs.</p>
+                      <button class="btn btn-outline-secondary" type="button">Check it out!</button>
+                    </div>
+                  </div>
+                </div>
+        </div>
+    
+
+        <!--
+                THIS SECTION CONTAINS THE TAB CONTENTS 
+        -->
+        <div class="container" id="1" style="display: none; height:700px">
+                <p> BLOG</p>
+        </div>
+        <div class="container" id="2" style="display: none;">
+                <p>  The Bioinformatics Group at Rice University's Department of Computer Science is led by Dr. Luay Nakhleh and conducts research into developing methodologies, implementing software tools and conducting analyses--all aimed at answering and enabling research into biological questions. </p>
+                <p>  We work on a variety of biological questions in the general areas of phylogenomics, population genomics and cellular networks. Work in our group involves mathematical modeling, algorithm design, software development, performance studies, and data analysis. In particular, we are actively pursuing three broad lines of research:</p>
+                <ul>
+                        <li><p> Methodologies for phylogenomic analysis (e.g., incomplete lineage sorting, horizontal gene transfer, hybridization, etc.)</p></li>
+                        <li><p> Modeling cellular networks (protein interaction, regulatory networks, and metabolic networks)</p></li>
+                        <li><p> Evolutionary analysis of cellular networks (e.g., the role of gene duplication, horizonal gene transfer, and genomic architectures in shaping the properties of networks)</p></li>
+                        
+                </ul>
+        
+                <p>We are always looking for motivated individuals (undergraduate, graduate and post-doctoral) who are intrigued by both the biology and computational aspects of our interdisciplinary projects to join our group.</p>
+        </div>
+        <div class="container" id="3" style="display: none;">
+                <h3>Principal Investigator</h3>
+
+                <p>Dr. Luay Nakhleh</p>
+
+               
+                <p>Department of Computer Science</br>
+                Rice University</br>
+                6100 Main Street, MS 132</br>
+                Houston, TX 77005</p>
+                
+
+                <a href = "mailto:nakhleh@rice.edu?subject = Website Contact Request &body = Message" style="color:blue">
+                        nakhleh@rice.edu
+                </a>
+                </br>
+                <p>(713)348 3959 (office)</p>
+
+                <p>(713)348 5930 (fax)</p>
+
+                <h3>Software and Web Developer</h3>
+
+                <p>Mark A. Kessler</p>
+
+                <a href = "mailto:mak17@rice.edu?subject = Website Contact Request &body = Message" style="color:blue">
+                        mak17@rice.edu
+                </a>
+        </div>
+        <div class="container" id="4" style="display: none;">
+                <div class="grid-container">
+                        <div class="grid-item" onclick=PhyloNet()>
+                                <div class="softwareThumb">
+                                        
+                                </div>
+
+                                <div class="softwareDetail">
+                                        <p class="SoftwareItemDescription">     PhyloNet</p>
+                                </div>
+                        </div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                        <div class="grid-item">7</div>
+                        <div class="grid-item">8</div>
+                        <div class="grid-item">9</div>
+                </div> 
+        </div>
+        <div class="container" id="5" style="display: none;">
+                <p> PEOPLE</p>
+        </div>
+        <div class="container" id="6" style="display: none;">
+                <p> DOCUMENTATION</p>
+        </div>
+        <!--
+               END SECTION CONTAINING THE TAB CONTENTS 
+        -->
+    
+
+    <div class="container" height="150px" style="bottom:0;" >
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center" width="400px">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img width="75" height="37.5" src="headerPhoto.png" >
+            </a>
+            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+          </div>
       
-    <div id="jumboBack" class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold" style="color:black;">Explore PhyloNet</h1>
-        <p style="color:black; font-weight: 580;" class="col-md-8 fs-4">A suite of software tools for reconstructing/analyzing phylogenetic networks in the presence of reticulate evolutionary events, as well as inferring species trees despite lineage sorting.</p>
-        <button style="background-color:darkseagreen" class="btn btn-primary btn-lg" type="button">Download Here</button>
-      </div>
-    </div>
-
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div id="publicationsBar" class="h-100 p-5 text-white rounded-3">
-          <h2>Check Out Our Publications</h2>
-          <p>Read and learn about some of our recent projects, publications, and breakthroughs in the field of phylogenetics here!</p>
-          <button class="btn btn-outline-light" type="button">Learn More</button>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Tutorials</h2>
-          <p>Learn how to use the most popular functionality of PhyloNet in easy to understand walkthroughs.</p>
-          <button class="btn btn-outline-secondary" type="button">Check it out!</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-            <img width="75" height="37.5" src="headerPhoto.png" >
-        </a>
-        <span class="text-muted">&copy; 2022 Luay Nakhleh Lab Group</span>
-      </div>
-  
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="gitLogo.png"></a></li>
-        <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="twitterLogo.png"></a></li>
-      </ul>
-    </footer>
-  </div>
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="gitLogo.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="twitterLogo.png"></a></li>
+          </ul>
+        </footer>
+     </div>
   
 </main>
+
+
+
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
