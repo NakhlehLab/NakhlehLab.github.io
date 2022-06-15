@@ -13,7 +13,7 @@
 .grid-container {
         display: inline-grid;
         grid-template-columns: auto auto auto;
-        gap: 50px 100px;
+        gap: 50px 70px;
 }
 
 .grid-item {
@@ -32,6 +32,7 @@
         box-shadow: 0px 4px 8px rgb(0, 0, 0, .4), 0 6px 20px 0 rgba(0, 0, 0, 0.37);
         top: -5px;
         left: -2px;
+        cursor: pointer;
 }
 
 .mainContainer{
@@ -57,4 +58,42 @@
         text-align: left;
         padding-left: 35px;
         
+}
+
+.tinyGrid {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+}
+
+.tinyGridItem {
+        font-size: 30px;
+        text-align: center;  
+}
+
+.itemLeft{
+        font-size: 21px;
+        font-weight: bold;
+        font-family: monospace;
+        justify-content: center;
+        padding-top: 13px;
+        text-align: left;
+        padding-left: 35px;
+}
+
+
+.itemRight{
+        font-size: 12px;
+        font-weight: 100;
+        font-family: monospace;
+        padding-top: 10px;
+        text-align: center;
+        
+}
+
+
+.SoftwareItemDescription:hover{
+        font-size: 22px;
+        text-shadow: 0px .5px 1px rgba(0, 0, 0, 0.607);
+        cursor: pointer;
 }

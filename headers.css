@@ -31,3 +31,7 @@
 .dropdown-toggle {
         outline: 0;
 }
+
+.headClick{
+        cursor: pointer;
+}
