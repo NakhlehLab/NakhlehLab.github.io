@@ -81,43 +81,54 @@
         
         <div class="text-box">
           <h1 class="heading-primary">
-            <span class="heading-primary-main">PhyloNet</span>
+            <span class="heading-primary-main">PhyloNet-HMM</span>
             <span class="heading-primary-sub"></span>
           </h1>
-          <a href="/media/PhyloNet.jar"  download="PhyloNetv3_8_2.jar" class="btn btn-white btn-animated">Download Version 3.8.2</a>
+          <a href="/media/PhyloNet.jar" class="btn btn-white btn-animated"> Download Here</a>
         </div>
       </header> 
 
        <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'use')">Usage and Documentation</button>
+          <button class="tablinks" onclick="openTab(event, 'use')">About</button>
           <button class="tablinks" onclick="openTab(event, 'works')">Academic Work</button>
           <button class="tablinks" onclick="openTab(event, 'ack')">Acknowledgments</button>
         </div>
 
         <!-- Tab content -->
         <div id="use" class="tabcontent">
-          <p class="tabText">PhyloNet is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic trees, and hence the PhyloNet package includes several tools for phylogenetic tree analysis.</p>
-          <br>
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/PhyloNet+3+General+Overview">General Overview</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands">Commands List</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/Troubleshooting">Troubleshooting</a></li>
-          </ul>
+          
+          <p class="tabText">PhyloNet-HMM consists of a statistical model and 
+            associated inference method for analyzing complex evolutionary scenarios, 
+            especially non-tree-like evolutionary scenarios. PhyloNet-HMM combines phylogenetic networks, 
+            which capture complex evolutionary relationships among genomes, with hidden Markov models, 
+            which capture dependencies within genomes, in a novel manner. 
+            The performance of PhyloNet-HMM was validated using simulated 
+            and empirical data sets that included tree-like and non-tree-like evolutionary scenarios.</p>
+
+            <p class="tabText">
+              Software and data sets are provided below as compressed tarball files. See README file in each compressed tarball file for a detailed explanation of contents.
+
+            PhyloNet-HMM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. PhyloNet-HMM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with PhyloNet-HMM.  If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.
+            </p>
+
+            <a class="btn btn-white-small btn-animated" href="/media/phmm_0.jar" download="PhyloNet-HMM.jar">Download PhyloNet-HMM as Jar</a>
+            <a class="btn btn-white-small btn-animated" href="https://bioinfocs.rice.edu/sites/g/files/bxs266/f/phmm-0.1.tar_0.bz2" download="phmm-0.1.tar.bz2">Download PhyloNet-HMM as Tarball</a>
+            <a class="btn btn-white-small btn-animated" href="https://bioinfocs.rice.edu/sites/g/files/bxs266/f/empirical-datasets.tar.bz2" download="emp_data.tar.bz2">Download Empirical Data Sets</a>
+            <a class="btn btn-white-small btn-animated" href="https://bioinfocs.rice.edu/sites/g/files/bxs266/f/simulated-datasets.tar.bz2" download="sim_data.tar.bz2">Download Simulated Data Sets</a>
+           
           
         </div>
 
         <div id="works" class="tabcontent">
-          <ul>
-            <li><a href="/media/article1.pdf">Advances in Computational Methods for Phylogenetic Networks in the Presence of Hybridization</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://www.biorxiv.org/content/10.1101/746362v1">Practical Aspects of Phylogenetic Network Analysis Using PhyloNet</a></li>
-          </ul>
+          
+          <p class="tabText">A detailed description of the model, inference method, and performance study is available in the following manuscript: 
+
+          </p>
+          <br>
+          <p class="tabText" style="margin-left:3em">K. Liu, J. Dai, K. Truong, Y. Song, M. H. Kohn, and L. Nakhleh, "An HMM-based comparative genomic framework for detecting introgression in eukaryotes," PLoS Computational Biology, vol. 10, no. 6, p. e1003649, 2014, doi: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003649">10.1371/journal.pcbi.1003649</a>.
+
+             </p>
           
 
           
@@ -125,18 +136,6 @@
 
         <div id="ack" class="tabcontent">
           
-
-    <p class="tabText"> <strong>If you use PhyloNet, please cite</strong> </p>
-        <blockquote class="tabText" style="margin-left:3em"> Wen, Y. Yu, J. Zhu, L. Nakhleh (2018) Inferring phylogenetic networks using PhyloNet, Systematic Biology 67(4): 735-740.
-        C. Than, D. Ruths, L. Nakhleh (2008) PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary histories, BMC Bioinformatics 9:322.</blockquote>
-        <p class="tabText">as well as other the publications relevant to the method being used.</p>
-
-
-
-    <p class="tabText"> <strong> A special thank you:</strong></p>
-    <p class="tabText">Development of the various functionalities in PhyloNet has been generously supported by DOE (DE-FG02-06ER25734), NIH (R01LM009494), and NSF (CCF-0622037, DBI-1062463, CCF-1302179, CCF-1514177) grants and Sloan and Guggenheim fellowships to Luay Nakhleh. </p>
-
-
           
         </div> 
     </div>
@@ -145,9 +144,6 @@
 
         
                                   
-              
-    
-
     <div class="container" height="150px" style="bottom:0;" >
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
           <div class="col-md-4 d-flex align-items-center" width="400px">
@@ -175,4 +171,3 @@
   </body>
   
 </html>
-
