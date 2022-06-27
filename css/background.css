@@ -7,7 +7,7 @@
 }
 
 #publicationsBar {
-        background-color: darkseagreen;
+        background-color: #4275d5b3;
 }
 
 .grid-container {
@@ -98,4 +98,14 @@
         cursor: pointer;
 }
 
+.blueBtn:hover{
+        background-color: aliceblue;
+        
+}
 
+.blueBtn{
+        color:white;
+        border:whitesmoke 1px solid;
+        background-color: #4275d5b3;
+        
+}

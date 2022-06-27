@@ -9,8 +9,7 @@ function SwitchElement(tabNum){
 }
 
 function PhyloNet(){ //navigates to PhyloNet download page
-        SwitchElement(7);
-        document.getElementById("7").innerHTML='<object type="type/html" data="phylonet.html" ></object>';
+        window.location.replace("/html/phylonet.html")
 }
 
 function openTab(evt, tabName) {
