@@ -41,15 +41,34 @@
     <link href="/css/background.css" rel="stylesheet">
     <link href="/css/tables.css" rel="stylesheet">
     <link href="/css/publications.css" rel="stylesheet">
+    <link href="/css/phylo.css" rel="stylesheet">
    
   </head>
 
 <body class="htmlBody">
-    
+  <script src="/js/nav.js" charset="utf-8"></script>
+      
+      <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" onclick=closeModal() id="closeBtn">&times;</span>
+      <div class="container">
+        <a class="btn btn-white btn-animated" href=# download="" id="pdfLink">Download Article PDF</a>
+        <a class="btn btn-white btn-animated" href=# download="">Google Scholar Link</a>
+        <a class="btn btn-white btn-animated" href=# download="">BibTeX</a>
+        <a class="btn btn-white btn-animated" href=# download="">RTF</a>
+      </div>
+    </div>
+
+  </div>
 
 
 <main class="mainContainer">
-  <script src="/js/nav.js" charset="utf-8"></script>
+  
+
+
 
   <div class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -90,8 +109,10 @@
           <tr>
             <td></td>
             <td>Y. Wang, Ogilvie, H. A., and Nakhleh, L., “Practical Speedup of Bayesian Inference of Species Phylogenies by Restricting the Space of Gene Trees”, Molecular Biology and Evolution, vol. 37, pp. 1809-1818, 2020.  
-            
-            <td><a class="exportLink">EXPORT</a></td>
+             
+            <td>
+              <button id="myBtn" onclick=openModal("/media/mark.jpg") >EXPORT</button>
+            </td>
           </tr>
           <tr>
             <th class="tableDataBlue"></th>
@@ -124,7 +145,7 @@
           <tr>
             <td></td>
             <td>G. A. Bravo, Antonelli, A., Bacon, C. D., Bartoszek, K., Blom, M. P. K., Huynh, S., Jones, G., Knowles, L. L., Lamichhaney, S., Marcussen, T., Morlon, H., Nakhleh, L., Oxelman, B., Pfeil, B., Schliep, A., Wahlberg, N., Werneck, F. P., Wiedenhoeft, J., .Willows-Munro, S., and Edwards, S. V., “Embracing heterogeneity: coalescing the Tree of Life and the future of phylogenomics”, PeerJ, vol. 7, p. e6399, 2019.
-            
+             
             </td>
             <td><a class="exportLink">EXPORT</a></td>
           </tr>
@@ -285,10 +306,16 @@
       </div>
     </div>
 
-  
+  <!-- TEMPLATE
+    <tr>
+      <td></td>
+      <td>
+        Blank
+      </th>
+      <td><a class="exportLink">EXPORT</a></td>
+    </tr>
 
-
-
+-->
 
     <div class="container">
       <div class="centeredPagination">
