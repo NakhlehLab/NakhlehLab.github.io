@@ -37,6 +37,7 @@
 
 .mainContainer{
         background-color: whitesmoke;
+        height:100vh;
 }
 
 .softwareThumb{
@@ -108,4 +109,8 @@
         border:whitesmoke 1px solid;
         background-color: #4275d5b3;
         
+}
+
+.htmlBody{
+        background-color: whitesmoke;
 }
