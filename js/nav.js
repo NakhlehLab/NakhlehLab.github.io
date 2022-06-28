@@ -37,9 +37,14 @@ function SwitchPage(slideNum){
 
         var link = document.getElementById(currentSlide.toString());
         link.className = " "
+        var tableOld = document.getElementById("slide" + currentSlide.toString())
+        tableOld.style.display = "none"
         currentSlide=slideNum;
         var newLink = document.getElementById(currentSlide.toString());
         newLink.className = "active"
+        var tableOld = document.getElementById("slide" + currentSlide.toString())
+        tableOld.style.display = "block"
+
 }
 
 function NextPage(){
