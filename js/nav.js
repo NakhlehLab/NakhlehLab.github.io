@@ -36,14 +36,15 @@ function openTab(evt, tabName) {
 function SwitchPage(slideNum){
 
         var link = document.getElementById(currentSlide.toString());
-        link.className = " "
-        var tableOld = document.getElementById("slide" + currentSlide.toString())
-        tableOld.style.display = "none"
+        link.className = " ";
+        var tableOld = document.getElementById("slide" + currentSlide.toString());
+        tableOld.style.display = "none";
         currentSlide=slideNum;
         var newLink = document.getElementById(currentSlide.toString());
-        newLink.className = "active"
-        var tableOld = document.getElementById("slide" + currentSlide.toString())
-        tableOld.style.display = "block"
+        newLink.className = "active";
+        var tableOld = document.getElementById("slide" + currentSlide.toString());
+        tableOld.style.display = "block";
+
 
 }
 
@@ -51,10 +52,10 @@ function NextPage(){
         
         if(currentSlide!=6){
                 var link = document.getElementById(currentSlide.toString());
-                link.className = " "
+                link.className = " ";
                 currentSlide+=1;
                 var newLink = document.getElementById(currentSlide.toString());
-                newLink.className = "active"
+                newLink.className = "active";
         }
 
 }
@@ -63,10 +64,10 @@ function PrevPage(){
 
         if(currentSlide!=1){
                 var link = document.getElementById(currentSlide.toString());
-                link.className = " "
+                link.className = " ";
                 currentSlide-=1;
                 var newLink = document.getElementById(currentSlide.toString());
-                newLink.className = "active"
+                newLink.className = "active";
         }
 
 }
