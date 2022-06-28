@@ -33,3 +33,36 @@ function openTab(evt, tabName) {
         evt.currentTarget.className += " active";
 } 
 
+function SwitchPage(slideNum){
+
+        var link = document.getElementById(currentSlide.toString());
+        link.className = " "
+        currentSlide=slideNum;
+        var newLink = document.getElementById(currentSlide.toString());
+        newLink.className = "active"
+}
+
+function NextPage(){
+        
+        if(currentSlide!=6){
+                var link = document.getElementById(currentSlide.toString());
+                link.className = " "
+                currentSlide+=1;
+                var newLink = document.getElementById(currentSlide.toString());
+                newLink.className = "active"
+        }
+
+}
+
+function PrevPage(){
+
+        if(currentSlide!=1){
+                var link = document.getElementById(currentSlide.toString());
+                link.className = " "
+                currentSlide-=1;
+                var newLink = document.getElementById(currentSlide.toString());
+                newLink.className = "active"
+        }
+
+}
+
