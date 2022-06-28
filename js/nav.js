@@ -71,3 +71,20 @@ function PrevPage(){
 
 }
 
+
+// When the user clicks the button, open the modal 
+function openModal(pdfHref) {
+        // alert();
+        console.log("OPENING MODAL");
+        var modal = document.getElementById("myModal");
+        var pdfName = document.getElementById("pdfLink");
+        pdfName.href = pdfHref;
+        modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+function closeModal() {
+        console.log("CLOSING MODAL");
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+}
