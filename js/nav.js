@@ -1,3 +1,6 @@
+var currentSlide = 1;
+
+
 function SwitchElement(tabNum){
         var i;
         for(i=0; i<=7; i++){
