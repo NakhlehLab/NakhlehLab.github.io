@@ -10,31 +10,43 @@
 }
 
 table {
-	width: 90%;
+	width: 100%;
         border-radius: 7px;
 	border-collapse: collapse;
 	overflow: hidden;
 	box-shadow: 0 0 20px rgba(0,0,0,0.1);
         
-        
 }
 
-th,
+
 td {
 	padding: 15px;
 	background-color: rgba(255,255,255,0.2);
 	color: #4275d5c3;
+        text-align: center;
+        
 }
 
 th {
-	text-align: left;
+	
+        padding-top: 15px;
+        padding-bottom: 15px;
+	background-color: rgb(224, 234, 255);
+	color: #4275d5c3;
+        text-align: center;
 }
 
-thead th {
+.tableDataBlue{
+        background-color: rgb(224, 234, 255);
+	color: #4275d5c3;
+        text-align: center;
+}
+
+/* thead th {
 		background-color: #4275d5c3;
                 color:whitesmoke;
 	
-}
+} */
 
 tbody tr:hover {
 			background-color: rgba(255,255,255,0.3);
@@ -43,18 +55,7 @@ tbody tr:hover {
 tbody td:hover {
 	position: relative;
 }
-	
-tbody td:before{
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -9999px;
-        bottom: -9999px;
-        background-color: rgba(255,255,255,0.2);
-        z-index: -1;
-}
-      
+  
 
 .sidebar {
         
@@ -133,6 +134,7 @@ tbody td:before{
         background-image: linear-gradient(to right, #0055ff, #f6f7fa4e);
        
 }
+
 
 
 

@@ -1,17 +1,42 @@
  /* Pagination links */
  .pagination a {
         color: black;
-        float: left;
-        padding: 8px 16px;
+        padding: 8px 8px;
         text-decoration: none;
         transition: background-color .3s;
+        width: 100%;
+        overflow: auto;
+        text-align: center;
 }
       
       /* Style the active/current link */
 .pagination a.active {
-        background-color: #4275d5b3;;
+        background-color: #4275d5b3;
         color: white;
 }
       
 /* Add a grey background color on mouse-over */
 .pagination a:hover:not(.active) {background-color: #ddd;} 
+
+
+.exportLink{
+        color:#4275d5b3;
+        font-weight: bold;
+        
+}
+
+.centered{
+        margin:auto auto;
+        width:95%;
+        height:100%;
+}
+
+.centeredPagination{
+        margin:auto auto;
+        width:25%;
+        height:100%;
+}
+
+.spacer{
+        width:10%;
+}
