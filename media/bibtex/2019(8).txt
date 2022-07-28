@@ -1,0 +1,6 @@
+@conference {281,
+	title = {Unifying Gene Duplication, Loss, and Coalescence on Phylogenetic Networks},
+	booktitle = {The International Symposium on Bioinformatics Research and Applications (ISBRA)},
+	year = {2019},
+	author = {P. Du and H.A. Ogilvie and L. Nakhleh}
+}

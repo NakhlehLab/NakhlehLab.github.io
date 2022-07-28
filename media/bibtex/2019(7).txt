@@ -1,0 +1,6 @@
+@article {291,
+	title = {SiCloneFit: Bayesian inference of population structure, genotype, and phylogeny of tumor clones from single-cell genome sequencing data},
+	journal = {Genome Research},
+	year = {2019},
+	author = {H. Zafar and N. Navin and K. Chen and L. Nakhleh}
+}

@@ -1,0 +1,10 @@
+@article {186,
+	title = {SiFit: A method for inferring tumor trees from single-cell sequencing data under finite-site models},
+	journal = {Genome Biology},
+	volume = {18},
+	year = {2017},
+	month = {2017},
+	pages = {178},
+	chapter = {178},
+	author = {H. Zafar and A. Tzen and N. Navin and K. Chen and L. Nakhleh}
+}

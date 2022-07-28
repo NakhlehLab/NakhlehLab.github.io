@@ -1,0 +1,6 @@
+@proceedings {261,
+	title = {Species tree and reconciliation estimation under a duplication-loss-coalescence model},
+	year = {2018},
+	pages = {376-385},
+	author = {P. Du and L. Nakhleh}
+}

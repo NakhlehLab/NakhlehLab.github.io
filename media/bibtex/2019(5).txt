@@ -1,0 +1,6 @@
+@conference {301,
+	title = {Empirical performance of tree-based inference of phylogenetic networks},
+	booktitle = {Workshop on Algorithms in Bioinformatics (WABI)},
+	year = {2019},
+	author = {Z. Cao and J. Zhu and L. Nakhleh}
+}

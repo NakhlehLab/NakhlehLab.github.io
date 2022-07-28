@@ -1,0 +1,6 @@
+@conference {296,
+	title = {A Combinatorial Approach for Single-cell Vairant Detection via Phylogenetic Inference},
+	booktitle = {Workshop on Algorithms in Bioinformatics (WABI)},
+	year = {2019},
+	author = {M. Edrisi and H. Zafar and L. Nakhleh}
+}

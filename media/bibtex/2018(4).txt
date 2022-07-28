@@ -1,0 +1,9 @@
+@conference {266,
+	title = {Detecting large indels using optical map data},
+	booktitle = {RECOMB Comparative Genomics},
+	year = {2018},
+	month = {2018},
+	publisher = {Lecture Notes in Bioinformatics},
+	organization = {Lecture Notes in Bioinformatics},
+	author = {X. Fan and J. Xu and L. Nakhleh}
+}

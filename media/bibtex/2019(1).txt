@@ -1,0 +1,10 @@
+@inbook {271,
+	title = {Advances in Computational Methods for Phylogenetic Networks in the Presence of Hybridization},
+	booktitle = {Bioinformatics and Phylogenetics: Seminal Contributions of Bernard Moret},
+	volume = {29},
+	year = {2019},
+	publisher = {Springer},
+	organization = {Springer},
+	address = {Cham},
+	author = {R.A.L. Elworth and H.A. Ogilvie and J. Zhu and L. Nakhleh}
+}

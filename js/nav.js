@@ -1,6 +1,5 @@
 var currentSlide = 1;
 
-
 function SwitchElement(tabNum){
         var i;
         for(i=0; i<=7; i++){
@@ -12,7 +11,7 @@ function SwitchElement(tabNum){
 }
 
 function PhyloNet(){ //navigates to PhyloNet download page
-        window.location.replace("/html/phylonet.html")
+        window.location.replace("/html/phylonet.html");
 }
 
 function openTab(evt, tabName) {
@@ -35,6 +34,7 @@ function openTab(evt, tabName) {
         document.getElementById(tabName).style.display = "block";
         evt.currentTarget.className += " active";
 } 
+
 
 function SwitchPage(slideNum){
 
@@ -77,12 +77,19 @@ function PrevPage(){
 
 
 // When the user clicks the button, open the modal 
-function openModal(pdfHref) {
+function openModal(pdfHref, bibtexFilename) {
         // alert();
         console.log("OPENING MODAL");
         var modal = document.getElementById("myModal");
         var pdfName = document.getElementById("pdfLink");
-        pdfName.href = pdfHref;
+        if(pdfHref.length == 0){
+                pdfName.href = "#"
+        }else{
+                pdfName.href = pdfHref;
+        }
+
+        var bibtexLink = document.getElementById("bib");
+        bibtexLink.href = bibtexFilename;
         modal.style.display = "block";
 }
 
@@ -92,3 +99,13 @@ function closeModal() {
         var modal = document.getElementById("myModal");
         modal.style.display = "none";
 }
+
+
+function nav(page){
+        if(page=='pubs'){
+                window.location.replace("/html/pubs.html");
+        }else if (page == 'tutorials'){
+                window.location.replace("/html/tutorials.html");
+        }
+}
+

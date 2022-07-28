@@ -1,0 +1,10 @@
+@article {251,
+	title = {Towards an Accurate and Efficient Heuristic for Species/Gene Tree Co-estimation},
+	journal = {Bioinformatics},
+	volume = {34},
+	year = {2018},
+	pages = {i697-i705},
+	type = {European Conference on Computational Biology (ECCB)},
+	chapter = {i697},
+	author = {Y. Wang and L. Nakhleh}
+}

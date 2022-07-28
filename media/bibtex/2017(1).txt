@@ -1,0 +1,9 @@
+@article {206,
+	title = {Computational approaches for inferring tumor evolution from single-cell genomic data},
+	journal = {Current Opinion in Systems Biology},
+	volume = {7},
+	year = {2017},
+	pages = {16-25},
+	chapter = {16},
+	author = {H. Zafar and N. Navin and L. Nakhleh and K. Chen}
+}

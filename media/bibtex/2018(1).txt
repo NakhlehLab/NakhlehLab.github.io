@@ -1,0 +1,9 @@
+@article {241,
+	title = {ALPHA: A toolkit for automated local phylogenomic analyses},
+	journal = {Bioinformatics},
+	volume = {34},
+	year = {2018},
+	pages = {2848-2850},
+	chapter = {2848},
+	author = {R.A.L. Elworth and C. Allen and T. Benedict and P. Dulworth and L. Nakhleh}
+}

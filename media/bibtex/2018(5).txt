@@ -1,0 +1,7 @@
+@proceedings {256,
+	title = {DGEN: A Test Statistic for  Detection of General Introgression Scenarios},
+	volume = {LIPIcs 19},
+	year = {2018},
+	pages = {19:1 - 19:13},
+	author = {R.A.L. Elworth and C. Allen and T. Benedict and P. Dulworth and L. Nakhleh}
+}

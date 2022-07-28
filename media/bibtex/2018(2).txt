@@ -1,0 +1,9 @@
+@article {211,
+	title = {Bayesian inference of phylogenetic networks from  bi-allelic genetic markers},
+	journal = {PLoS Computational Biology},
+	volume = {14},
+	year = {2018},
+	pages = {e1005932},
+	chapter = {e1005932},
+	author = {J. Zhu and D. Wen and Y. Yu and H. Meudt and L. Nakhleh}
+}

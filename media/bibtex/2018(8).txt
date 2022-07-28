@@ -1,0 +1,9 @@
+@article {246,
+	title = {Matrilysin/MMP-7 Cleavage of Perlecan/HSPG2 Complexed with Semaphorin 3A Supports FAK-Mediated Stromal Invasion by Prostate Cancer Cells},
+	journal = {Scientific Reports},
+	volume = {8},
+	year = {2018},
+	pages = {7262},
+	chapter = {7262},
+	author = {B.J. Grindel and J.R. Martinez and T.V. Tellman and D.A. Harrington and H. Zafar and L. Nakhleh and L. Chung and M.C. Farach-Carson}
+}

@@ -1,0 +1,5 @@
+@inbook {306,
+	title = {Practical Aspects of Phylogenetic Network Analysis Using PhyloNet},
+	year = {2019},
+	author = {Z. Cao and X. Liu and H.A. Ogilvie and Z. Yan and L. Nakhleh}
+}

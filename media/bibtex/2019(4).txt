@@ -1,0 +1,9 @@
+@article {276,
+	title = {Embracing heterogeneity: coalescing the Tree of Life and the future of phylogenomics},
+	journal = {PeerJ},
+	volume = {7},
+	year = {2019},
+	pages = {e6399},
+	chapter = {e6399},
+	author = {G.A. Bravo and A. Antonelli and C.D. Bacon and K. Bartoszek and M.P.K. Blom and S. Huynh and G. Jones and L.L. Knowles and S. Lamichhaney and T. Marcussen and H. Morlon and L. Nakhleh and B. Oxelman and B. Pfeil and A. Schliep and N. Wahlberg and F.P. Werneck and J. Wiedenhoeft and S.Willows-Munro and S.V. Edwards}
+}

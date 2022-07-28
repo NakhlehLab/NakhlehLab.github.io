@@ -1,0 +1,13 @@
+@article {316,
+	title = {Practical Speedup of Bayesian Inference of Species Phylogenies by Restricting the Space of Gene Trees},
+	journal = {Molecular Biology and Evolution},
+	volume = {37},
+	year = {2020},
+	month = {02},
+	pages = {1809-1818},
+	abstract = {Species tree inference from multilocus data has emerged as a powerful paradigm in the postgenomic era, both in terms of the accuracy of the species tree it produces as well as in terms of elucidating the processes that shaped the evolutionary history. Bayesian methods for species tree inference are desirable in this area as they have been shown not only to yield accurate estimates, but also to naturally provide measures of confidence in those estimates. However, the heavy computational requirements of Bayesian inference have limited the applicability of such methods to very small data sets. In this article, we show that the computational efficiency of Bayesian inference under the multispecies coalescent can be improved in practice by restricting the space of the gene trees explored during the random walk, without sacrificing accuracy as measured by various metrics. The idea is to first infer constraints on the trees of the individual loci in the form of unresolved gene trees, and then to restrict the sampler to consider only resolutions of the constrained trees. We demonstrate the improvements gained by such an approach on both simulated and biological data.},
+	issn = {0737-4038},
+	doi = {10.1093/molbev/msaa045},
+	url = {https://doi.org/10.1093/molbev/msaa045},
+	author = {Y. Wang and H.A. Ogilvie and L. Nakhleh}
+}

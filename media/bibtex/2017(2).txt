@@ -1,0 +1,9 @@
+@article {171,
+	title = {HySA: A Hybrid Structural variant Assembly approach using next generation and single-molecule sequencing technologies},
+	journal = {Genome Research},
+	volume = {27},
+	year = {2017},
+	pages = {793-800},
+	chapter = {793},
+	author = {X. Fan and M. Chaisson and L. Nakhleh and K. Chen}
+}

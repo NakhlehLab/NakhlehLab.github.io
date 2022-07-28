@@ -1,0 +1,9 @@
+@article {286,
+	title = {A Divide-and-Conquer Method for Scalable Phylogenetic Network Inference from Multi-locus Data},
+	journal = {Bioinformatics (ISMB 19 Proceedings)},
+	volume = {35},
+	year = {2019},
+	pages = {i370-i378},
+	chapter = {i370},
+	author = {Z. Zhu and X. Liu and H.A. Ogilvie and L. Nakhleh}
+}

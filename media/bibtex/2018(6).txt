@@ -1,0 +1,10 @@
+@article {236,
+	title = {Inference of species phylogenies from bi-allelic markers using pseudo-likelihood},
+	journal = {Bioinformatics},
+	volume = {34},
+	year = {2018},
+	pages = {i376-385},
+	type = {(Intelligent Systems for Molecular Biology (ISMB))},
+	chapter = {i376},
+	author = {J. Zhu and L. Nakhleh}
+}

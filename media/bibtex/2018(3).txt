@@ -1,0 +1,9 @@
+@article {191,
+	title = {Co-estimating reticulate phylogenies and gene trees from multi-locus sequence data},
+	journal = {Systematic Biology},
+	volume = {67},
+	year = {2018},
+	pages = {439-457},
+	chapter = {439},
+	author = {D. Wen and L. Nakhleh}
+}

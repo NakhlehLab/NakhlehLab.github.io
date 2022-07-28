@@ -1,0 +1,7 @@
+@proceedings {181,
+	title = {Inferring local genealogies on closely related genomes},
+	volume = {LNBI 10562},
+	year = {2017},
+	pages = {213-231},
+	author = {R.A.L. Elworth and L. Nakhleh}
+}

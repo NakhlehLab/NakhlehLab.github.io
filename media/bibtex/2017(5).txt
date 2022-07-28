@@ -1,0 +1,9 @@
+@article {216,
+	title = {Stranger in a strange land: The experiences of immigrant researchers},
+	journal = {Genome Biology},
+	volume = {18},
+	year = {2017},
+	pages = {232},
+	chapter = {232},
+	author = {S. Kamoun and R. Lozano-Duran and L. Nakhleh}
+}

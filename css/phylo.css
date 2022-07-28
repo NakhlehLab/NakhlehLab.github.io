@@ -80,6 +80,18 @@ body {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.btn-white-normal{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: #fff;
+        color: #777;
+        font-size: 17px;
+        height:100%;
+        width:100%;
+        display:flex;
+        border-radius: 8px;
+        align-items: center;
+}
+
 .btn-white {
         background-color: #fff;
         color: #777;
@@ -135,4 +147,15 @@ body {
 .tabText{
         color:#4275d5c6;
         font-size: 17px;
+}
+
+.centeredDiv{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+
+}
+
+.centeredImg{
+        width:60%;
 }

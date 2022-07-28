@@ -41,6 +41,7 @@
     <link href="/css/background.css" rel="stylesheet">
     <link href="/css/tables.css" rel="stylesheet">
     <link href="/css/phylo.css" rel="stylesheet">
+    <link href="/css/publications.css" rel="stylesheet">
   </head>
 
 <body  onload=showSlides(1) class="htmlBody">
@@ -93,6 +94,7 @@
           <button class="tablinks" onclick="openTab(event, 'use')">Usage and Documentation</button>
           <button class="tablinks" onclick="openTab(event, 'works')">Academic Work</button>
           <button class="tablinks" onclick="openTab(event, 'ack')">Acknowledgments</button>
+          <button class="tablinks" onclick="openTab(event, 'reg')">Register</button>
         </div>
 
         <!-- Tab content -->
@@ -100,14 +102,29 @@
           <p class="tabText">PhyloNet is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic trees, and hence the PhyloNet package includes several tools for phylogenetic tree analysis.</p>
           <br>
           <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/PhyloNet+3+General+Overview">General Overview</a></li>
+            <li class="tabText"><a href="https://wiki.rice.edu/confluence/display/PHYLONET/PhyloNet+3+General+Overview">General Overview</a></li>
           </ul>
           <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands">Commands List</a></li>
+            <li class="tabText"><a href="https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands">Commands List</a> (see the figure at the bottom of this page for a summary of the available inference methods)</li>
           </ul>
           <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/Troubleshooting">Troubleshooting</a></li>
+            <li class="tabText"><a href="https://www.cs.rice.edu/~nakhleh/OSU-SSB-STEWorkshop-4Jun2018/" target="_blank">Talk about PhyloNet</a> (June 4, 2018, by Luay Nakhleh at the SSB Standalone Meeting in Ohio)</li>
           </ul>
+          <ul>
+            <li class="tabText"><a href="https://wiki.rice.edu/confluence/pages/viewpage.action?pageId=39500205">Tutorial</a> (3 January 2020) at the <a href="http://tandy.cs.illinois.edu/ssb-standalone-2020.html">2020 Phylogenomics Software Symposium</a> held in conjunction with the <a href="http://reg.conferences.dce.ufl.edu/SSB/1595">SSB Standalone Meeting</a> in Gainesville, Florida.</li>
+          </ul>
+          <ul>
+            <li class="tabText"><a href="https://wiki.rice.edu/confluence/pages/viewpage.action?pageId=8898533" target="_blank">Tutorial: Species phylogeny inference</a>&nbsp;(2017)</li>
+          </ul>
+          <ul>
+            <li class="tabText"><a href="https://wiki.rice.edu/confluence/display/PHYLONET/Troubleshooting">Troubleshooting</a></li>
+          </ul>
+          <div>
+            <div class="centeredDiv">
+              <img class="centeredImg" src="/media/MethodsFig.jpg">
+            </div>
+          </div>
+
           
         </div>
 
@@ -126,19 +143,29 @@
         <div id="ack" class="tabcontent">
           
 
-    <p class="tabText"> <strong>If you use PhyloNet, please cite</strong> </p>
-        <blockquote class="tabText" style="margin-left:3em"> Wen, Y. Yu, J. Zhu, L. Nakhleh (2018) Inferring phylogenetic networks using PhyloNet, Systematic Biology 67(4): 735-740.
-        C. Than, D. Ruths, L. Nakhleh (2008) PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary histories, BMC Bioinformatics 9:322.</blockquote>
-        <p class="tabText">as well as other the publications relevant to the method being used.</p>
+            <p class="tabText"> <strong>If you use PhyloNet, please cite</strong> </p>
+                <blockquote class="tabText" style="margin-left:3em"> Wen, Y. Yu, J. Zhu, L. Nakhleh (2018) Inferring phylogenetic networks using PhyloNet, Systematic Biology 67(4): 735-740.
+                <br>
+                <br>
+                 C. Than, D. Ruths, L. Nakhleh (2008) PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary histories, BMC Bioinformatics 9:322.</blockquote>
+                <p class="tabText">as well as other the publications relevant to the method being used.</p>
 
 
 
-    <p class="tabText"> <strong> A special thank you:</strong></p>
-    <p class="tabText">Development of the various functionalities in PhyloNet has been generously supported by DOE (DE-FG02-06ER25734), NIH (R01LM009494), and NSF (CCF-0622037, DBI-1062463, CCF-1302179, CCF-1514177) grants and Sloan and Guggenheim fellowships to Luay Nakhleh. </p>
+            <p class="tabText"> <strong> A special thank you:</strong></p>
+            <p class="tabText">Development of the various functionalities in PhyloNet has been generously supported by DOE (DE-FG02-06ER25734), NIH (R01LM009494), and NSF (CCF-0622037, DBI-1062463, CCF-1302179, CCF-1514177) grants and Sloan and Guggenheim fellowships to Luay Nakhleh. </p>
 
+
+        </div> 
+
+        <div id="reg" class="tabcontent">
+
+          <p class="tabText"><strong>If you use PhyloNet, kindly fill out <a href="https://docs.google.com/spreadsheet/viewform?pli=1&amp;formkey=dGdIVGVMaHp0end1NDJERmJSSEJtcWc6MQ#gid=0" target="_blank">this form</a> that allows us to have a better idea who uses our software!</strong></p>
 
           
-        </div> 
+
+
+        </div>
     </div>
      
     
@@ -175,4 +202,7 @@
   </body>
   
 </html>
+
+
+
 

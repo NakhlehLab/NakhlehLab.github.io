@@ -54,11 +54,23 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close" onclick=closeModal() id="closeBtn">&times;</span>
-      <div class="container">
-        <a class="btn btn-white btn-animated" href=# download="" id="pdfLink">Download Article PDF</a>
-        <a class="btn btn-white btn-animated" href=# download="">Google Scholar Link</a>
-        <a class="btn btn-white btn-animated" href=# download="">BibTeX</a>
-        <a class="btn btn-white btn-animated" href=# download="">RTF</a>
+      <div class="container" style="height:100%">
+        <div class="centered">
+          <div class="grid-container-modal">
+            <div class="grid-item-modal">
+                <a class="centeredLink btn-white-normal" href=# download="article.pdf" id="pdfLink">Download Article PDF</a>
+            </div>
+            <div class="grid-item-modal">
+              <a class="centeredLink btn-white-normal " href=# download="">Google Scholar Link</a>
+            </div>
+            <div class="grid-item-modal">
+              <a class="centeredLink btn-white-normal" href=# download="citation.bib" id="bib">BibTeX</a>
+            </div>
+            <div class="grid-item-modal">
+              <a class="centeredLink btn-white-normal" href=# download="">RTF</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -111,7 +123,7 @@
             <td>Y. Wang, Ogilvie, H. A., and Nakhleh, L., “Practical Speedup of Bayesian Inference of Species Phylogenies by Restricting the Space of Gene Trees”, Molecular Biology and Evolution, vol. 37, pp. 1809-1818, 2020.  
              
             <td>
-              <button id="myBtn" onclick=openModal("/media/mark.jpg") >EXPORT</button>
+              <button class="rounded-white" onclick="openModal('/media/pdfs/MBE2020.pdf', '/media/bibtex/2020(1).txt')" >EXPORT</button>
             </td>
           </tr>
           <tr>
@@ -126,56 +138,56 @@
             <td>R. A. L. Elworth, Ogilvie, H. A., Zhu, J., and Nakhleh, L., “Advances in Computational Methods for Phylogenetic Networks in the Presence of Hybridization”, in Bioinformatics and Phylogenetics: Seminal Contributions of Bernard Moret, vol. 29, Cham: Springer, 2019.
               
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td> <button class="rounded-white" onclick= "openModal('/media/pdfs/ElworthZhuOgilvieNakhleh.pdf' , '/media/bibtex/2019(1).txt')" >EXPORT</button> </td>
           </tr>
           <tr>
             <td></td>
             <td>M. Edrisi, Zafar, H., and Nakhleh, L., “A Combinatorial Approach for Single-cell Vairant Detection via Phylogenetic Inference”, in Workshop on Algorithms in Bioinformatics (WABI), 2019.
     
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td> <button class="rounded-white" onclick= "openModal('/media/pdfs/EdrisiEtAl-WABI19.pdf', '/media/bibtex/2019(2).txt')" >EXPORT</button> </td>
           </tr>
           <tr>
             <td></td>
             <td>Z. Zhu, Liu, X., Ogilvie, H. A., and Nakhleh, L., “A Divide-and-Conquer Method for Scalable Phylogenetic Network Inference from Multi-locus Data”, Bioinformatics (ISMB 19 Proceedings), vol. 35, pp. i370-i378, 2019.
               
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/pdfs/ZhuEtAl-ISMB19.pdf', '/media/bibtex/2019(3).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>G. A. Bravo, Antonelli, A., Bacon, C. D., Bartoszek, K., Blom, M. P. K., Huynh, S., Jones, G., Knowles, L. L., Lamichhaney, S., Marcussen, T., Morlon, H., Nakhleh, L., Oxelman, B., Pfeil, B., Schliep, A., Wahlberg, N., Werneck, F. P., Wiedenhoeft, J., .Willows-Munro, S., and Edwards, S. V., “Embracing heterogeneity: coalescing the Tree of Life and the future of phylogenomics”, PeerJ, vol. 7, p. e6399, 2019.
              
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/pdfs/PeerJ2019.pdf', '/media/bibtex/2019(4).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>Z. Cao, Zhu, J., and Nakhleh, L., “Empirical performance of tree-based inference of phylogenetic networks”, in Workshop on Algorithms in Bioinformatics (WABI), 2019.
               
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/pdfs/CaoEtAl-WABI19.pdf', '/media/bibtex/2019(5).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>Z. Cao, Liu, X., Ogilvie, H. A., Yan, Z., and Nakhleh, L., “Practical Aspects of Phylogenetic Network Analysis Using PhyloNet”, 2019.
               
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick= "openModal('', '/media/bibtex/2019(6).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>H. Zafar, Navin, N., Chen, K., and Nakhleh, L., “SiCloneFit: Bayesian inference of population structure, genotype, and phylogeny of tumor clones from single-cell genome sequencing data”, Genome Research, 2019.
               
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('', '/media/bibtex/2019(7).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>P. Du, Ogilvie, H. A., and Nakhleh, L., “Unifying Gene Duplication, Loss, and Coalescence on Phylogenetic Networks”, in The International Symposium on Bioinformatics Research and Applications (ISBRA), 2019.
 
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/pdfs/DuEtAl-ISBRA19.pdf', '/media/bibtex/2019(8).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <th class="tableDataBlue"></th>
@@ -189,35 +201,35 @@
             <td>
               R. A. L. Elworth, Allen, C., Benedict, T., Dulworth, P., and Nakhleh, L., “ALPHA: A toolkit for automated local phylogenomic analyses”, Bioinformatics, vol. 34, no. 16, pp. 2848-2850, 2018.
             </th>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(1).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
               J. Zhu, Wen, D., Yu, Y., Meudt, H., and Nakhleh, L., “Bayesian inference of phylogenetic networks from bi-allelic genetic markers”, PLoS Computational Biology, vol. 14, no. 1, p. e1005932, 2018.
             </th>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(2).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
               D. Wen and Nakhleh, L., “Co-estimating reticulate phylogenies and gene trees from multi-locus sequence data”, Systematic Biology, vol. 67, no. 3, pp. 439-457, 2018.
             </th>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(3).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
               X. Fan, Xu, J., and Nakhleh, L., “Detecting large indels using optical map data”, in RECOMB Comparative Genomics, 2018.
             </th>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(4).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
               R. A. L. Elworth, Allen, C., Benedict, T., Dulworth, P., and Nakhleh, L., “DGEN: A Test Statistic for Detection of General Introgression Scenarios”, Workshop on Algorithms in Bioinformatics (WABI), vol. LIPIcs 19. pp. 19:1 - 19:13, 2018.
             </th>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(5).txt')" >EXPORT</button></td>
           </tr>
           
 
@@ -237,31 +249,31 @@
           <tr>
             <td></td>
             <td>J. Zhu and Nakhleh, L., “Inference of species phylogenies from bi-allelic markers using pseudo-likelihood”, Bioinformatics, vol. 34, pp. i376-385, 2018.             
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(6).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>D. Wen, Yu, Y., Zhu, J., and Nakhleh, L., “Inferring phylogenetic networks using PhyloNet”, Systematic Biology, vol. 67, no. 4, pp. 735-740, 2018.
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(7).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>B. J. Grindel, Martinez, J. R., Tellman, T. V., Harrington, D. A., Zafar, H., Nakhleh, L., Chung, L., and Farach-Carson, M. C., “Matrilysin/MMP-7 Cleavage of Perlecan/HSPG2 Complexed with Semaphorin 3A Supports FAK-Mediated Stromal Invasion by Prostate Cancer Cells”, Scientific Reports, vol. 8, p. 7262, 2018.
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(8).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>P. Du and Nakhleh, L., “Species tree and reconciliation estimation under a duplication-loss-coalescence model”, The 9th ACM Conference on Bioinformatics, Computational Biology, and Health Informatics (ACM-BCB). pp. 376-385, 2018.             
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(9).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>Y. Wang and Nakhleh, L., “Towards an Accurate and Efficient Heuristic for Species/Gene Tree Co-estimation”, Bioinformatics, vol. 34, pp. i697-i705, 2018.
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2018(10).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <th class="tableDataBlue spacer"></th>
@@ -274,25 +286,25 @@
             <td></td>
             <td>
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2017(1).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2017(2).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2017(3).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <td></td>
             <td>
             </td>
-            <td><a class="exportLink">EXPORT</a></td>
+            <td><button class="rounded-white" onclick="openModal('/media/mark.jpg', '/media/bibtex/2017(4).txt')" >EXPORT</button></td>
           </tr>
           <tr>
             <th class="tableDataBlue"></th>
@@ -312,7 +324,7 @@
       <td>
         Blank
       </th>
-      <td><a class="exportLink">EXPORT</a></td>
+      <td><button class="rounded-white" onclick="openModal("/media/mark.jpg') >EXPORT</button></td>
     </tr>
 
 -->
