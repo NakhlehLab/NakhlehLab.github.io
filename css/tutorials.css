@@ -125,9 +125,9 @@
   align-items: center;
 }
 
-.grid-container-tutorial1 {
+.grid-container-tutorial2 {
   display: inline-grid;
-  grid-template-columns: auto;
+  grid-template-columns: auto auto;
   gap: 30px;
   width: 100%;
   justify-content: center;
