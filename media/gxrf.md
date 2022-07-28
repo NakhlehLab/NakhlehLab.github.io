@@ -1,0 +1,311 @@
+---
+layout: post
+title:  "G-XRF tutorial"
+date:   2021-06-18 09:00:00 -0500
+categories: xenoplasy
+---
+
+# Introduction
+
+The [Global Xenoplasy Risk Factor][wang-2021] (G-XRF) is a measure of risk for
+whether introgression has contributed to the evolution of a **particular trait
+pattern**. The model for introgression is the
+[Multispecies Network Coalescent][yu-2014] (MSNC), It was inspired by the
+[Hemiplasy Risk Factor][guerrero-2018] (HRF), which is a measure of risk for
+whether incongruence of trait patterns in relation to a **particular branch**
+is due to hemiplasy.
+
+The G-XRF is calculated as a odds ratio of a species network with or without
+the reticulation of interest, given the particular trait pattern. For example,
+given the below network, the G-XRF is equal to the posterior probability of
+the full network divided by the posterior probability with the same network
+where the branch with inheritance probability γ is removed. The latter
+probability can also be calculated by setting that γ to zero. If we are working
+in log-units, we can take the difference in posterior probabilities.
+
+![Example species network](/assets/wang-2021-figure-1.jpg)
+
+For the above network, removal of the γ branch produces the displayed tree
+(A,(B,C)). For more complex species networks with multiple reticulations,
+removal of a single branch to calculate the XRF for that specific
+introgression event would be comparing two networks rather than a network and
+a tree.
+
+Unnormalized posterior probabilities for any species network or tree may be
+calculated using the [`MCMC_BiMarkers`][zhu-2018] method in
+[PhyloNet][wang-2018]. This method generalizes the [`SNAPP`][bryant-2012] method for
+biallelic marker inference of species trees to species networks. Unnormalized
+posterior probabilities omit the marginal likelihood, but since we are going
+to compute the ratio of posterior probabilities, the marginal likelihoods will
+cancel out. We therefore can - and in this tutorial we will - use
+`MCMC_BiMarkers` to compute the G-XRF for an exemplary scenarios.
+
+# Network vs tree
+
+In the first case, we will simply calculate G-XRF for a network compared
+with a tree. Here is an network in [extended Newick format][cardona-2008]
+which has the same topology as the network in the figure above:
+
+`(((B)#H1,C),(#H1,A));`
+
+Let's assume branch lengths correspond to node heights T_r = 5e-5, T_1 = 0.0005 and
+T_2 = 0.001. Then the newick string will look like this:
+
+`(((B:5e-05)#H1:0.00045,C:0.0005):0.0005,(#H1:5e-07,A:5e-05):0.00095);`
+
+Which can be visualized in [IcyTree][icytree], an online tree and network viewer
+from [Vaughan (2017)][vaughan-2017]:
+
+![Example species network](/assets/3_taxon_network.png)
+
+Using a PhyloNet specific format, we can add population mutation rates θ after
+each branch length, and for hybridization nodes add inheritance probabilities
+γ after each population mutation rate, separated by colons. Let's
+add θ = 0.001 to each branch, and an inheritance probability γ of 0.5:
+
+`[0.001](((B:5e-05:0.001)I4#H1:0.00045:0.001:0.5,C:0.0005:0.001)I3:0.0005:0.001,(I2#H1:5e-07:0.001:0.5,A:5e-05:0.001)I1:0.00095:0.001)I0;`
+
+The first 0.001 in brackets is the population mutation rate of the root
+branch, internal nodes have been given arbitrary labels from I0 through I4,
+and 5e-7 serves as an arbitrarily small length on the reticulation from A to
+B to make it essentially horizontal.
+
+To calculate the likelihood of the trait pattern A=1, B=1, C=0 given this
+network using PhyloNet, we can invoke `MCMC_BiMarkers` using a Nexus file
+containing the trait pattern, newick string of the network, and some other
+information:
+
+
+```
+#NEXUS
+Begin data;
+Dimensions ntax=3 nchar=1;
+Format datatype=dna symbols="01" missing=? gap=-;
+Matrix
+
+a 1
+b 1
+c 0
+
+;End;
+
+BEGIN PHYLONET;
+MCMC_BiMarkers -cl 0 -bl 0 -sf 0 -fixtheta 0.001 -pi0 0.5 -sd 1234
+
+-truenet "[0.001](((B:5e-05:0.001)I4#H1:0.00045:0.001:0.5,C:0.0005:0.001)I3:0.0005:0.001,(I2#H1:5e-07:0.001:0.5,A:5e-05:0.001)I1:0.00095:0.001)I0;"
+-taxa (a,b,c)
+-tm <A:a; B:b; C:c>;
+
+END;
+```
+
+Setting the chain length `-cl` to 0 will stop PhyloNet from running an MCMC
+chain (since we do not need to infer a network), and setting `-pi0` to 0.5
+sets the equilibrium frequency of the 0 character state to 0.5. This means that
+the equilibrium frequency of the 1 character state will be 1 - 0.5, and implies that the rates of forward and backward mutations will be equal.
+
+If you save this as `network.nex` and run PhyloNet from the terminal using
+`java -jar path/to/PhyloNet.jar network.nex` (replacing the path as appropriate
+to your system), you should see the following output:
+
+
+```
+MCMC_BiMarkers -cl 0 -bl 0 -sf 0 -fixtheta 0.001 -pi0 0.5 -sd 1234 -truenet "[0.001](((B:5e-05:0.001)I4#H1:0.00045000000000000004:0.001:0.5,C:0.0005:0.001)I3:0.0005:0.001,(I2#H1:5e-07:0.001:0.5,A:5e-05:0.001)I1:0.0009500000000000001:0.001)I0;" -taxa (a, b, c) -tm <A:a; B:b; C:c>
+Output files under /home/huey
+PI0 = 0.5 PI1 = 0.5
+Number of threads = 12
+Seed: 1234
+useOnlyPolymorphic: false
+Polymorphic sites: 1.0
+True Network: [0.001](((B:5e-05:0.001)I4#H1:0.00045:0.001:0.5,C:0.0005:0.001)I3:0.0005:0.001,(I2#H1:5e-07:0.001:0.5,A:5e-05:0.001)I1:0.00095:0.001)I0;
+True Likelihood = -7.058975792089874
+
+Total number of network processed: 0
+FMatrix cache hit rate: NaN
+```
+
+You can see that the log-likelihood of the trait pattern given this network is
+about -7.06. But to calculate the G-XRF, we also need the likelihood of the
+trait pattern given a tree. We can easily turn this network into a what is
+effectively a tree by setting γ to zero:
+
+`[0.001](((B:5e-05:0.001)I4#H1:0.00045:0.001:1.0,C:0.0005:0.001)I3:0.0005:0.001,(I2#H1:5e-07:0.001:0.0,A:5e-05:0.001)I1:0.00095:0.001)I0;`
+
+Hint: look at the third number after each `#H1` hybridization node in the
+above newick string, compared with the same numbers in the original network
+string. Replace the network newick string with the tree-like string in the
+nexus file, and run PhyloNet again. The log-likelihood of the trait pattern
+should now be about -7.60. G-XRF is calculated as the ratio of network to
+tree posterior probabilities, or in log units the difference between them. If
+we assume a uniform prior over inheritance probabilities, this is equivalent
+to the difference in log-likelihoods. Therefore, the G-XRF for this example
+is (-7.06) - (-7.60) = 0.54.
+
+# Dealing with uncertainty
+
+But what if we are uncertain about some of the network parameters? In such a
+case, we can perform a grid search over the space for those
+parameters. For example, if we are uncertain about the internal branch
+length (i.e. the difference between T_2 and T_1) and the inheritance
+probability γ, the following Python script will generate a nexus file for
+each combination of (1) internal branch lengths in coalescent units between 0
+and 10 in steps of 1, and (2) inheritance probabilities between 0 and 1 in
+steps of 0.1.
+
+```python
+import subprocess
+import csv
+
+phylonet_jar_path = "path/to/PhyloNet.jar"
+
+nexus_template = """#NEXUS
+Begin data;
+Dimensions ntax=3 nchar=1;
+Format datatype=dna symbols="01" missing=? gap=-;
+Matrix
+
+a 1
+b 1
+c 0
+
+;End;
+
+BEGIN PHYLONET;
+MCMC_BiMarkers -cl 0 -bl 0 -sf 0 -pl 1 -fixtheta {theta} -pi0 0.5 -sd 1234
+
+-truenet "[{theta}](((B:{short_tip_bl}:{theta})I4#H1:{bc_retic_bl}:{theta}:{gamma_diff},C:{long_tip_bl}:{theta})I3:{bc_internal_bl}:{theta},(I2#H1:{ab_retic_bl}:{theta}:{gamma},A:{short_tip_bl}:{theta})I1:{ab_internal_bl}:{theta})I0;"
+-taxa (a,b,c)
+-tm <A:a; B:b; C:c>;
+
+END;
+"""
+
+near_zero = 0.001
+
+theta = 0.001
+t0 = 0.0
+tr = 0.1
+t1 = 1.0
+gamma = 0.5
+
+parameters = {
+	"theta": theta,
+	"long_tip_bl": theta * 0.5 * (t1 - t0),
+	"short_tip_bl": theta * 0.5 * (tr - t0),
+	"bc_retic_bl": theta * 0.5 * (t1 - tr),
+	"ab_retic_bl": theta * 0.5 * near_zero
+}
+
+log_likelihood_filename = "log_likelihoods.csv"
+log_likelihood_file = open(log_likelihood_filename, "w")
+log_likelihood_writer = csv.writer(log_likelihood_file)
+
+log_likelihood_header = [""]
+
+for i in range(11): # proportional to internal branch length
+	parameters["bc_internal_bl"] = theta * 0.5 * max(0.001, i)
+	parameters["ab_internal_bl"] = parameters["bc_retic_bl"] + parameters["bc_internal_bl"]
+
+	log_likelihood_row = [i]
+
+	for j in range(11): # proportional to gamma
+		gamma = j * 0.1
+		parameters["gamma"] = gamma
+		parameters["gamma_diff"] = 1 - gamma;
+
+		if i == 0:
+			log_likelihood_header.append(gamma)
+
+		nexus_filename = "network_{i:02}_{j:02}.nex".format(i = i, j = j)
+		nexus_file = open(nexus_filename, "w")
+		nexus_file.write(nexus_template.format(**parameters))
+		nexus_file.close()
+
+		phylonet_cmd = ["java", "-jar", phylonet_jar_path, nexus_filename]
+		phylonet_output_lines = subprocess.check_output(phylonet_cmd).decode().split("\n")
+		for l in phylonet_output_lines:
+			if l.startswith("True Likelihood"):
+				log_likelihood = float(l.split()[-1])
+				log_likelihood_row.append(log_likelihood)
+
+	if i == 0:
+		log_likelihood_writer.writerow(log_likelihood_header)
+
+	log_likelihood_writer.writerow(log_likelihood_row)
+```
+
+The above script will call PhyloNet (you will have to modify the path as
+appropriate for your system) and run the nexus file for each grid point, then
+save the computed log-likelihoods to the file `log_likelihoods.csv`. We can
+convert these log-likelihoods to G-XRFs by subtracting the log-likelihood
+when γ=0 (with the same internal branch length) from each network log-likelihood, and
+visualize them using the [matplotlib][matplotlib] Python library, as in the
+following script:
+
+```python
+import numpy
+import csv
+
+import matplotlib.cm as cm
+import matplotlib.pyplot as plt
+
+log_likelihoods_filename = "log_likelihoods.csv"
+log_likelihoods_file = open(log_likelihoods_filename)
+log_likelihoods_reader = csv.reader(log_likelihoods_file)
+
+internal_branch_lengths = []
+gammas = []
+log_likelihoods = []
+
+for row_i, row in enumerate(log_likelihoods_reader):
+	if row_i == 0:
+		for gamma in row[1:]:
+			gammas.append(float(gamma))
+	else:
+		internal_branch_lengths.append(float(row[0]))
+
+		for log_likelihood in row[1:]:
+			log_likelihoods.append(float(log_likelihood))
+
+X = numpy.array(internal_branch_lengths)
+Y = numpy.array(gammas)
+Z = numpy.array(log_likelihoods)
+
+M = len(X)
+N = len(Y)
+
+Z.shape = (M, N)
+
+for x in range(M): # convert log-likelihoods to X-GRF
+	Z[x] = Z[x] - Z[x, 0]
+
+fig, ax = plt.subplots()
+CS = ax.contour(X, Y, Z.transpose(), levels = [0.5, 1.0, 1.5, 2.0, 2.5])
+ax.clabel(CS, inline = True, fontsize = 10)
+ax.set_ylabel("Inheritance probability", fontsize = 10)
+ax.set_xlabel("Internal branch length", fontsize = 10)
+
+plt.show()
+```
+
+Running the above script should display the following visualization
+of G-XRF values:
+
+![G-XRF grid search](/assets/gxrf_grid_search.png)
+
+This implies that as the inheritance probability and/or internal branch length
+increases, the contribution of introgression to the trait pattern becomes
+more likely. The above tutorial has generated the top-middle panel of Figure
+2 from our [paper][wang-2021], and by modifying the above Python scripts can
+produce any of the panels in figures 2, 3 and 4.
+
+[matplotlib]: https://matplotlib.org/
+[icytree]: https://icytree.org
+[wang-2021]: https://doi.org/10.1101/2020.09.16.300343
+[yu-2014]: https://doi.org/10.1073/pnas.1407950111
+[guerrero-2018]: https://doi.org/10.1073/pnas.1811268115
+[wang-2018]: https://doi.org/10.1093/sysbio/syy015
+[bryant-2012]: https://doi.org/10.1093/molbev/mss086
+[zhu-2018]: https://doi.org/10.1093/bioinformatics/bty295
+[cardona-2008]: https://doi.org/10.1186/1471-2105-9-532
+[vaughan-2017]: https://doi.org/10.1093/bioinformatics/btx155
