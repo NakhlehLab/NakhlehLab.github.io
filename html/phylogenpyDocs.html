@@ -62,7 +62,7 @@
   <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
   <!-- Use any element to open the sidenav -->
-  <span onclick="openNav()" style="font-size:35px; font-weight:bold; padding-left:20px">≡</span>
+  <span id="hammy" onclick="openNav()" style="font-size:35px; font-weight:bold; padding-left:20px">≡</span>
 
   <div id="main">
   <div class="container">
@@ -90,23 +90,128 @@
 
   <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <a href="#net">Network</a>
+        <a href="#node">Node</a>
+        <a href="#MH">Metropolis Hastings</a>
+        <a href="#subModel">Substitution Model</a>
+        <a href="#matrix">Matrix</a>
+        <a href="#prob">Probability</a>
+        <a href="#bd">Birth Death</a>
+        <a href="#alpha">Alphabet</a>
   </div>
       
       
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       
-        <div class="container">
+        <div class="container" id="title">
                 <!-- Do not set the `src` attribute -->
                 <zero-md>
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
                         # PhyloGenPy Documentation
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+
+        <div class="container" id="net">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # Network Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+
+        <div class="container" id="node">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # Node Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+
+        <div class="container" id="MH">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # MetropolisHastings Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+
+        <div class="container" id="subModel">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # SubstitutionModel Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+
+        <div class="container" id="matrix">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # Matrix Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+        <div class="container" id="prob">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # Probability Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+        <div class="container" id="bd">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # BirthDeath Module
+                                   
+                        </script>
+                </zero-md>
+                
+        </div>
+        <div class="container" id="alpha">
+                <!-- Do not set the `src` attribute -->
+                <zero-md>
+                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                        <script type="text/markdown">
+            
+                        # Alphabet Module
                                    
                         </script>
                 </zero-md>
