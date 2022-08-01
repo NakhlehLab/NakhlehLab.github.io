@@ -1,0 +1,12 @@
+@article {Tidwell500520,
+	author = {Tidwell, H. and Nakhleh, L.},
+	title = {Integrated Likelihood for Phylogenomics under a No-Common-Mechanism Model},
+	elocation-id = {500520},
+	year = {2018},
+	doi = {10.1101/500520},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {The availability of genome-wide sequence data from a large number of species as well as data from multiple individuals within a species has ushered in the era of phylogenomics. In this era, species phylogeny inference is based on models of sequence evolution on gene trees as well as models of gene tree evolution within the branches of species phylogenies. Parsimony, likelihood, Bayesian, and distance methods have been introduced for species phylogeny inference based on such models. All methods, except for the parsimony ones, assume a common mechanism across all loci as captured by a single value of each branch length of the species phylogeny. In this paper, we propose a {\textquotedblleft}no common mechanism{\textquotedblright} (NCM) model, where every gene tree evolves according to its own parameters of the species phylogeny. An analogous model was proposed and explored, both mathematically and experimentally, for sites, or characters, in a sequence alignment in the context of the classical phylogeny problem. For example, a famous equivalence between the maximum parsimony and maximum likelihood phylogeny estimates was established under certain NCM models by Tuffley and Steel. Here we derive an analytically integrated likelihood of both species trees and networks given the gene trees of multiple loci under an NCM model. We demonstrate the performance of inference under this integrated likelihood on both simulated and biological data. The model presented here will afford opportunities for exploring connections among various methods for estimating species phylogenies from multiple, independent loci.},
+	URL = {https://www.biorxiv.org/content/early/2018/12/19/500520},
+	eprint = {https://www.biorxiv.org/content/early/2018/12/19/500520.full.pdf},
+	journal = {bioRxiv}
+}

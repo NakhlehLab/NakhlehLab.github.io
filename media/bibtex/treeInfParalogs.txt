@@ -1,0 +1,12 @@
+@article {Yan498378,
+	author = {Yan, Zhi and Du, Peng and Hahn, Matthew W. and Nakhleh, Luay},
+	title = {Species Tree Inference under the Multispecies Coalescent on Data with Paralogs is Accurate},
+	elocation-id = {498378},
+	year = {2020},
+	doi = {10.1101/498378},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {The multispecies coalescent (MSC) has emerged as a powerful and desirable framework for species tree inference in phylogenomic studies. Under this framework, the data for each locus is assumed to consist of orthologous, single-copy genes, and heterogeneity across loci is assumed to be due to incomplete lineage sorting (ILS). These assumptions have led biologists that use ILS-aware inference methods, whether based directly on the MSC or proven to be statistically consistent under it (collectively referred to here as MSC-based methods), to exclude all loci that are present in more than a single copy in any of the studied genomes. Furthermore, such analyses entail orthology assignment to avoid the potential of hidden paralogy in the data. The question we seek to answer in this study is: What happens if one runs such species tree inference methods on data where paralogy is present, in addition to or without ILS being present? Through simulation studies and analyses of two biological data sets, we show that running such methods on data with paralogs provide very accurate results, either by treating all gene copies within a family as alleles from multiple individuals or by randomly selecting one copy per species. Our results have significant implications for the use of MSC-based phylogenomic analyses, demonstrating that they do not have to be restricted to single-copy loci, thus greatly increasing the amount of data that can be used. [Multispecies coalescent; incomplete lineage sorting; gene duplication and loss; orthology; paralogy.]},
+	URL = {https://www.biorxiv.org/content/early/2020/03/24/498378},
+	eprint = {https://www.biorxiv.org/content/early/2020/03/24/498378.full.pdf},
+	journal = {bioRxiv}
+}

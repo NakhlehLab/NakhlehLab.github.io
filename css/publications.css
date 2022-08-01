@@ -62,8 +62,8 @@
         margin: auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 400px;
-        height: 450px;
+        width: 375px;
+        height: 250px;
 }
       
 /* The Close Button */
@@ -127,7 +127,7 @@
 .rounded-white2{
         border-radius: 5px;
         background-color: white;
-        color:grey;
+        color:#81a6eb;
         font-size: 13px;
 }
 
