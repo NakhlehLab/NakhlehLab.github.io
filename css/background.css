@@ -14,7 +14,9 @@
         display: inline-grid;
         grid-template-columns: auto auto auto;
         gap: 50px 70px;
-        padding-left: 35px;
+        padding-left: 15px;
+        width:100%;
+        overflow-x: scroll;
 }
 
 .grid-item {
