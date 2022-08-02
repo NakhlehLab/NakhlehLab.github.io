@@ -62,10 +62,12 @@
   <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
   <!-- Use any element to open the sidenav -->
-  <span id="hammy" onclick="openNav()" style="font-size:35px; font-weight:bold; padding-left:20px">≡</span>
+  
 
   <div id="main">
+        
   <div class="container">
+    
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
       <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
@@ -90,31 +92,25 @@
 
   <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#net">Network</a>
-        <a href="#node">Node</a>
-        <a href="#MH">Metropolis Hastings</a>
-        <a href="#subModel">Substitution Model</a>
-        <a href="#matrix">Matrix</a>
-        <a href="#prob">Probability</a>
-        <a href="#bd">Birth Death</a>
-        <a href="#alpha">Alphabet</a>
+        <a id="link1" class="hoverLink" onclick="activeLink(1)" href="#net">Network</a>
+        <a id="link2" class="hoverLink" onclick="activeLink(2)" href="#node">Node</a>
+        <a id="link3" class="hoverLink" onclick="activeLink(3)" href="#MH">Metropolis Hastings</a>
+        <a id="link4" class="hoverLink" onclick="activeLink(4)" href="#subModel">Substitution Model</a>
+        <a id="link5" class="hoverLink" onclick="activeLink(5)" href="#matrix">Matrix</a>
+        <a id="link6" class="hoverLink" onclick="activeLink(6)" href="#prob">Probability</a>
+        <a id="link7" class="hoverLink" onclick="activeLink(7)" href="#bd">Birth Death</a>
+        <a id="link8" class="hoverLink" onclick="activeLink(8)" href="#alpha">Alphabet</a>
   </div>
       
       
+        <div class="navArrow">
+                <img id="hammy" onclick="openNav()" src="/media/rightArrow.png">
+        </div>
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       
         <div class="container" id="title">
-                <!-- Do not set the `src` attribute -->
-                <zero-md>
-                        <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
-                        <script type="text/markdown">
-            
-                        # PhyloGenPy Documentation
-                                   
-                        </script>
-                </zero-md>
-                
+                <h1>PhyloGenPy Documentation</h1>
         </div>
 
         <div class="container" id="net">
@@ -123,7 +119,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # Network Module
+                        ## Network Module
                                    
                         </script>
                 </zero-md>
@@ -136,7 +132,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # Node Module
+                        ## Node Module
                                    
                         </script>
                 </zero-md>
@@ -149,7 +145,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # MetropolisHastings Module
+                        ## MetropolisHastings Module
                                    
                         </script>
                 </zero-md>
@@ -162,7 +158,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # SubstitutionModel Module
+                        ## SubstitutionModel Module
                                    
                         </script>
                 </zero-md>
@@ -175,7 +171,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # Matrix Module
+                        ## Matrix Module
                                    
                         </script>
                 </zero-md>
@@ -187,7 +183,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # Probability Module
+                        ## Probability Module
                                    
                         </script>
                 </zero-md>
@@ -199,7 +195,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # BirthDeath Module
+                        ## BirthDeath Module
                                    
                         </script>
                 </zero-md>
@@ -211,7 +207,7 @@
                         <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
                         <script type="text/markdown">
             
-                        # Alphabet Module
+                        ## Alphabet Module
                                    
                         </script>
                 </zero-md>

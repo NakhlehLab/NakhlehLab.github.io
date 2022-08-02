@@ -50,6 +50,27 @@
       } 
 
 
+#hammy:hover{
+        cursor: pointer;
+}
 
+.navArrow{
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        height: 30px;
+        width:30px;
+}
+
+
+.hoverLink:hover{
+        text-decoration: underline;
+        font-weight: bold;
+}
+
+.link-clicked{
+        text-decoration: none;
+        font-weight: bold;
+}
 
 
