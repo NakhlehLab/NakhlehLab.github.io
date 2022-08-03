@@ -136,12 +136,13 @@ function sizeIt(){
         widthStr = widthNum.toString() + "px";
 
         var tables = document.getElementsByClassName("peopleElement");
-        var tables = document.getElementsByClassName("containerMark");
+        var tables2 = document.getElementsByClassName("containerMark");
+
         for(i=0; i<tables.length; i++){
                 tables[i].style.height = widthStr;
         }
         for(i=0; i<tables2.length; i++){
-                tables[i].style.height = widthStr;
+                tables2[i].style.height = widthStr;
         }
         
         //var element2 = document.getElementById("peopleElement");
