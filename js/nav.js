@@ -123,3 +123,28 @@ function closeNav() {
 } 
 
 
+function sizeIt(){
+        console.log("Resizing elements");
+        var width = window.innerWidth;
+        //var height = 100
+        widthNum = width/3;
+        if(widthNum > 400){
+                widthNum = 400;
+        }else if(widthNum < 200){
+                widthNum = 200;
+        }
+        widthStr = widthNum.toString() + "px";
+
+        var tables = document.getElementsByClassName("peopleElement");
+        var tables = document.getElementsByClassName("containerMark");
+        for(i=0; i<tables.length; i++){
+                tables[i].style.height = widthStr;
+        }
+        for(i=0; i<tables2.length; i++){
+                tables[i].style.height = widthStr;
+        }
+        
+        //var element2 = document.getElementById("peopleElement");
+        //element2.style.height = height*.5;
+        
+}

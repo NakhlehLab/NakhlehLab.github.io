@@ -44,7 +44,7 @@
    
   </head>
 
-<body class="htmlBody">
+<body class="htmlBody" onresize="sizeIt()">
     
 
 
@@ -78,114 +78,85 @@
 
 
 
+  
+
+  <div class="containerMark peopleElement"  onload="sizeIt()">
+    <div class="lr row">
+      <div class="person">
+          <img class="personImg" src="/media/LuayNakhleh.jpg">
+      </div>
+      <div class="description">
+          <p> Luay Nakhleh, professor and former chair of the Department of Computer Science at Rice University, is the William and Stephanie Sick Dean of the George R. Brown School of Engineering. His research at the intersection of computing and biology focuses on developing new methodologies and software to study the history of both specific genes and entire genomes, and the genetic links between species. </p>
+      </div>
+    </div>
+    
+  </div>
+  <hr class="featurette-divider" style="width:65%">
+  <div class="containerMark peopleElement" onload="sizeIt()">
+    <div class="lr row">
+      <div class="description">
+        <p> Huw Ogilvie is the lead author of StarBEAST2, a widely used method for the joint inference of species and gene trees from sequence data. In addition to StarBEAST2, Huw has collaborated in the development of new methods for the inference of species networks including several methods in PhyloNet, a software package for phylogenetic inference. Huw helps coordinate the development of PhyloNet together with Prof. Nakhleh.</p>
+      </div>
+      <div class="person">
+          <img class="personImg" src="/media/Huw.jpg">
+      </div>
+    </div>
+    
+  </div>
+  <hr class="featurette-divider" style="width:65%">
+  <div class="containerMark peopleElement"  onload="sizeIt()">
+    <div class="lr row">
+      <div class="person">
+  
+          <img class="personImg" src="/media/photo.jpg" >
+
+      </div>
+      <div class="description">
+          <p> I received my B.S in Electrical Engineering from Sharif University of Technology, Iran, Tehran in 2017. I then started my PhD at Rice University, with Prof. Nakhleh's research group. 
+            I am interested in developing new tools for the analysis of single-cell sequencing data from cancer patients. My major works include scVILP (a combinatorial approach for phylogeny-aware single-nucleotide variation detection) and Phylovar (the follow-up of scVILP for large-scale single-cell data).  </p>
+      </div>
+    </div>
+    
+  </div>
+  <hr class="featurette-divider" style="width:65%">
+  <div class="containerMark peopleElement"  onload="sizeIt()">
+    <div class="lr row">
+      <div class="description">
+          <p> I received my bachelor’s degree in Electronic 
+            Engineering from Tsinghua University, Beijing, China. I am currently 
+            a Ph.D. student at 
+            Rice University, Co-advised by Dr. Luay Nakhleh and Dr. Ken Chen. 
+            I work on single-cell RNA-seq data analysis, innovating machine 
+            learning and optimization algorithms to solve biological questions 
+            such as trajectory inference, peptide binding prediction, and 
+            biomarker selection. </p>
+      </div>
+      <div class="person">
+        <img class="personImg" src="/media/shaoheng.jpeg">
+      </div>
+    </div>
+    
+  </div>
+  <hr class="featurette-divider" style="width:65%">
+  <div class="containerMark peopleElement" onload="sizeIt()">
+    <div class="lr row">
+      <div class="person">
+  
+          <img class="personImg" src="/media/mark.jpg">
+
+      </div>
+      <div class="description">
+          <p> Hello, I'm Mark and I graduated from Rice in May of 2022 with a B.A in Computer Science. I am currently working on developing this website, improving PhyloNet algorithms and their efficiency, and creating a new Python library. Outside of work I love to golf, play tennis, and be outside with my Golden Retriever. </p>
+      </div>
+    </div>
+    
+  </div>
+
+  <hr class="featurette-divider" style="width:65%">
 
 
-
-  <div class="container" id="5">
-            
-            <!-- Past Team Table-->    
-            <table class="peopleTable" id="Past Team" style="display:none;">
-              <thead class="tblHead">
-                <tr>
-                  <th>Name</th>
-                  <th>Role</th>
-                  <th>Year Joined</th>
-                  <th>Masters</th>
-                  <th>Ph.D</th>
-                  <th>Project</th>
-                </tr>
-              </thead>
-              <tr>
-                <td>Luay Nakhleh</td>
-                <td>Principal Investigator</td>
-                <td>2004</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td>All</td>
-              </tr>
-              <tr>
-                <td>Huw Ogilvie</td>
-                <td>Post-doc</td>
-                <td>2018</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Xian Fan</td>
-                <td>Post-doc</td>
-                <td>2018</td>
-                <td>Yes</td>
-                <td>Yes</td>
-                <td>Cancer Genomics</td>
-              </tr>
-              <tr>
-                <td>Hamim Zafar</td>
-                <td>Ph.D Student</td>
-                <td>2013</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Cancer Genomics</td>
-              </tr>
-              <tr>
-                <td>Peng Du</td>
-                <td>Ph.D Student</td>
-                <td>2014</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Ryan "Leo" Elworth</td>
-                <td>Ph.D Student</td>
-                <td>2014</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Jiafan Zhu</td>
-                <td>Ph.D Student</td>
-                <td>2016</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Yaxuan Wang</td>
-                <td>Ph.D Student</td>
-                <td>2016</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Mohammad Edrisi</td>
-                <td>Ph.D Student</td>
-                <td>2017</td>
-                <td>Yes</td>
-                <td>In Progress</td>
-                <td>Cancer Genomics</td>
-              </tr>
-              <tr>
-                <td>Hunter Tidwell</td>
-                <td>Masters Student</td>
-                <td>2017</td>
-                <td>In Progress</td>
-                <td>No</td>
-                <td>Phylogenomics</td>
-              </tr>
-              <tr>
-                <td>Mark Kessler</td>
-                <td>Research Application Developer</td>
-                <td>2022</td>
-                <td>No</td>
-                <td>No</td>
-                <td>None</td>
-              </tr>
-            </table> 
-
-             <!-- Current Team Bio-->    
+  <div class="container" id="5" style="display:none">
+            <!--
             <div class="grid-container-people">
                 <div class="grid-item-people flip-card">
                   <div class="flip-card-inner">
@@ -202,6 +173,7 @@
                     </div>
                   </div>
                 </div>
+              -->
                 <div class="grid-item-people flip-card">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">

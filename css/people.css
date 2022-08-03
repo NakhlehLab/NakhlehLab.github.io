@@ -4,7 +4,6 @@
         gap: 35px;
         width:100%;
         height:100%;
-        padding-left: 30px;
         overflow-x: scroll; 
         overflow-y: hidden;       
 }
@@ -149,4 +148,57 @@
 .bio{
         font-size: 16px;
         color: #4275d5c3;
+}
+
+
+
+.lr{
+        display: table-row;
+        grid-template-columns: auto auto;
+        gap:0;
+        height:inherit;
+
+}
+
+.person{
+        display: table-cell;
+        width:50%;
+        height:inherit;
+        position: relative;
+        text-align: center;
+}
+
+.description{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        height:100%;
+        padding: 10px;
+        
+}
+
+.centeredDiv{
+        position: relative;
+        margin: auto auto auto auto;
+        justify-content: center;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        
+}
+
+.peopleElement{
+        height:400px;
+        overflow-y: auto;
+}
+
+.containerMark{
+        height:400px;
+        margin: auto auto;
+        width: 65%;
+}
+
+.personImg{
+        width:auto;
+        height:inherit;
 }
