@@ -157,8 +157,9 @@
         grid-template-columns: auto auto;
         gap:0;
         height:inherit;
-        
 }
+
+
 
 .person{
         display: table-cell;
@@ -175,7 +176,7 @@
         height:100%;
         padding: 10px;
         width:50%;
-        border: 1px solid gray;
+        border: 1px solid rgba(128, 128, 128, 0.193);
 }
 
 .centeredDiv{
@@ -191,9 +192,11 @@
 .peopleElement{
         height:400px;
         overflow-y: auto;
+        display:table;
 }
 
 .containerMark{
+        
         height:400px;
         margin: auto auto;
         width: 65%;
