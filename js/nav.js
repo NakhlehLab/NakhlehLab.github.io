@@ -130,8 +130,8 @@ function sizeIt(){
         widthNum = width/3;
         if(widthNum > 400){
                 widthNum = 400;
-        }else if(widthNum < 200){
-                widthNum = 200;
+        }else if(widthNum < 250){
+                widthNum = 250;
         }
         widthStr = widthNum.toString() + "px";
 

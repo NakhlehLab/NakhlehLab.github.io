@@ -167,6 +167,8 @@
         height:inherit;
         position: relative;
         text-align: center;
+        padding-left:10px;
+        padding-right:10px;
 }
 
 .description{
@@ -177,6 +179,8 @@
         padding: 10px;
         width:50%;
         border: 1px solid rgba(128, 128, 128, 0.193);
+        overflow-y: scroll;
+        
 }
 
 .centeredDiv{
@@ -191,8 +195,8 @@
 
 .peopleElement{
         height:400px;
-        overflow-y: auto;
         display:table;
+        
 }
 
 .containerMark{
