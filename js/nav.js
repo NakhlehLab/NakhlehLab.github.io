@@ -103,7 +103,7 @@ function closeModal() {
 
 function nav(page){
         if(page=='pubs'){
-                window.location.replace("/html/pubs.html");
+                window.open("https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate", "_blank");
         }else if (page == 'tutorials'){
                 window.location.replace("/html/tutorials.html");
         }
