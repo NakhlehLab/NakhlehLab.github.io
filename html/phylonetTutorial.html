@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>G-XRF Tutorial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet">
+   
+  </head>
+
+<body class="htmlBody">
+    
+
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/tutorials.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+  <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+  <!-- Load the element definition -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+  <div class="container" >
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+      <div>
+              <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <img width="250" height="125" src="/media/headerPhoto.png" >
+              </a>
+      </div>
+      <div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
+        <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
+        <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
+        <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
+        
+        <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
+      </ul>
+      </div>
+
+      <div class="col-md-3 text-end">
+      </div>
+
+    </header>
+  </div>
+
+    <div class="container">
+        <!-- Do not set the `src` attribute -->
+        <zero-md>
+                <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                <script type="text/markdown">
+
+                        # Introduction
+
+PhyloNet is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic networks, and hence the PhyloNet package includes several tools for phylogenetic network analysis. PhyloNet is released under the GNU General Public License. For the full license, see the file GPL.txt included with this distribution.
+PhyloNet is designed, implemented, and maintained by Rice's BioInformatics Group, which is lead by Professor Luay Nakhleh (nakhleh@cs.rice.edu).
+This tutorial is based on the book chapter: Practical Aspects of Phylogenetic Network Analysis Using PhyloNet. When you try the examples, we suggest you refer to the corresponding section of the book chapter.
+                        
+# Installation
+In order to run the PhyloNet toolkit, you must have Java 1.8.0 or later installed on your system. All references to the java command assume that Java 1.7 is being used.
+
+To check your Java version, type "java -version" on your command line. 
+To download Java 1.8, please go to website http://www.java.com/en/download/.
+To link to the new downloaded Java 1.8, for mac, try these two commands from command line: 
+```
+sudo rm /usr/bin/java 
+sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin
+```
+
+### Downloading phylonet.jar
+Acquire the current release of PhyloNet by downloading the most recent version of the PhyloNet JAR file. You will have a file named PhyloNet_X.Y.Z.jar, where X is the major version number and Y and Z are the minor version numbers.
+                        
+### Installing the file
+                        
+Place the jar file in the desired installation directory. The remainder of this document assumes that it is located in directory $PHYLONET_DIRECTORY. Installation is now complete. In order to run PhyloNet, you must execute the file PhyloNet_X.Y.Z.jar, as described in the next section.
+                        
+# Basic Usage
+                        
+The PhyloNet tool is executed by typing the following command into your console:
+```
+java -jar $PHYLONET_DIRECTORY/PhyloNet_X.Y.Z.jar script.nex
+```
+Where $PHYLONET_DIRECTORY is the directory of jar file PhyloNet_X.Y.Z.jar, and script.nex is the NEXUS file containing the commands to be executed.
+                        
+### Scoring a candidate species phylogeny
+                        
+1. Parsimonious: 
+  * Scoring a species tree (ILS): DeepCoalCount_tree
+  * Scoring a species tree/network (ILS+introgression): DeepCoalCount_network
+2. Probabilistic:
+  * Scoring a species tree/network (ILS+introgression): CalGTProb
+                        
+### Inferring a species phylogeny:
+                        
+1. Maximum parsimony:
+  * Inferring a species tree (ILS): Infer_ST_MDC, Infer_ST_MDC_UR
+  * Inferring a species tree/network (ILS+introgression): InferNetwork_MP
+2. Maximum likelihood:
+  * Inferring a species tree/network (ILS+introgression): InferNetwork_ML
+  * Inferring a species tree/network (ILS+introgression) with cross-validation: InferNetwork_ML_CV
+3. Maximum pseudo-likelihood:
+  * Inferring a species tree/network (ILS+introgression): InferNetwork_MPL
+4. Bayesian:
+  * Inferring a species tree/network (ILS+introgression): MCMC_GT
+  * Inferring a species tree/network (ILS+introgression) from multilocus data: MCMC_SEQ
+  * Inferring a species tree/network (ILS+introgression) from bi-allelic marker data: MCMC_BiMarkers
+5. Larger data sets:
+  * Inferring a species tree/network (ILS+introgression) by divide-and-conquer: NetMerger
+  * Inferring a species tree/network (ILS+introgression) while fixing the start tree topology: InferNetwork_MPL (-fs) and InferNetwork_MP (-fs)
+
+### Comparing and Summarizing
+1. Summarizing networks: SummarizeNetworks
+                        
+### For other tools in PhyloNet, please see [here](https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands) for a full list.
+                        
+# Illustrating the Various Inference Methods in PhyloNet
+                        
+Here we provide all the input NEXUS files in section 4 of the book chapter. The figure below is the true network we would like to infer.
+
+## Minimize deep coalescent Inference
+
+This section corresponds to section 4.1 of the book chapter.
+#### MDC Inference using true gene tree topologies
+Input NEXUS file
+        
+Maximum number of reticulations
+InferNetwork_MP_pl8_0_true.nex	0
+InferNetwork_MP_pl8_1_true.nex	1
+InferNetwork_MP_pl8_2_true.nex	2
+InferNetwork_MP_pl8_3_true.nex	3
+InferNetwork_MP_pl8_4_true.nex	4
+
+Corresponding results: Fig 4 in the book chapter.
+#### MDC Inference using gene tree topologies estimated by IQTREE
+Input NEXUS file
+        
+Maximum number of reticulations
+InferNetwork_MP_pl8_0_false.nex	0
+InferNetwork_MP_pl8_1_false.nex	1
+InferNetwork_MP_pl8_2_false.nex	2
+InferNetwork_MP_pl8_3_false.nex	3
+InferNetwork_MP_pl8_4_false.nex	4
+
+Corresponding results: Fig 5 in the book chapter.
+## Maximum Likelihood Inference
+
+This section corresponds to section 4.2 of the book chapter.
+#### ML Inference using true gene tree topologies
+        
+| Input NEXUS file |Maximum number of reticulations   |
+|------------------|----------------------------------|
+| InferNetwork_ML_pl8_0_true.nex                  | 0 |
+| InferNetwork_ML_pl8_1_true.nex                  | 1 |
+| InferNetwork_ML_pl8_2_true.nex                  | 2 |
+| InferNetwork_ML_pl8_3_true.nex                  | 3 |
+| InferNetwork_ML_pl8_4_true.nex                  | 4 |
+
+Corresponding results: Fig 6 in the book chapter.
+#### ML Inference using gene tree topologies estimated by IQTREE
+
+
+| Input NEXUS file |Maximum number of reticulations   |
+|------------------|----------------------------------|
+| InferNetwork_ML_pl8_0_false.nex                  | 0 |
+| InferNetwork_ML_pl8_1_false.nex                  | 1 |
+| InferNetwork_ML_pl8_2_false.nex                  | 2 |
+| InferNetwork_ML_pl8_3_false.nex                  | 3 |
+| InferNetwork_ML_pl8_4_false.nex                  | 4 |
+
+Corresponding results: Fig 6 in the book chapter.
+#### ML Inference using true gene tree topologies and branch lengths
+
+
+| Input Nexus File                  | Maximum number of reticulations |
+|-----------------------------------|---------------------------------|
+| InferNetwork_ML_bl_pl8_0_true.nex | 0                               |
+| InferNetwork_ML_bl_pl8_1_true.nex | 1                               |
+| InferNetwork_ML_bl_pl8_2_true.nex | 2                               |
+| InferNetwork_ML_bl_pl8_3_true.nex | 3                               |
+| InferNetwork_ML_bl_pl8_4_true.nex | 4                               |
+
+
+Corresponding results: Fig 7 in the book chapter.
+#### ML Inference using gene tree topologies and branch lengths estimated by IQTREE
+
+
+| Input Nexus File                   | Maximum number of reticulations |
+|------------------------------------|---------------------------------|
+| InferNetwork_ML_bl_pl8_0_false.nex | 0                               |
+| InferNetwork_ML_bl_pl8_1_false.nex | 1                               |
+| InferNetwork_ML_bl_pl8_2_false.nex | 2                               |
+| InferNetwork_ML_bl_pl8_3_false.nex | 3                               |
+| InferNetwork_ML_bl_pl8_4_false.nex | 4                               |
+
+Corresponding results: Fig 9 in the book chapter.
+
+## Maximum Pseudo-likelihood Inference
+
+This section corresponds to section 4.3 of the book chapter.
+#### MPL Inference using true gene tree topologies
+Input NEXUS file
+        
+        
+
+| Input Nexus File                   | Maximum number of reticulations |
+|------------------------------------|---------------------------------|
+| InferNetwork_MPL_bl_pl8_0_true.nex | 0                               |
+| InferNetwork_MPL_bl_pl8_1_true.nex | 1                               |
+| InferNetwork_MPL_bl_pl8_2_true.nex | 2                               |
+| InferNetwork_MPL_bl_pl8_3_true.nex | 3                               |
+| InferNetwork_MPL_bl_pl8_4_true.nex | 4                               |
+
+Corresponding results: Fig 10 in the book chapter.
+#### MPL Inference using gene tree topologies estimated by IQTREE
+
+| Input Nexus File                    | Maximum number of reticulations |
+|-------------------------------------|---------------------------------|
+| InferNetwork_MPL_bl_pl8_0_false.nex | 0                               |
+| InferNetwork_MPL_bl_pl8_1_false.nex | 1                               |
+| InferNetwork_MPL_bl_pl8_2_false.nex | 2                               |
+| InferNetwork_MPL_bl_pl8_3_false.nex | 3                               |
+| InferNetwork_MPL_bl_pl8_4_false.nex | 4                               |
+
+Corresponding results: Fig 11 in the book chapter.
+#### MPL Inference using bi-allelic marker data
+
+| Input Nexus File     | Maximum number of reticulations |
+|----------------------|---------------------------------|
+| mle_bi_0pseudo.nexus | 0                               |
+| mle_bi_1pseudo.nexus | 1                               |
+| mle_bi_2pseudo.nexus | 2                               |
+| mle_bi_3pseudo.nexus | 3                               |
+| mle_bi_4pseudo.nexus | 4                               |
+
+Corresponding results: Fig 12 in the book chapter.
+
+## Bayesian Inference
+
+This section corresponds to section 4.4 of the book chapter.
+#### MCMC_SEQ: Bayesian inference on the sequence alignment data
+
+To use MCMC_SEQ, you need to download an additional package beagle to calculate Felsenstein Likelihood. Please follow "Installing from source".
+
+Add this package to your java library, and load this library before you run PhyloNet.
+
+One input example: mcmc_seq.nex
+
+All input NEXUS files: download
+
+Corresponding results: Fig 13 in the book chapter.
+### MCMC_GT: Bayesian inference on gene tree topologies
+#### MCMC_GT sampling using true gene tree topologies
+
+| Input Nexus File       | Maximum number of reticulations |
+|------------------------|---------------------------------|
+| MCMC_GT_pl8_0_true.nex | 0                               |
+| MCMC_GT_pl8_1_true.nex | 1                               |
+| MCMC_GT_pl8_2_true.nex | 2                               |
+| MCMC_GT_pl8_3_true.nex | 3                               |
+| MCMC_GT_pl8_4_true.nex | 4                               |
+
+This inference ran out of 192 CPU hours.
+#### MCMC_GT sampling using gene tree topologies estimated by IQTREE
+
+| Input Nexus File        | Maximum number of reticulations |
+|-------------------------|---------------------------------|
+| MCMC_GT_pl8_0_false.nex | 0                               |
+| MCMC_GT_pl8_1_false.nex | 1                               |
+| MCMC_GT_pl8_2_false.nex | 2                               |
+| MCMC_GT_pl8_3_false.nex | 3                               |
+| MCMC_GT_pl8_4_false.nex | 4                               |
+
+This inference ran out of 192 CPU hours.
+### MCMC_BiMarkers: Bayesian inference on the bi-allelic markers
+
+This method uses an additional package jeigen. You need to follow the instructions to install it, and add this package to your java library.
+
+Input NEXUS file: mcmc_bimarker.nexus
+
+This inference ran out of 192 CPU hours.
+## Analyzing Larger Data Sets
+
+This section corresponds to section 5 in the book chapter.
+### Tree-based Augmentation
+
+The -fs command in MP and MPL is to fix the start tree topology.
+
+The following two examples are to infer a network using gene trees estimated by IQTREE and fixing the start species tree inferred by ASTRAL.
+
+Input NEXUS file for MP: InferNetwork_MP_pl8_3_false_fs.nex
+
+Input NEXUS file for MPL: InferNetwork_MPL_pl8_3_false_fs.nex
+### Divide-and-conquer
+
+The data set contains the MCMC_SEQ outputs of 680 trinets. You need to download the data and change the path ".../DivideAndConquer/" in netmerger.nex.
+
+Data: https://drive.google.com/file/d/1mJfqD0bQOOoBFZTlaQklHLqvJX5QPlVg/view?usp=sharing
+
+Input NEXUS file: netmerger.nex
+## Analyzing Polyploids
+
+This section corresponds to section 7 in the book chapter.
+### MDC Inference with unknown hybrid species
+| Input NEXUS file      | Maximum number of reticulations |
+|-----------------------|---------------------------------|
+| <a href="/media/nexus/InferNetwork_MP_0.nex" download>InferNetwork_MP_0.nex</a> | 0                               |
+| [InferNetwork_MP_1.nex](/media/nexus/InferNetwork_MP_1.nex "download") | 1                               |
+| [InferNetwork_MP_2.nex](/media/nexus/InferNetwork_MP_2.nex "download") | 2                               |
+| [InferNetwork_MP_3.nex](/media/nexus/InferNetwork_MP_3.nex "download") | 3                               |
+| [InferNetwork_MP_3.nex](/media/nexus/InferNetwork_MP_4.nex "download") | 3                               |
+
+Corresponding results: Fig 17 in the book chapter.
+## MDC Inference with known hybrid species
+
+| Input NEXUS file        | Maximum number of reticulations | Specified hybrid species |
+|-------------------------|---------------------------------|--------------------------|
+| [InferNetwork_MP_1.nex]   | 1                               | LPS168                   |
+| [InferNetwork_MP_2.nex]   | 2                               | LPS168                   |
+| [InferNetwork_MP_2_2.nex] | 2                               | LPS168, LPS189           |
+| [InferNetwork_MP_3.nex]   | 3                               | LPS168                   |
+| [InferNetwork_MP_3_2.nex] | 3                               | LPS168, LPS189           | 
+
+Corresponding results: Fig 18 in the book chapter.
+
+# Visualizing a Phylogenetic Network
+
+Phylogenetic network in Rich Newick string can be visualized in Dendroscope or icytree. The former needs downloading, and the latter is online. However, Dendroscope cannot recognize inheritance probabilities (branch lengths are fine), and icytree sometimes can and sometimes cannot. You need to remove those probabilities manually from the Rich Newick string, or use option "-di" so that PhyloNet returns the network that Dendroscope takes directly. For example, the following network is what PhyloNet returns when the input NEXUS file InferNetwork_ML_pl8_1_true.nex is used:
+~~~
+((F:12.842, ((L:5.576504712905155, ((O:1.2260000000000002, P:1.2260000000000002)I6:0.8559999999999997, K:2.082)I2:3.4945047129051554)I0:0.08027116443257487)I8#H1:7.18522412266227::0.4334172270375128)I1:19.128, (I8#H1:1.81722412266227::0.5665827729624873, C:7.474)I4:24.496000000000002)I7;
+~~~
+After removing "::" and the number after it, we have the network below, which can be visualized in both tools.
+
+~~~
+((F:12.842, ((L:5.576504712905155, ((O:1.2260000000000002, P:1.2260000000000002)I6:0.8559999999999997, K:2.082)I2:3.4945047129051554)I0:0.08027116443257487)I8#H1:7.18522412266227)I1:19.128, (I8#H1:1.81722412266227,C:7.474)I4:24.496000000000002)I7;
+~~~
+
+# References
+
+1. Than C, Ruths D, Nakhleh L. PhyloNet: A Software Package for Analyzing and Reconstructing Reticulate Evolutionary Relationships. BMC Bioinformatics, 9:322, 2008
+
+2. C. Than and L. Nakhleh. Species tree inference by minimizing deep coalescences. PLoS Computational Biology, 5(9):e1000501, 2009.
+
+2. Y. Yu, T. Warnow, and L. Nakhleh. Algorithms for MDC-based multi-locus phylogeny inference. Proceedings of the 15th Annual International Conference on Research in Computational Molecular Biology (RECOMB), LNBI 6577, 531-545, 2011.
+
+3. Y. Yu, T. Warnow, and L. Nakhleh. Algorithms for MDC-based multi-locus phylogeny inference: Beyond rooted binary gene trees on single alleles. Journal of Computational Biology, 18(11):1-18, 2011.
+
+4. Y. Yu, J.H. Degnan, and L. Nakhleh. The probability of a gene tree topology within a phylogenetic network with applications to hybridization detection. PLoS Genetics, 8(4):e1002660, 2012.
+
+5. Y. Yu, R.M. Barnett, and L. Nakhleh. Parsimonious inference of hybridization in the presence of incomplete lineage sorting. Systematic Biology, vol. 62, no. 5, pp. 738-751, 2013.
+
+6. Y. Yu and L. Nakhleh. Fast algorithms for reconciliation under hybridization and incomplete lineage sorting. BMC Bioinformatics, vol. 14, no. Suppl 15, p. S6, 2013.
+
+7. Y. Yu, J. Dong, K. Liu, and L. Nakhleh, “Probabilistic inference of reticulate evolutionary histories,” Proceedings of the National Academy of Sciences, vol. 111, no. 46, pp. 16448-16453, 2014. 
+
+8. Y. Yu and Nakhleh, L., “A Maximum Pseudo-likelihood Approach for Phylogenetic Networks”, BMC Genomics, vol. 16, no. Suppl 10, p. S10, 2015.
+
+9. D. Wen, Yu, Y., Hahn, M. W., and Nakhleh, L., “Reticulate Evolutionary History and Extensive Introgression in Mosquito Species Revealed by Phylogenetic Network Analysis”, Molecular Ecology, vol. 25, pp. 2361-2372, 2016.
+
+10. D. Wen, Yu, Y., and Nakhleh, L., “Bayesian inference of species phylogenies under the multispecies network coalescent”, PLoS Genetics, vol. 12, no. 5, p. e1006006, 2016.
+
+11. D.Wen and L. Nakhleh. Co-estimating reticulate phylogenies and gene trees on sequences from multiple independent loci. Systematic Biology 67.3 (2017): 439-457.
+
+12. Z. Cao, X. Liu, HA. Ogilvie, Z. Yan, and L. Nakhleh. Practical aspects of phylogenetic network analysis using phylonet. bioRxiv (2019): 746362.
+
+13. Z. Cao, J. Zhu, and L. Nakhleh. Empirical Performance of Tree-Based Inference of Phylogenetic Networks. WABI 2019.
+                </script>
+        </zero-md>
+    </div>
+      
+    
+
+        
+                                  
+              
+    
+
+    <div class="container" height="150px" style="bottom:0;" >
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center" width="400px">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img width="75" height="37.5" src="/media/headerPhoto.png" >
+            </a>
+            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+          </ul>
+        </footer>
+     </div>
+  
+</main>
+
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+  
+</html>
