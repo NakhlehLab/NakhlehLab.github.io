@@ -1,0 +1,24 @@
+.q{
+        color:#4275d5b3;
+        font-size: 30px;
+        border: 1px solid #4275d539;
+        background-color: white;
+        border-radius: 4px;
+        width:40%;
+}
+
+.questionP{
+        color:#4275d5b3;
+        font-size: 20px;
+        border: 1px solid #4275d539;
+        background-color: white;
+        border-radius: 0 0 4px 4px;
+        text-align: center;
+}
+
+
+#faqHead{
+        color:#4275d5b3;
+        text-align: center;
+        font-size: 50px;
+}
