@@ -97,7 +97,8 @@
 
 PhyloNet is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic networks, and hence the PhyloNet package includes several tools for phylogenetic network analysis. PhyloNet is released under the GNU General Public License. For the full license, see the file GPL.txt included with this distribution.
 PhyloNet is designed, implemented, and maintained by Rice's BioInformatics Group, which is lead by Professor Luay Nakhleh (nakhleh@cs.rice.edu).
-This tutorial is based on the book chapter: Practical Aspects of Phylogenetic Network Analysis Using PhyloNet. When you try the examples, we suggest you refer to the corresponding section of the book chapter.
+
+**This tutorial is based on the book chapter: [Practical Aspects of Phylogenetic Network Analysis Using PhyloNet](/media/bookChapter.pdf)**. When you try the examples, we suggest you refer to the corresponding section of the book chapter.
                         
 # Installation
 In order to run the PhyloNet toolkit, you must have Java 1.8.0 or later installed on your system. All references to the java command assume that Java 1.7 is being used.
@@ -369,7 +370,7 @@ Corresponding results: Fig 18 in the book chapter.
 
 # Visualizing a Phylogenetic Network
 
-Phylogenetic network in Rich Newick string can be visualized in Dendroscope or icytree. The former needs downloading, and the latter is online. However, Dendroscope cannot recognize inheritance probabilities (branch lengths are fine), and icytree sometimes can and sometimes cannot. You need to remove those probabilities manually from the Rich Newick string, or use option "-di" so that PhyloNet returns the network that Dendroscope takes directly. For example, the following network is what PhyloNet returns when the input NEXUS file InferNetwork_ML_pl8_1_true.nex is used:
+Phylogenetic network in Rich Newick string can be visualized in Dendroscope or [icytree](https://icytree.org/). The former needs downloading, and the latter is online. However, Dendroscope cannot recognize inheritance probabilities (branch lengths are fine), and icytree sometimes can and sometimes cannot. You need to remove those probabilities manually from the Rich Newick string, or use option "-di" so that PhyloNet returns the network that Dendroscope takes directly. For example, the following network is what PhyloNet returns when the input NEXUS file InferNetwork_ML_pl8_1_true.nex is used:
 ~~~
 ((F:12.842, ((L:5.576504712905155, ((O:1.2260000000000002, P:1.2260000000000002)I6:0.8559999999999997, K:2.082)I2:3.4945047129051554)I0:0.08027116443257487)I8#H1:7.18522412266227::0.4334172270375128)I1:19.128, (I8#H1:1.81722412266227::0.5665827729624873, C:7.474)I4:24.496000000000002)I7;
 ~~~
