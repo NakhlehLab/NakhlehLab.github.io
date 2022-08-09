@@ -1,0 +1,6 @@
+#NEXUS
+
+BEGIN PHYLONET;
+
+NetMerger -mode "Result" -cl 2000000 -bl 1000000 -sf 5000 -inputFolder ".../DivideAndConquer/" -outgroup "Z" ;
+END;

@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>G-XRF Tutorial</title>
+    <title>PhyloNet Overview</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -159,30 +159,33 @@ Where $PHYLONET_DIRECTORY is the directory of jar file PhyloNet_X.Y.Z.jar, and s
 # Illustrating the Various Inference Methods in PhyloNet
                         
 Here we provide all the input NEXUS files in section 4 of the book chapter. The figure below is the true network we would like to infer.
+![True Network](/media/SmallNetwork.png "True Network")
 
 ## Minimize deep coalescent Inference
 
 This section corresponds to section 4.1 of the book chapter.
 #### MDC Inference using true gene tree topologies
-Input NEXUS file
-        
-Maximum number of reticulations
-InferNetwork_MP_pl8_0_true.nex	0
-InferNetwork_MP_pl8_1_true.nex	1
-InferNetwork_MP_pl8_2_true.nex	2
-InferNetwork_MP_pl8_3_true.nex	3
-InferNetwork_MP_pl8_4_true.nex	4
+
+| Input NEXUS file |Maximum number of reticulations   |
+|------------------|----------------------------------|
+| <a href="/media/nexus/InferNetwork_MP_pl8_0_true.txt" download="InferNetwork_MP_pl8_0_true.nex ">InferNetwork_MP_pl8_0_true.nex</a> | 0 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_1_true.txt" download="InferNetwork_MP_pl8_1_true.nex ">InferNetwork_MP_pl8_1_true.nex</a> | 1 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_2_true.txt" download="InferNetwork_MP_pl8_2_true.nex ">InferNetwork_MP_pl8_2_true.nex</a> | 2 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_3_true.txt" download="InferNetwork_MP_pl8_3_true.nex ">InferNetwork_MP_pl8_3_true.nex</a> | 3 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_4_true.txt" download="InferNetwork_MP_pl8_4_true.nex ">InferNetwork_MP_pl8_4_true.nex</a> | 4 |
+
 
 Corresponding results: Fig 4 in the book chapter.
 #### MDC Inference using gene tree topologies estimated by IQTREE
-Input NEXUS file
-        
-Maximum number of reticulations
-InferNetwork_MP_pl8_0_false.nex	0
-InferNetwork_MP_pl8_1_false.nex	1
-InferNetwork_MP_pl8_2_false.nex	2
-InferNetwork_MP_pl8_3_false.nex	3
-InferNetwork_MP_pl8_4_false.nex	4
+
+| Input NEXUS file |Maximum number of reticulations   |
+|------------------|----------------------------------|
+| <a href="/media/nexus/InferNetwork_MP_pl8_0_false.txt" download="InferNetwork_MP_pl8_0_false.nex ">InferNetwork_MP_pl8_0_false.nex</a> | 0 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_1_false.txt" download="InferNetwork_MP_pl8_1_false.nex ">InferNetwork_MP_pl8_1_false.nex</a> | 1 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_2_false.txt" download="InferNetwork_MP_pl8_2_false.nex ">InferNetwork_MP_pl8_2_false.nex</a> | 2 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_3_false.txt" download="InferNetwork_MP_pl8_3_false.nex ">InferNetwork_MP_pl8_3_false.nex</a> | 3 |
+| <a href="/media/nexus/InferNetwork_MP_pl8_4_false.txt" download="InferNetwork_MP_pl8_4_false.nex ">InferNetwork_MP_pl8_4_false.nex</a> | 4 |
+
 
 Corresponding results: Fig 5 in the book chapter.
 ## Maximum Likelihood Inference
@@ -192,11 +195,12 @@ This section corresponds to section 4.2 of the book chapter.
         
 | Input NEXUS file |Maximum number of reticulations   |
 |------------------|----------------------------------|
-| InferNetwork_ML_pl8_0_true.nex                  | 0 |
-| InferNetwork_ML_pl8_1_true.nex                  | 1 |
-| InferNetwork_ML_pl8_2_true.nex                  | 2 |
-| InferNetwork_ML_pl8_3_true.nex                  | 3 |
-| InferNetwork_ML_pl8_4_true.nex                  | 4 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_0_true.txt" download="InferNetwork_ML_pl8_0_true.nex ">InferNetwork_ML_pl8_0_true.nex</a> | 0 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_1_true.txt" download="InferNetwork_ML_pl8_1_true.nex ">InferNetwork_ML_pl8_1_true.nex</a> | 1 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_2_true.txt" download="InferNetwork_ML_pl8_2_true.nex ">InferNetwork_ML_pl8_2_true.nex</a> | 2 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_3_true.txt" download="InferNetwork_ML_pl8_3_true.nex ">InferNetwork_ML_pl8_3_true.nex</a> | 3 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_4_true.txt" download="InferNetwork_ML_pl8_4_true.nex ">InferNetwork_ML_pl8_4_true.nex</a> | 4 |
+
 
 Corresponding results: Fig 6 in the book chapter.
 #### ML Inference using gene tree topologies estimated by IQTREE
@@ -204,36 +208,36 @@ Corresponding results: Fig 6 in the book chapter.
 
 | Input NEXUS file |Maximum number of reticulations   |
 |------------------|----------------------------------|
-| InferNetwork_ML_pl8_0_false.nex                  | 0 |
-| InferNetwork_ML_pl8_1_false.nex                  | 1 |
-| InferNetwork_ML_pl8_2_false.nex                  | 2 |
-| InferNetwork_ML_pl8_3_false.nex                  | 3 |
-| InferNetwork_ML_pl8_4_false.nex                  | 4 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_0_false.txt" download="InferNetwork_ML_pl8_0_false.nex ">InferNetwork_ML_pl8_0_false.nex</a> | 0 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_1_false.txt" download="InferNetwork_ML_pl8_1_false.nex ">InferNetwork_ML_pl8_1_false.nex</a> | 1 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_2_false.txt" download="InferNetwork_ML_pl8_2_false.nex ">InferNetwork_ML_pl8_2_false.nex</a> | 2 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_3_false.txt" download="InferNetwork_ML_pl8_3_false.nex ">InferNetwork_ML_pl8_3_false.nex</a> | 3 |
+| <a href="/media/nexus/InferNetwork_ML_pl8_4_false.txt" download="InferNetwork_ML_pl8_4_false.nex ">InferNetwork_ML_pl8_4_false.nex</a> | 4 |
 
 Corresponding results: Fig 6 in the book chapter.
 #### ML Inference using true gene tree topologies and branch lengths
 
 
-| Input Nexus File                  | Maximum number of reticulations |
-|-----------------------------------|---------------------------------|
-| InferNetwork_ML_bl_pl8_0_true.nex | 0                               |
-| InferNetwork_ML_bl_pl8_1_true.nex | 1                               |
-| InferNetwork_ML_bl_pl8_2_true.nex | 2                               |
-| InferNetwork_ML_bl_pl8_3_true.nex | 3                               |
-| InferNetwork_ML_bl_pl8_4_true.nex | 4                               |
+| Input Nexus File                    | Maximum number of reticulations |
+|-------------------------------------|---------------------------------|
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_0_true.txt" download="InferNetwork_ML_bl_pl8_0_true.nex">InferNetwork_ML_bl_pl8_0_true.nex</a> | 0                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_1_true.txt" download="InferNetwork_ML_bl_pl8_1_true.nex">InferNetwork_ML_bl_pl8_1_true.nex</a> | 1                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_2_true.txt" download="InferNetwork_ML_bl_pl8_2_true.nex">InferNetwork_ML_bl_pl8_2_true.nex</a> | 2                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_3_true.txt" download="InferNetwork_ML_bl_pl8_3_true.nex">InferNetwork_ML_bl_pl8_3_true.nex</a> | 3                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_4_true.txt" download="InferNetwork_ML_bl_pl8_4_true.nex">InferNetwork_ML_bl_pl8_4_true.nex</a> | 4                               |
 
 
 Corresponding results: Fig 7 in the book chapter.
 #### ML Inference using gene tree topologies and branch lengths estimated by IQTREE
 
 
-| Input Nexus File                   | Maximum number of reticulations |
-|------------------------------------|---------------------------------|
-| InferNetwork_ML_bl_pl8_0_false.nex | 0                               |
-| InferNetwork_ML_bl_pl8_1_false.nex | 1                               |
-| InferNetwork_ML_bl_pl8_2_false.nex | 2                               |
-| InferNetwork_ML_bl_pl8_3_false.nex | 3                               |
-| InferNetwork_ML_bl_pl8_4_false.nex | 4                               |
+| Input Nexus File                    | Maximum number of reticulations |
+|-------------------------------------|---------------------------------|
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_0_false.txt" download="InferNetwork_ML_bl_pl8_0_false.nex">InferNetwork_ML_bl_pl8_0_false.nex</a> | 0                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_1_false.txt" download="InferNetwork_ML_bl_pl8_1_false.nex">InferNetwork_ML_bl_pl8_1_false.nex</a> | 1                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_2_false.txt" download="InferNetwork_ML_bl_pl8_2_false.nex">InferNetwork_ML_bl_pl8_2_false.nex</a> | 2                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_3_false.txt" download="InferNetwork_ML_bl_pl8_3_false.nex">InferNetwork_ML_bl_pl8_3_false.nex</a> | 3                               |
+| <a href="/media/nexus/InferNetwork_ML_bl_pl8_4_false.txt" download="InferNetwork_ML_bl_pl8_4_false.nex">InferNetwork_ML_bl_pl8_4_false.nex</a> | 4                               |
 
 Corresponding results: Fig 9 in the book chapter.
 
@@ -241,39 +245,37 @@ Corresponding results: Fig 9 in the book chapter.
 
 This section corresponds to section 4.3 of the book chapter.
 #### MPL Inference using true gene tree topologies
-Input NEXUS file
+   
         
-        
-
-| Input Nexus File                   | Maximum number of reticulations |
-|------------------------------------|---------------------------------|
-| InferNetwork_MPL_bl_pl8_0_true.nex | 0                               |
-| InferNetwork_MPL_bl_pl8_1_true.nex | 1                               |
-| InferNetwork_MPL_bl_pl8_2_true.nex | 2                               |
-| InferNetwork_MPL_bl_pl8_3_true.nex | 3                               |
-| InferNetwork_MPL_bl_pl8_4_true.nex | 4                               |
+| Input Nexus File                    | Maximum number of reticulations |
+|-------------------------------------|---------------------------------|
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_0_true.txt" download="InferNetwork_MPL_bl_pl8_0_true.nex">InferNetwork_MPL_bl_pl8_0_true.nex</a> | 0                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_1_true.txt" download="InferNetwork_MPL_bl_pl8_1_true.nex">InferNetwork_MPL_bl_pl8_1_true.nex</a> | 1                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_2_true.txt" download="InferNetwork_MPL_bl_pl8_2_true.nex">InferNetwork_MPL_bl_pl8_2_true.nex</a> | 2                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_3_true.txt" download="InferNetwork_MPL_bl_pl8_3_true.nex">InferNetwork_MPL_bl_pl8_3_true.nex</a> | 3                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_4_true.txt" download="InferNetwork_MPL_bl_pl8_4_true.nex">InferNetwork_MPL_bl_pl8_4_true.nex</a> | 4                               |
 
 Corresponding results: Fig 10 in the book chapter.
 #### MPL Inference using gene tree topologies estimated by IQTREE
 
 | Input Nexus File                    | Maximum number of reticulations |
 |-------------------------------------|---------------------------------|
-| InferNetwork_MPL_bl_pl8_0_false.nex | 0                               |
-| InferNetwork_MPL_bl_pl8_1_false.nex | 1                               |
-| InferNetwork_MPL_bl_pl8_2_false.nex | 2                               |
-| InferNetwork_MPL_bl_pl8_3_false.nex | 3                               |
-| InferNetwork_MPL_bl_pl8_4_false.nex | 4                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_0_false.txt" download="InferNetwork_MPL_bl_pl8_0_false.nex">InferNetwork_MPL_bl_pl8_0_false.nex</a> | 0                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_1_false.txt" download="InferNetwork_MPL_bl_pl8_1_false.nex">InferNetwork_MPL_bl_pl8_1_false.nex</a> | 1                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_2_false.txt" download="InferNetwork_MPL_bl_pl8_2_false.nex">InferNetwork_MPL_bl_pl8_2_false.nex</a> | 2                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_3_false.txt" download="InferNetwork_MPL_bl_pl8_3_false.nex">InferNetwork_MPL_bl_pl8_3_false.nex</a> | 3                               |
+| <a href="/media/nexus/InferNetwork_MPL_bl_pl8_4_false.txt" download="InferNetwork_MPL_bl_pl8_4_false.nex">InferNetwork_MPL_bl_pl8_4_false.nex</a> | 4                               |
 
 Corresponding results: Fig 11 in the book chapter.
 #### MPL Inference using bi-allelic marker data
 
 | Input Nexus File     | Maximum number of reticulations |
 |----------------------|---------------------------------|
-| mle_bi_0pseudo.nexus | 0                               |
-| mle_bi_1pseudo.nexus | 1                               |
-| mle_bi_2pseudo.nexus | 2                               |
-| mle_bi_3pseudo.nexus | 3                               |
-| mle_bi_4pseudo.nexus | 4                               |
+| <a href="/media/nexus/mle_bi_0pseudo.txt" download="mle_bi_0pseudo.nex">mle_bi_0pseudo.nex</a> | 0                               |
+| <a href="/media/nexus/mle_bi_1pseudo.txt" download="mle_bi_1pseudo.nex">mle_bi_1pseudo.nex</a> | 1                               |
+| <a href="/media/nexus/mle_bi_2pseudo.txt" download="mle_bi_2pseudo.nex">mle_bi_2pseudo.nex</a> | 2                               |
+| <a href="/media/nexus/mle_bi_3pseudo.txt" download="mle_bi_3pseudo.nex">mle_bi_3pseudo.nex</a> | 3                               |
+| <a href="/media/nexus/mle_bi_4pseudo.txt" download="mle_bi_4pseudo.nex">mle_bi_4pseudo.nex</a> | 4                               |
 
 Corresponding results: Fig 12 in the book chapter.
 
@@ -282,13 +284,13 @@ Corresponding results: Fig 12 in the book chapter.
 This section corresponds to section 4.4 of the book chapter.
 #### MCMC_SEQ: Bayesian inference on the sequence alignment data
 
-To use MCMC_SEQ, you need to download an additional package beagle to calculate Felsenstein Likelihood. Please follow "Installing from source".
+To use MCMC_SEQ, you need to download an additional package [beagle](https://github.com/beagle-dev/beagle-lib/wiki) to calculate Felsenstein Likelihood. Please follow "Installing from source".
 
 Add this package to your java library, and load this library before you run PhyloNet.
 
-One input example: mcmc_seq.nex
+One input example: [mcmc_seq.nex](/media/nexus/mcmc_seq.nex)
 
-All input NEXUS files: download
+All input NEXUS files: [download](/media/nexus/mcmc-seq-nexus.zip)
 
 Corresponding results: Fig 13 in the book chapter.
 ### MCMC_GT: Bayesian inference on gene tree topologies
@@ -296,29 +298,29 @@ Corresponding results: Fig 13 in the book chapter.
 
 | Input Nexus File       | Maximum number of reticulations |
 |------------------------|---------------------------------|
-| MCMC_GT_pl8_0_true.nex | 0                               |
-| MCMC_GT_pl8_1_true.nex | 1                               |
-| MCMC_GT_pl8_2_true.nex | 2                               |
-| MCMC_GT_pl8_3_true.nex | 3                               |
-| MCMC_GT_pl8_4_true.nex | 4                               |
+| <a href="/media/nexus/MCMC_GT_pl8_0_true.txt" download="MCMC_GT_pl8_0_true.nex">MCMC_GT_pl8_0_true.nex</a> | 0                               |
+| <a href="/media/nexus/MCMC_GT_pl8_1_true.txt" download="MCMC_GT_pl8_1_true.nex">MCMC_GT_pl8_1_true.nex</a> | 1                               |
+| <a href="/media/nexus/MCMC_GT_pl8_2_true.txt" download="MCMC_GT_pl8_2_true.nex">MCMC_GT_pl8_2_true.nex</a> | 2                               |
+| <a href="/media/nexus/MCMC_GT_pl8_3_true.txt" download="MCMC_GT_pl8_3_true.nex">MCMC_GT_pl8_3_true.nex</a> | 3                               |
+| <a href="/media/nexus/MCMC_GT_pl8_4_true.txt" download="MCMC_GT_pl8_4_true.nex">MCMC_GT_pl8_4_true.nex</a> | 4                               |
 
 This inference ran out of 192 CPU hours.
 #### MCMC_GT sampling using gene tree topologies estimated by IQTREE
 
 | Input Nexus File        | Maximum number of reticulations |
 |-------------------------|---------------------------------|
-| MCMC_GT_pl8_0_false.nex | 0                               |
-| MCMC_GT_pl8_1_false.nex | 1                               |
-| MCMC_GT_pl8_2_false.nex | 2                               |
-| MCMC_GT_pl8_3_false.nex | 3                               |
-| MCMC_GT_pl8_4_false.nex | 4                               |
+| <a href="/media/nexus/MCMC_GT_pl8_0_false.txt" download="MCMC_GT_pl8_0_false.nex">MCMC_GT_pl8_0_false.nex</a> | 0                               |
+| <a href="/media/nexus/MCMC_GT_pl8_1_false.txt" download="MCMC_GT_pl8_1_false.nex">MCMC_GT_pl8_1_false.nex</a> | 1                               |
+| <a href="/media/nexus/MCMC_GT_pl8_2_false.txt" download="MCMC_GT_pl8_2_false.nex">MCMC_GT_pl8_2_false.nex</a> | 2                               |
+| <a href="/media/nexus/MCMC_GT_pl8_3_false.txt" download="MCMC_GT_pl8_3_false.nex">MCMC_GT_pl8_3_false.nex</a> | 3                               |
+| <a href="/media/nexus/MCMC_GT_pl8_4_false.txt" download="MCMC_GT_pl8_4_false.nex">MCMC_GT_pl8_4_false.nex</a> | 4                               |
 
 This inference ran out of 192 CPU hours.
 ### MCMC_BiMarkers: Bayesian inference on the bi-allelic markers
 
-This method uses an additional package jeigen. You need to follow the instructions to install it, and add this package to your java library.
+This method uses an additional package [jeigen](https://github.com/hughperkins/jeigen). You need to follow the instructions to install it, and add this package to your java library.
 
-Input NEXUS file: mcmc_bimarker.nexus
+Input NEXUS file: [mcmc_bimarker.nex](/media/nexus/mcmc_bimarker.txt)
 
 This inference ran out of 192 CPU hours.
 ## Analyzing Larger Data Sets
@@ -330,38 +332,38 @@ The -fs command in MP and MPL is to fix the start tree topology.
 
 The following two examples are to infer a network using gene trees estimated by IQTREE and fixing the start species tree inferred by ASTRAL.
 
-Input NEXUS file for MP: InferNetwork_MP_pl8_3_false_fs.nex
+Input NEXUS file for MP: [InferNetwork_MP_pl8_3_false_fs.nex](/media/nexus/InferNetwork_MP_pl8_3_false_fs.txt)
 
-Input NEXUS file for MPL: InferNetwork_MPL_pl8_3_false_fs.nex
+Input NEXUS file for MPL: [InferNetwork_MPL_pl8_3_false_fs.nex](/media/nexus/InferNetwork_MPL_pl8_3_false_fs.txt)
 ### Divide-and-conquer
 
 The data set contains the MCMC_SEQ outputs of 680 trinets. You need to download the data and change the path ".../DivideAndConquer/" in netmerger.nex.
 
 Data: https://drive.google.com/file/d/1mJfqD0bQOOoBFZTlaQklHLqvJX5QPlVg/view?usp=sharing
 
-Input NEXUS file: netmerger.nex
+Input NEXUS file: [netmerger.nex](/media/nexus/netmerger.txt)
 ## Analyzing Polyploids
 
 This section corresponds to section 7 in the book chapter.
 ### MDC Inference with unknown hybrid species
 | Input NEXUS file      | Maximum number of reticulations |
 |-----------------------|---------------------------------|
-| <a href="/media/nexus/InferNetwork_MP_0.nex" download>InferNetwork_MP_0.nex</a> | 0                               |
-| [InferNetwork_MP_1.nex](/media/nexus/InferNetwork_MP_1.nex "download") | 1                               |
-| [InferNetwork_MP_2.nex](/media/nexus/InferNetwork_MP_2.nex "download") | 2                               |
-| [InferNetwork_MP_3.nex](/media/nexus/InferNetwork_MP_3.nex "download") | 3                               |
-| [InferNetwork_MP_3.nex](/media/nexus/InferNetwork_MP_4.nex "download") | 3                               |
+| <a href="/media/nexus/InferNetwork_MP_0.txt" download="InferNetwork_MP_0.nex">InferNetwork_MP_0.nex</a> | 0                               |
+| <a href="/media/nexus/InferNetwork_MP_1.txt" download="InferNetwork_MP_1.nex">InferNetwork_MP_1.nex</a> | 1                               |
+| <a href="/media/nexus/InferNetwork_MP_2.txt" download="InferNetwork_MP_2.nex">InferNetwork_MP_2.nex</a> | 2                               |
+| <a href="/media/nexus/InferNetwork_MP_3.txt" download="InferNetwork_MP_3.nex">InferNetwork_MP_3.nex</a> | 3                               |
+
 
 Corresponding results: Fig 17 in the book chapter.
 ## MDC Inference with known hybrid species
 
 | Input NEXUS file        | Maximum number of reticulations | Specified hybrid species |
 |-------------------------|---------------------------------|--------------------------|
-| [InferNetwork_MP_1.nex]   | 1                               | LPS168                   |
-| [InferNetwork_MP_2.nex]   | 2                               | LPS168                   |
-| [InferNetwork_MP_2_2.nex] | 2                               | LPS168, LPS189           |
-| [InferNetwork_MP_3.nex]   | 3                               | LPS168                   |
-| [InferNetwork_MP_3_2.nex] | 3                               | LPS168, LPS189           | 
+| <a href="/media/nexus/InferNetwork_MP_1.txt" download="InferNetwork_MP_1.nex">InferNetwork_MP_1.nex</a>  | 1                               | LPS168                   |
+| <a href="/media/nexus/InferNetwork_MP_2.txt" download="InferNetwork_MP_2.nex">InferNetwork_MP_2.nex</a>   | 2                               | LPS168                   |
+| <a href="/media/nexus/InferNetwork_MP_2_2.txt" download="InferNetwork_MP_2_2.nex">InferNetwork_MP_2_2.nex</a> | 2                               | LPS168, LPS189           |
+| <a href="/media/nexus/InferNetwork_MP_3.txt" download="InferNetwork_MP_3.nex">InferNetwork_MP_3.nex</a>   | 3                               | LPS168                   |
+| <a href="/media/nexus/InferNetwork_MP_3_2.txt" download="InferNetwork_MP_3_2.nex">InferNetwork_MP_3_2.nex</a> | 3                               | LPS168, LPS189           | 
 
 Corresponding results: Fig 18 in the book chapter.
 
