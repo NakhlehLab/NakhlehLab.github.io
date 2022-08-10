@@ -42,6 +42,7 @@
     <link href="/css/background.css" rel="stylesheet">
     <link href="/css/tables.css" rel="stylesheet">
     <link href="/css/tutorials.css" rel="stylesheet">
+    <link href="/css/commands.css" rel="stylesheet">
    
   </head>
 
@@ -82,12 +83,17 @@
 
   <div class="container">
         <div class="centered">
-        <table id="slide1">
+        <table id="commandsTable">
+          <colgroup>
+            <col span="1" style="width: 15%;">
+            <col span="1" style="width: 70%;">
+            <col span="1" style="width: 15%;">
+          </colgroup>
           <tbody>
             <tr>
-                <td> <strong>Name</strong> </td>
+                <td > <strong>Name</strong> </td>
                 <td> <strong>Description</strong> </td>
-                <td> <strong>Since Version</strong></td>
+                <td > <strong>Since Version</strong></td>
             </tr>
             <tr>
               <th class="tableDataBlue spacer"></th>
@@ -98,59 +104,59 @@
               
             <tr>
             <tr>
-              <td><a href="/html/commands/MCMC_SEQ.html">MCMC_SEQ</a></td>
+              <td ><a href="/html/commands/MCMC_SEQ.html">MCMC_SEQ</a></td>
               <td>Bayesian MCMC posterior estimation of phylogenetic networks and gene trees on sequences from multiple independent loci.</td>
-              <td>3.6.1</td>
+              <td >3.6.1</td>
             </tr>
             <tr>
-                <td><a href="/html/commands/MCMC_BiMarkers.html">MCMC_BiMarkers</a></td>
+                <td ><a href="/html/commands/MCMC_BiMarkers.html">MCMC_BiMarkers</a></td>
                 <td>Bayesian estimation of the posterior distribution of phylogenetic networks given bi-allelic genetic markers (SNPs, AFLPs, etc).</td>
-                <td>3.6.1</td>
+                <td >3.6.1</td>
             </tr>
             <tr>
-                <td><a href="/html/commands/MCMC_GT.html">MCMC_GT</a></td>
+                <td ><a href="/html/commands/MCMC_GT.html">MCMC_GT</a></td>
                 <td>Bayesian MCMC posterior estimation of phylogenetic networks given a list of gene tree topologies.</td>
-                <td>3.6.0</td>
+                <td >3.6.0</td>
             </tr>
             <tr>
-                <td><a href="/html/commands/MLE_BiMarkers.html">MLE_BiMarkers</a></td>
+                <td ><a href="/html/commands/MLE_BiMarkers.html">MLE_BiMarkers</a></td>
                 <td>Maximum (pseudo-)likelihood estimation of phylogenetic networks given bi-allelic genetic markers (SNPs, AFLPs, etc).</td>
-                <td>3.6.4</td>
+                <td >3.6.4</td>
             </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_MPL.html">InferNetwork_MPL</a></td>
+                <td ><a href="/html/commands/InferNetwork_MPL.html">InferNetwork_MPL</a></td>
                 <td>Infers a phylogenetic network from gene trees under maximum pseudo-likelihood.</td>
-                <td>3.5.5</td>
+                <td >3.5.5</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_ML_Bootstrap.html">InferNetwork_ML_Bootstrap</a></td>
+                <td ><a href="/html/commands/InferNetwork_ML_Bootstrap.html">InferNetwork_ML_Bootstrap</a></td>
                 <td>Infers a phylogenetic network from gene trees under maximum likelihood with parametric bootstrap.</td>
-                <td>3.5.2</td>
+                <td >3.5.2</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_ML_CV.html">InferNetwork_ML_CV</a></td>
+                <td ><a href="/html/commands/InferNetwork_ML_CV.html">InferNetwork_ML_CV</a></td>
                 <td>Infers a phylogenetic network from gene trees under maximum likelihood with cross-validation.</td>
-                <td>3.5.2</td>
+                <td >3.5.2</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_ML.html">InferNetwork_ML</a></td>
+                <td ><a href="/html/commands/InferNetwork_ML.html">InferNetwork_ML</a></td>
                 <td>Infers a phylogenetic network from gene trees under maximum likelihood.</td>
-                <td>3.4.0</td>
+                <td >3.4.0</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_MP.html">InferNetwork_MP</a></td>
+                <td ><a href="/html/commands/InferNetwork_MP.html">InferNetwork_MP</a></td>
                 <td>Infers a phylogenetic network from gene trees under the MDC criterion.</td>
-                <td>3.4.0</td>
+                <td >3.4.0</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/InferNetwork_MP_Allopp.html">InferNetwork_MP_Allopp</a></td>
+                <td ><a href="/html/commands/InferNetwork_MP_Allopp.html">InferNetwork_MP_Allopp</a></td>
                 <td>Infers an allopolyploid network from gene trees under the MDC criterion.</td>
-                <td>3.8.3</td>
+                <td >3.8.3</td>
               </tr>
               <tr>
-                <td><a href="/html/commands/NetMerger.html">NetMerger</a></td>
+                <td ><a href="/html/commands/NetMerger.html">NetMerger</a></td>
                 <td>Merge subnetworks inferred by MCMC_SEQ or MCMC_BiMarkers to a full network.</td>
-                <td></td>
+                <td ></td>
               </tr>
               <tr>
                 <th class="tableDataBlue spacer"></th>
@@ -159,53 +165,176 @@
                 </th>
                 <th class="tableDataBlue spacer"></th>
                 
+              </tr>
               <tr>
-              <tr>
-                <td><a href="/html/commands/Infer_ST_Bootstrap.html">Infer_ST_Bootstrap</a></td>
+                <td ><a href="/html/commands/Infer_ST_Bootstrap.html">Infer_ST_Bootstrap</a></td>
                 <td>Infers a species tree using bootstrap with existing Infer_ST commands.</td>
-                <td>3.0.0</td>
+                <td >3.0.0</td>
               </tr>
               <tr>
-                  <td><a href="/html/commands/Infer_ST_DV.html">Infer_ST_DV</a></td>
+                  <td ><a href="/html/commands/Infer_ST_DV.html">Infer_ST_DV</a></td>
                   <td>Infers a species tree from gene trees using the "Democratic Vote" method.</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
               </tr>
               <tr>
-                  <td><a href="/html/commands/Infer_ST_GLASS.html">Infer_ST_GLASS</a></td>
+                  <td ><a href="/html/commands/Infer_ST_GLASS.html">Infer_ST_GLASS</a></td>
                   <td>Infers a species tree using the GLASS method of Mossel and Roch.</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
               </tr>
               <tr>
-                  <td><a href="/html/commands/Infer_ST_MC.html">Infer_ST_MC</a></td>
+                  <td ><a href="/html/commands/Infer_ST_MC.html">Infer_ST_MC</a></td>
                   <td>Infers a species tree from gene trees using greedy consensus (allows for gene trees with multiple alleles in species and for unrooted gene trees).</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
               </tr>
                 <tr>
-                  <td><a href="/html/commands/Infer_ST_MDC.html">Infer_ST_MDC</a></td>
+                  <td ><a href="/html/commands/Infer_ST_MDC.html">Infer_ST_MDC</a></td>
                   <td>Infers a species tree from gene tree topologies using the “Minimize Deep Coalescence” (MDC) criterion.</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
                 </tr>
                 <tr>
-                  <td><a href="/html/commands/Infer_ST_MDC_TIME.html">Infer_ST_MDC_TIME</a></td>
+                  <td ><a href="/html/commands/Infer_ST_MDC_TIME.html">Infer_ST_MDC_TIME</a></td>
                   <td>Infers a species tree from gene trees with coalescent times using the MDC criterion.</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
                 </tr>
                 <tr>
-                  <td><a href="/html/commands/Infer_ST_MDC_UR.html">Infer_ST_MDC_UR</a></td>
+                  <td ><a href="/html/commands/Infer_ST_MDC_UR.html">Infer_ST_MDC_UR</a></td>
                   <td>Infers a species tree from unrooted gene tree topologies using the MDC criterion.</td>
-                  <td>3.0.0</td>
+                  <td >3.0.0</td>
                 </tr>
                 <tr>
-                  <td><a href="/html/commands/GenCPLEX.html">GenCPLEX</a></td>
+                  <td ><a href="/html/commands/GenCPLEX.html">GenCPLEX</a></td>
                   <td>Generates CPLEX input for a species tree and a set of gene trees.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td ><a href="/html/commands/GenST.html">GenST</a></td>
+                  <td>Generates species tree topologies based on maximal sets of compatible clusters.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <th class="tableDataBlue spacer"></th>
+                  <th class="tableDataBlue">
+                  Methods for Analyzing Species Trees/Networks with Respect to Locus-specific Data
+                  </th>
+                  <th class="tableDataBlue spacer"></th>
+                  
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/CallIntroRate.html">CallIntroRate</a></td>
+                  <td>Quantifies the introgression probability for each reticulation branch in a given phylogenetic network.</td>
+                  <td >3.6.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/ExploreHypothesis_GibbsSampling.html">ExploreHypothesis_GibbsSampling</a></td>
+                  <td>Uses Gibbs Sampling to explore the hypothesis of the evolutionary history from a collection of gene trees.</td>
+                  <td >3.6.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/DeepCoalCount_network.html">DeepCoalCount_network</a></td>
+                  <td>Counts the number of extra lineages contributed by a phylogenetic network and a set of gene trees.</td>
+                  <td >3.3.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/DeepCoalCount_AlloppNet.html">DeepCoalCount_AlloppNet</a></td>
+                  <td>Counts the number of extra lineages contributed by an allopolyploid network and a set of gene trees.</td>
+                  <td >3.8.3</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/CalGTProb.html">CalGTProb</a></td>
+                  <td>Computes the likelihood of a phylogenetic network given a collection of gene trees.</td>
+                  <td >3.3.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/ProcessGT.html">ProcessGT</a></td>
+                  <td>Refines and roots gene trees with respect to a rooted binary species tree under the MDC criterion.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/RIATAHGT.html">RIATAHGT</a></td>
+                  <td>Infers a phylogenetic network from gene trees under the MDC criterion.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/CountCoal.html">CountCoal</a></td>
+                  <td>Computes the number of coalescent scenarios that can explain the incongruence observed between two trees.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/DeepCoalCount_tree.html">DeepCoalCount_tree</a></td>
+                  <td>Counts the number of extra lineages contributed by a species tree and a set of gene trees.</td>
                   <td>3.0.0</td>
                 </tr>
                 <tr>
-                  <td><a href="/html/commands/GenST.html">GenST</a></td>
-                  <td>Generates species tree topologies based on maximal sets of compatible clusters.</td>
+                    <th class="tableDataBlue spacer"></th>
+                    <th class="tableDataBlue">
+                    Methods for Simulating Locus Data on Phylogenetic Networks (and Trees)
+                    </th>
+                    <th class="tableDataBlue spacer"></th>   
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/SimGTinNetwork.html">SimGTinNetwork</a></td>
+                  <td>Simulates gene trees under the multispecies network coalescent (automates the 'ms' program on an arbitrary phylogenetic network).</td>
+                  <td >3.6.1</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/SimBiMarkersinNetwork.html">SimBiMarkersinNetwork</a></td>
+                  <td>Simulates bi-marker alleles under the multispecies network coalescent.</td>
+                  <td>3.6.1</td>
+                </tr>
+                <tr>
+                  <th class="tableDataBlue spacer"></th>
+                  <th class="tableDataBlue">
+                    CoalHMM Methods
+                  </th>
+                  <th class="tableDataBlue spacer"></th>
+                </tr>  
+                <tr>
+                  <td><a href="/html/commands/HmmCommand.html">HmmCommand</a></td>
+                  <td>Uses a hidden Markov to assign a species tree to each locus in data coming from a species network.</td>
+                  <td >3.5.4</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/VI_coalHMM.html">VI_coalHMM</a></td>
+                  <td>Black box variational inference of continuous parameters on a species tree under the coalescent with recombination using coalHMM.</td>
+                  <td>3.8.3</td>
+                </tr>
+                <tr>
+                  <th class="tableDataBlue spacer"></th>
+                  <th class="tableDataBlue">
+                    Characterizing and Comparing Phylogenetic Trees/Networks Based on Their Topologies
+                  </th>
+                  <th class="tableDataBlue spacer"></th>
+                </tr>  
+                <tr>
+                  <td><a href="/html/commands/Charnet.html">Charnet</a></td>
+                  <td>Computes the trees, tripartitions and clusters contained in a phylogenetic network.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/Cmpnets.html">Cmpnets</a></td>
+                  <td>Computes the distance between two phylogenetic networks based on their topologies.</td>
                   <td>3.0.0</td>
                 </tr>
-                
+                <tr>
+                  <td><a href="/html/commands/LCA.html">LCA</a></td>
+                  <td>Computes the least common ancestor of a group of nodes in a tree.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/MAST.html">MAST</a></td>
+                  <td>Computes a Maximum Agreement Subtree of a pair of trees.</td>
+                  <td>3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/SymmetricDifference.html">SymmetricDifference</a></td>
+                  <td>Computes the symmetric difference, also known as the Robinson-Foulds (RF) distance, between two trees.</td>
+                  <td >3.0.0</td>
+                </tr>
+                <tr>
+                  <td><a href="/html/commands/SummarizeNetworks.html">SummarizeNetworks</a></td>
+                  <td>Computes the common structures with their proportions given a set of networks (with their proportion).</td>
+                  <td>3.0.0</td>
+                </tr>
 
         </tbody>
         </table>
