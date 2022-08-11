@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Infer_ST_Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet">
+   
+  </head>
+
+<body class="htmlBody">
+    
+
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/tutorials.js" charset="utf-8"></script>
+
+  <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+  <!-- Load the element definition -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+
+  <div class="container" >
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+      <div>
+              <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <img width="250" height="125" src="/media/headerPhoto.png" >
+              </a>
+      </div>
+      <div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
+        <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
+        <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
+        <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
+        
+        <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
+      </ul>
+      </div>
+
+      <div class="col-md-3 text-end">
+      </div>
+
+    </header>
+  </div>
+
+  
+  <div class="container">
+    <!-- Do not set the `src` attribute -->
+    <zero-md>
+            <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+            <script type="text/markdown">
+
+# Infer_ST_Bootstrap
+
+## Description
+
+Infers the species tree using bootstrap with existing methods.
+
+## Usage
+
+```
+Infer_ST_BOOTSTRAP num [-s threshold] other_inferST_command
+```
+
+| Settings              |                                                                                |           |
+|-----------------------|--------------------------------------------------------------------------------|-----------|
+| num                   | The number of repetitions.                                                     | mandatory |
+| -s threshold          | Threshold value. If unspecified, defaults to 0.5.                              | optional  |
+| other_inferST_command | The command name (and parameters) for any other Phylonet InferST_XXXX command. | mandatory |
+
+
+
+## Example
+
+
+```
+#NEXUS
+ 
+BEGIN NETWORKS;
+ 
+Network g1 = ((((a:5,b:5):4,c:9):3,d:12):3,e:15);
+Network g2 = ((a:6,b:6):11,((c:12,e:12):2,d:14):3);
+Network g3 = ((a:8,c:8):7,((b:14,e:14):1,d:15));
+ 
+END;
+ 
+ 
+BEGIN PHYLONET;
+ 
+Infer_ST_BOOTSTRAP 3 -s .6 Infer_ST_MDC_Time (g1, g2, g3);
+ 
+END;
+```
+      </script>
+    </zero-md>
+</div>
+        
+                                  
+              
+    
+
+    <div class="container" height="150px" style="bottom:0;" >
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center" width="400px">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img width="75" height="37.5" src="/media/headerPhoto.png" >
+            </a>
+            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+          </ul>
+        </footer>
+     </div>
+  
+</main>
+
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+  
+</html>
