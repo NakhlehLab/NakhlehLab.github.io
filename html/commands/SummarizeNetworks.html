@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>SummarizeNetworks Tutorial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet">
+   
+  </head>
+
+<body class="htmlBody">
+    
+
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/tutorials.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+  <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+  <!-- Load the element definition -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+  <div class="container" >
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+
+      <div>
+              <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <img width="250" height="125" src="/media/headerPhoto.png" >
+              </a>
+      </div>
+      <div>
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
+        <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
+        <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
+        <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
+        
+        <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
+      </ul>
+      </div>
+
+      <div class="col-md-3 text-end">
+      </div>
+
+    </header>
+  </div>
+
+    <div class="container">
+        <!-- Do not set the `src` attribute -->
+        <zero-md>
+                <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                <script type="text/markdown">
+
+# SummarizeNetworks
+
+## Description
+
+The method can summarize common structures with their proportion from networks based on your selected summarizing mode.
+  
+Input: a set of networks (with their proportion or number) that have the same taxa. 
+Output: a set of common structures with their proportions.
+
+## Usage
+
+```
+SummarizeNetworks networks mode [-n] [-o]
+```
+
+| Settings      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |           |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| *networks*    | Comma delimited list of networks to summarize.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | mandatory |
+| *mode*        | A number in {1,2,3,4,5}. 1:  Displayed trees. Each tree is obtained from the network by removing one  of the two reticulation edges for each reticulation node. 2:  Backbone networks. Each backbone network is obtained by removing one of  the two reticulation edges for each node in a subset of the set of all  reticulation nodes. 3: Tree decomposition. A network is decomposed  at each reticulations. Taxon names cannot include character "*" or "#"  in this mode. 4: Tripartition. This tripartition is different from the one in Charnet. X  : P1\|P2, where X is the set of taxa that are under this reticulation  node, and P1 and P2 are two sets of taxa that are under the two siblings  of this reticulation node, respectively. 5: Major trees.  If the input networks only contain topologies without inheritance  probabilities, the user should not use this mode. Each major tree is  obtained from the network by removing for each reticulation node the  reticulation edge with the lower inheritance probability. | mandatory |
+| -n            | If specified, normalize input networks proportion, make their summation to  be 1. Default value is false, which means no normalization.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | optional  |
+| -o outputFile | If specified, the output file is outputFile. The default outputFile is SummarizeNetworks.txt under the user's directory.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | optional  |
+
+  
+
+
+## Examples
+
+
+#### With Proportions 
+
+```
+#NEXUS
+  
+BEGIN NETWORKS;
+  
+Network net1=[&W 0.33]((((Ash,(At,TaD)))X#H1,Y#H2),((((Asp,TaB),X#H1),((TaA,Tu),Tm)))Y#H2); 
+Network net2=[&W 0.33]((((Ash,(At,TaD)))X#H1,((Asp,TaB),((((TaA,Tu),Tm),X#H1))Y#H2)),Y#H2);
+Network net3=[&W 0.2]((((((Ash,(At,TaD)))X#H1,((Asp,TaB))Y#H2),((TaA,Tu),Tm)),X#H1),Y#H2);
+Network net4=[&W 0.07]((((((Ash,(At,TaD)))X#H1,((Asp,TaB))Y#H2),((TaA,Tu),Tm)),Y#H2),X#H1);
+Network net5=[&W 0.05]((((Ash,(At,TaD)))X#H1,((Asp,TaB))Y#H2),(((TaA,Tu),Tm),(X#H1,Y#H2)));
+END;
+BEGIN PHYLONET;
+  
+SummarizeNetworks (net1,net2,net3,net4,net5) 2 -n;
+  
+END;
+```
+
+#### Without Proportions 
+```
+#NEXUS
+  
+BEGIN NETWORKS;
+Network net1=((L:1.0)#H1:1.0::0.6775044779684056,((F:1.0,((K:1.0,(P:1.0)#H3:1.0::0.6753614616352684):1.1244258148662702)#H2:1.5700202905515581::0.6135769094686397):5.938615025704547,(((#H1:1.0::0.3224955220315944)#H4:1.0::0.7475384042289634,(#H2:5.938905009947807::0.38642309053136026,(C:1.0,#H4:1.0::0.2524615957710365):5.913620320644154):5.912120605817229):5.94018448223261,(#H3:1.0::0.32463853836473155,O:1.0):2.8047977192873814):5.903825230963656):5.93953170330228);
+Network net2=((L:1.0)#H1:1.0::0.697819639034568,((F:1.0,((K:1.0,(P:1.0)#H3:1.0::0.6745110428348149):1.1100661168406565)#H2:1.7082666741217403::0.6142669809548641):5.931845445367439,((#H3:1.0::0.3254889571651851,O:1.0):2.4833570014727955,(#H2:5.929217003496626::0.3857330190451359,((#H1:1.0::0.302180360965432)#H4:1.0::0.017142685450424855,(C:1.0,#H4:1.0::0.9828573145495751):5.91361935198872):5.9135981328244815):5.925654204620761):5.9260404685243415):5.937215530824061);
+Network net3=((L:1.0)#H1:1.0::0.697176914245199,(((((K:1.0,(P:1.0)#H3:1.0::0.6779314464962011):1.0884181724604034)#H2:5.934653324530301::0.38618142938381267,(C:1.0,#H1:1.0::0.302823085754801):5.9084237144406755):5.9397822589449465,((#H3:1.0::0.3220685535037989)#H4:1.0::0.017142685450424855,(#H4:1.0::0.9828573145495751,O:1.0):0.00808293691880342):2.7714903993551276):5.904173024132873,(#H2:2.012640927894127::0.6138185706161874,F:1.0):5.904657745927051):5.937801402829414);
+Network net4=((L:1.0)#H1:1.0::0.6712728892686329,(((#H1:1.0::0.32872711073136707,(((K:1.0,(P:1.0)#H3:1.0::0.6751112732063029):1.1267080674211265)#H2:5.938355167858189::0.38140833857114587,C:1.0):5.911170667122007):5.939107582827078,(#H3:1.0::0.32488872679369707,O:1.0):2.860440724320893):5.926093346898221,(F:1.0,#H2:1.6125835293541366::0.6185916614288541):5.9381572434685745):5.939517506695277);
+Network net5=((L:1.0)#H1:1.0::0.6966745198922524,((F:1.0,(((P:1.0)#H3:1.0::0.683073175568802,K:1.0):1.0524332659314857)#H2:2.5623058987490537::0.6104433712226643):5.906687726566634,((#H3:1.0::0.316926824431198,O:1.0):3.4112578018682806,(#H2:5.937243226797915::0.38955662877733566,(C:1.0,#H1:1.0::0.3033254801077477):5.909482135710924):5.909111928318673):5.9042519002108):5.9371033552041155);
+END;
+BEGIN PHYLONET;
+  
+SummarizeNetworks (net1,net2,net3,net4,net5) 1 -n;
+  
+END;
+```
+
+## Command References
+
+  * Zhen Cao, Xinhao Liu, Huw A. Ogilvie, Zhi Yan, and Luay Nakhleh. Practical Aspects of Phylogenetic Network Analysis Using PhyloNet. 
+          </script>
+        </zero-md>
+    </div>
+      
+    
+
+        
+                                  
+              
+    
+
+    <div class="container" height="150px" style="bottom:0;" >
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center" width="400px">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img width="75" height="37.5" src="/media/headerPhoto.png" >
+            </a>
+            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+          </ul>
+        </footer>
+     </div>
+  
+</main>
+
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+  
+</html>
