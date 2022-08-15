@@ -95,38 +95,76 @@
 
        <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'use')">Usage and Documentation</button>
+          <button class="tablinks" onclick="openTab(event, 'use')">Overview</button>
           <button class="tablinks" onclick="openTab(event, 'works')">Academic Work</button>
           <button class="tablinks" onclick="openTab(event, 'ack')">Acknowledgments</button>
+          <button class="tablinks" onclick="openTab(event, 'download')">Download Instructions</button>
         </div>
 
         <!-- Tab content -->
         <div id="use" class="tabcontent">
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/PhyloNet+3+General+Overview">General Overview</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands">Commands List</a></li>
-          </ul>
+          <p class="tabText">
+            Over decades of research, scientists and medical practitioners have provided incontrovertible evidence that cancer and many other devastating diseases originate in cells that have lost the ability to regulate their own behavior. Aberrations in both the cellular signaling network, responsible for controlling the cells response to external stimuli, and the gene transcription network, responsible for managing protein levels within the cell, have been implicated in numerous disease processes. As a result, the biological and medical research communities have committed themselves to gaining a better understanding of these networks and the mechanisms by which diseases develop in them.
+
+            The aim of the PathwayOracle project is to deliver a software system capable of rapidly testing experimental hypotheses and conducting other predictive analyses on cellular signaling networks. Unlike other approaches which require deeply parameterized models, PathwayOracle will provide biologists with accurate estimates of cellular behavior using a minimally detailed model. Such models can be constructed quickly and easily from biological literature and curated databases. As a result, our approach allows biologists to gain insights quickly into their signaling systems of interest
+            
+            In the spirit of these goals, all of PathwayOracle's present and envisioned features require only the signaling network topology. We invite you to try PathwayOracle and hope that its capabilities deliver insights that will prove useful to your research.
+            
+            As the software is under active development, we frequently add and update features. Please check back for new versions. If you have feedback, bug reports, or ideas for future features, please contact us. 
+          </p>
           
         </div>
 
         <div id="works" class="tabcontent">
-          <h3>Academic Work</h3>
-          <ul>
-            <li><a href="/media/article1.pdf">Advances in Computational Methods for Phylogenetic Networks in the Presence of Hybridization</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://www.biorxiv.org/content/10.1101/746362v1">Practical Aspects of Phylogenetic Network Analysis Using PhyloNet</a></li>
-          </ul>
+          <p class="tabText">
+          If you use PathwayOracle in published research, please use the following citation for the tool:
+
+          D. Ruths, L. Nakhleh, and P. T. Ram. Rapidly exploring structural and dynamic properties of signaling networks using PathwayOracle. BMC Systems Biology, 2:76, 2008. (open access)
+          D. Ruths, M. Muller, J. T. Tseng, L. Nakhleh, and P. T. Ram. The Signaling Petri Net-Based Simulator: A Non-Parametric Strategy for Characterizing the Dynamics of Cell-Specific Signaling Networks. PLoS Computational Biology, 4(2):e1000005, 2008. 
+          </p>
 
           
         </div>
 
         <div id="ack" class="tabcontent">
-          
-          
+          <p class="tabText">
+          This work was made possible in part through support from a Seed Grant awarded to Luay Nakhleh from the Gulf Coast Center for Computational Cancer Research, funded by John and Ann Doerr Fund for Computational Biomedicine, as well as by Grant Number R01CA125109 from the National Cancer Institute. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Cancer Institute or the National Institutes of Health.
+          </p>
         </div> 
+
+        <div id="download" class="tabcontent">
+          <p class="tabText">
+            PathwayOracle is implemented in Python and is available in source form. It has the following dependencies which, depending on your platform, should be installed in two different ways.
+
+    Python 2.4
+    Numpy
+    Matplotlib
+    PIL 
+
+Mac OS X Install
+The Enthought distribution of Python for Mac includes all of PathwayOracle's dependencies. Therefore, to install and run PathwayOracle under Mac OS X:
+
+    download and install the Enthought distribution of Python for Mac from here,
+    download and extract the source for PathwayOracle,
+    follow the instructions in the README included in the downloaded source. 
+
+Windows Install
+The Enthought distribution of Python for Windows includes all of PathwayOracle's dependencies. Therefore, to install and run PathwayOracle on a Windows machine:
+
+    download and install the Enthought distribution of Python for Windows from here,
+    download and extract the source for PathwayOracle,
+    follow the instructions in the README included in the downloaded source. 
+
+Installing on Other Platforms
+Python will run on Python version 2.4 or greater. Additionally, it has dependencies on the following Python libraries:
+
+    numpy
+    matplotlib/pylab
+    PIL 
+
+Once these dependencies are installed, download the source distribution from here. Extract the source and follow instructions in the included README file.
+          </p>
+        </div>
     </div>
      
     

@@ -50,7 +50,7 @@
 
 <main class="mainContainer" height="100%">
   <script src="/js/nav.js" charset="utf-8"></script>
-  
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   
   <div class="container" >
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -96,54 +96,52 @@
 
        <!-- Tab links -->
         <div class="tab">
-          <button class="tablinks" onclick="openTab(event, 'use')">Usage and Documentation</button>
+          <button class="tablinks" onclick="openTab(event, 'use')">Overview</button>
           <button class="tablinks" onclick="openTab(event, 'works')">Academic Work</button>
           <button class="tablinks" onclick="openTab(event, 'ack')">Acknowledgments</button>
         </div>
 
         <!-- Tab content -->
-        <div id="use" class="tabcontent">
-          <p class="tabText">PhyloGenPy is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic trees, and hence the PhyloPy package includes several tools for phylogenetic tree analysis.</p>
-          <br>
+        <div id="use" class="tabcontent" style="display:block !important;">
+          <!--<p class="tabText">PhyloGenPy is a tool designed mainly for analyzing, reconstructing, and evaluating reticulate (or non-treelike) evolutionary relationships, generally known as phylogenetic networks. Various methods that we have developed make use of techniques and tools from the domain of phylogenetic trees, and hence the PhyloPy package includes several tools for phylogenetic tree analysis.</p>-->
+          <p class="tabText"> 
+          PhyloGenPy is a Python library that is currently in development. A first release is targeted for early 2023.
+          This library is designed to be an improvement on PhyloNet, as it will include much of the commonly used inference tools first
+          implemented in PhyloNet. New emphasis will be placed on algorithmic performance and ease of use, while still maintaining 
+          PhyloNet's "network first" philosophy.
+
+          Since PhyloGenPy will be released on <a href="https://pypi.org/">PyPi</a>, installing will be simply
+          using pip on the command line like so:
+          </p>
+          <pre class="prettyprint" style="background-color:gainsboro; border-radius:4px; width:40%; height: 35px;
+          overflow: hidden;
+          border: none !important;;">
+            > pip install phylogenpy
+          </pre>
+
+          <p class="tabText"> Full documentation can be found here: </p>
           <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/PhyloNet+3+General+Overview">General Overview</a></li>
+            <li><a href="/html/phylogenpyDocs.html">Docs</a></li>
           </ul>
+          <p class="tabText"> Tutorials for commonly used PhyloGenPy constructs can be found here: </p>
           <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands">Commands List</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://wiki.rice.edu/confluence/display/PHYLONET/Troubleshooting">Troubleshooting</a></li>
+            <li><a href="/html/tutorials.html">Tutorials</a></li>
           </ul>
           
         </div>
 
         <div id="works" class="tabcontent">
-          <ul>
-            <li><a href="/media/article1.pdf">Advances in Computational Methods for Phylogenetic Networks in the Presence of Hybridization</a></li>
-          </ul>
-          <ul>
-            <li><a href="https://www.biorxiv.org/content/10.1101/746362v1">Practical Aspects of Phylogenetic Network Analysis Using PhyloNet</a></li>
-          </ul>
-                
-
+          <p class="tabText">Any publications involving algorithms used by PhyloGenPy will be cited here.</p>
           
         </div>
 
         <div id="ack" class="tabcontent">
           
 
-    <p class="tabText"> <strong>If you use PhyloGenPy, please cite</strong> </p>
-        <blockquote class="tabText" style="margin-left:3em"> Wen, Y. Yu, J. Zhu, L. Nakhleh (2018) Inferring phylogenetic networks using PhyloNet, Systematic Biology 67(4): 735-740.
-        C. Than, D. Ruths, L. Nakhleh (2008) PhyloNet: A software package for analyzing and reconstructing reticulate evolutionary histories, BMC Bioinformatics 9:322.</blockquote>
-        <p class="tabText">as well as other the publications relevant to the method being used.</p>
+    <p class="tabText"> 
+      <strong>If you use PhyloGenPy, please cite</strong> </p>
+        <blockquote class="tabText" style="margin-left:3em"> No Citations Yet</p>
 
-
-
-    <p class="tabText"> <strong> A special thank you:</strong></p>
-    <p class="tabText">Development of the various functionalities in PhyloNet/Py has been generously supported by DOE (DE-FG02-06ER25734), NIH (R01LM009494), and NSF (CCF-0622037, DBI-1062463, CCF-1302179, CCF-1514177) grants and Sloan and Guggenheim fellowships to Luay Nakhleh. </p>
-
-
-          
         </div> 
     </div>
      
