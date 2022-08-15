@@ -210,3 +210,24 @@
         width:auto;
         height:inherit;
 }
+
+.footerLink{
+        height:30px important!;
+        width:100%;
+        padding:20px;
+}
+
+.footLink{
+        color:#4275d5c3;
+        float: right;
+        font-size: 25px;
+}
+
+.footLink:hover{
+        text-decoration: none;
+        font-weight: bold;
+}
+
+.pastPeopleTable{
+        text-align: center;
+}

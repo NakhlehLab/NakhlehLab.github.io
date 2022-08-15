@@ -42,6 +42,7 @@
     <link href="/css/background.css" rel="stylesheet">
     <link href="/css/tables.css" rel="stylesheet">
     <link href="/css/people.css" rel="stylesheet">
+    <link href="/css/publications.css" rel="stylesheet">
    
   </head>
 
@@ -83,7 +84,7 @@
 
 
 
-  
+  <div id="currentPeople" style="display:block;">
   <div class="container" style="text-align:center">
     <h2>Dr. Luay Nakhleh</h2>
   </div>
@@ -344,7 +345,169 @@
     </div>
     
   </div>
+  </div>
 
+  <div id="pastPeople" style="display:none;">
+
+    <div class="container">
+      <div class="centered">
+      <table class="pastPeopleTable">
+        <colgroup>
+          <col span="1" style="width: 33%;">
+          <col span="1" style="width: 34%;">
+          <col span="1" style="width: 33%;">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th class="tableDataBlue spacer"></th>
+            <th class="tableDataBlue" style="font-size:35px;">
+              Past Team Members
+            </th>
+            <th class="tableDataBlue spacer"></th>
+          </tr>
+          <tr>
+              <th class="tableDataBlue">Name</th>
+              <th class="tableDataBlue">Joined</th>
+              <th class="tableDataBlue">Role</th>
+          </tr>
+          <tr>
+            <td> Xian Fan </td>
+            <td> 2018 </td>
+            <td> Post-Doc </td>
+          </tr>
+          <tr>
+            <td> Hamim Zafar </td>
+            <td> 2018 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Hunter Tidwell </td>
+            <td> 2017 </td>
+            <td> Masters Student </td>
+          </tr>
+          <tr>
+            <td> Yaxuan Wang </td>
+            <td> 2016 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Jiafan Zhu </td>
+            <td> 2016 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Ryan Elworth </td>
+            <td> 2014 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Peng Du </td>
+            <td> 2014 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Yun Yu </td>
+            <td> 2014 </td>
+            <td> Post-Doc </td>
+          </tr>
+          <tr>
+            <td> Jianrong Dong </td>
+            <td> 2012 </td>
+            <td> Post-Doc </td>
+          </tr>
+          <tr>
+            <td> Kevin Liu</td>
+            <td> 2011 </td>
+            <td> Post-Doc </td>
+          </tr>
+          <tr>
+            <td> Natalie Berestovsky </td>
+            <td> 2013 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Jeff Kilpatrick </td>
+            <td> 2009 </td>
+            <td> Masters Student </td>
+          </tr>
+          <tr>
+            <td> Hyun Jung Park</td>
+            <td> 2012 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Nikola Ristic </td>
+            <td> 2014 </td>
+            <td> Masters Student </td>
+          </tr>
+          <tr>
+            <td> Derek Ruths </td>
+            <td> 2009</td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Troy Ruths </td>
+            <td> 2014 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Cuong Than </td>
+            <td> 2009 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Yun Yu </td>
+            <td> 2014 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Wanding Zhou </td>
+            <td> 2013 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Yun (Angela) Zhu </td>
+            <td> 2014 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Dan Ye </td>
+            <td> 2016 </td>
+            <td> Masters Student </td>
+          </tr>
+          <tr>
+            <td> Dingqiao Wen </td>
+            <td> 2017 </td>
+            <td> PhD Student </td>
+          </tr>
+          <tr>
+            <td> Lee Chen </td>
+            <td> 2018 </td>
+            <td> Masters Student </td>
+          </tr>
+
+        </tbody>
+      </table>
+      </div>
+  </div>
+</div>
+
+  <!-- <div class="container footerLink">
+    <a class="footLink" href="/html/pastPeople.html">Past Members &#8594</a>
+  </div> -->
+<br>
+<br>
+
+  <div class="container">
+    <div class="centeredPagination">
+      <div class="pagination">
+        <a onclick=PrevPeople() href="#">&laquo;</a>
+        <a id="cur" onclick="SwitchPeople('pastPeople')" class="active" href="#">Current Members</a>
+        <a id="past" onclick="SwitchPeople('currentPeople')" href="#">Past Members</a>
+        <a onclick=NextPeople() href="#">&raquo;</a>
+      </div> 
+    </div>
+  </div>
 
     <div class="container" height="150px" style="bottom:0;" >
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

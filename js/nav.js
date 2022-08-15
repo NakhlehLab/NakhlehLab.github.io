@@ -170,3 +170,58 @@ function sizeIt(){
         //element2.style.height = height*.5;
         
 }
+
+
+function SwitchPeople(slideID){
+        //console.log("switching people")
+        if(slideID == "currentPeople"){
+                // console.log("matched currentPeople");
+                var peoplePage = document.getElementById("currentPeople");
+                peoplePage.style.display = "none";
+                peoplePage.className = " ";
+                var newPage = document.getElementById("pastPeople");
+                newPage.style.display = "block";
+                newPage.className = "active";
+
+                var curLink = document.getElementById("past");
+                curLink.className = "active";
+                var oldLink = document.getElementById("cur");
+                oldLink.className = " ";
+
+        }else if(slideID == "pastPeople"){
+                // console.log("matched pastPeople");
+                var peoplePage = document.getElementById("pastPeople");
+                peoplePage.style.display = "none";
+                peoplePage.className = " ";
+                var newPage = document.getElementById("currentPeople");
+                newPage.style.display = "block";
+                newPage.className = "active";
+
+
+                var curLink = document.getElementById("cur");
+                curLink.className = "active";
+                var oldLink = document.getElementById("past");
+                oldLink.className = " ";
+        }
+}
+
+function NextPeople(){
+        
+        var cur = document.getElementById("currentPeople");
+        console.log(cur.style.display);
+        if(cur.style.display == "block"){
+                console.log("switching away from currentPeople");
+                SwitchPeople("currentPeople");
+        }
+}
+
+function PrevPeople(){
+
+        var cur = document.getElementById("pastPeople");
+        console.log(cur.style.display);
+        if(cur.style.display == "block"){
+                console.log("switching away from pastPeople");
+                SwitchPeople("pastPeople");
+        }
+
+}
