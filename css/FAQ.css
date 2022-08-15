@@ -1,17 +1,17 @@
 .q{
         color:#4275d5b3;
         font-size: 30px;
-        background-color: transparent;
-        width:40%;
+        background-color: rgb(232, 232, 232);
+        width:100%;
 }
 
 .questionP{
         color:#4275d5b3;
         font-size: 20px;
-        border: 1px solid #b2c7ed;
-        background-color: white;
+        /* border: 1px solid #b2c7ed; */
+        /* background-color: white; */
         text-align: center;
-        transition: 0.5s; 
+        /* transition: 0.5s;  */
 }
 
 
@@ -26,6 +26,7 @@
 details > summary {
         cursor: pointer;
         padding: .5rem 1rem;
+        border-bottom: 4px solid #4275d5b3;
 }
       
 details > summary > * {
