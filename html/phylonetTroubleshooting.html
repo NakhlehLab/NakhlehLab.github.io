@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dr. Luay Nakhleh Research Group</title>
+    <title>Troubleshooting</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -52,6 +52,13 @@
 <main class="mainContainer">
   <script src="/js/nav.js" charset="utf-8"></script>
   <script src="/js/tutorials.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+  <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+  <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+  <!-- Load the element definition -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
   <div class="container" >
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -81,66 +88,75 @@
   </div>
 
     <div class="container">
-      <h1 style="text-align:center;"> PhyloGenPy Tutorials</h1>
-      <br>
-        <div class="grid-container-tutorial3">
+        <!-- Do not set the `src` attribute -->
+        <zero-md>
+                <!-- Write your markdown inside a `<script type="text/markdown">` tag -->
+                <script type="text/markdown">
+# Troubleshooting Common Problems:
 
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/networkTutorial.html">Network and Node Classes</a>
-          </div>
+### Outdated Java version
+  
 
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/treeSim.html"> Tree Simulation</a>
-          </div>
+``` 
+Exception in thread "main" java.lang.UnsupportedClassVersionError: edu/rice/cs/bioinfo/programs/phylonet/Program 
+: Unsupported major.minor version 51.0 
+```
+  
 
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/seqIO.html">Sequence Data and I/O</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink"> Bayesian Inference/Metropolis Hastings</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/phylogenpyDocs.html"> Complete Documentation </a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink"> TBD</a>
-          </div>
+Solution: 
+* Update your Java to 1.7.0 or later
+  * To check your Java version, type "java -version" on your command line. 
+  * To download Java 1.7, please go to website http://www.java.com/en/download/.
+  * To link to the new downloaded Java 1.7, for mac, try these two commands from command line: 
+    * ```sudo rm /usr/bin/java ```
+    * ```sudo ln -s /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java /usr/bin```
 
 
-        </div>
+
+### Wrong format of gene trees
+
+If your gene trees have support values as node labels, PhyloNet cannot read them 
+correctly. See Rich Newick Format for the format of phylogenies that PhyloNet reads. 
+For example, if your gene tree is ```(((A:1.0,B:1.0)100:1.0,(C:1.0,D:1.0)100:1.0)90:1.0,E:1.0)```, 
+PhyloNet will read the support values as the names of nodes so that you will get error indicated below
+
+```
+Duplicate node 100
+```
+
+Solution: Download the executable <a href="/media/TreeConversion.jar"> TreeConversion.jar </a> and run it on your gene trees. 
+
+TreeConversion runs from command line as follows. It takes two parameters, including 
+inputFile which contains your gene trees and outputFile which is the file for the resulting gene trees.
+  
+``` 
+>java -jar PATH_TO_JAR/TreeConversion.jar inputFile outputFile 
+```
+
+          
+### Not enough memory
+
+Some commands require a large amount of memory, like InferNetwork_ML. If your dataset 
+is large, you might run into memory issue indicated below:
+  
+```
+java.lang.OutOfMemoryError: Java heap space
+ ```
+  
+
+Solution: Increase the memory by using -Xmx.
+
+When you launch PhyloNet from command line, add -Xmx followed by the memory size you want to allocated to Java. 
+For example, if you want to increase the memory to 4G for running PhyloNet, run the following command
+
+``` 
+>java -jar -Xmx4G PATH/jar/PhyloNet_X.Y.Z.jar script.nex 
+```
+
+                </script>
+        </zero-md>
     </div>
-
-    <br>
-    <div class="container">
-      <h1 style="text-align:center;"> PhyloNet Tutorial</h1>
-      <br>
-        <div class="grid-container-tutorial3">
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/phylonetOverview.html">General Overview</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/phylonetTutorial.html">Main Usage</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/phylonetCommands.html">Commands List</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/gxrf.html">G-XRF Tutorial</a>
-          </div>
-
-          <div class="grid-item-tutorial">
-            <a class="tutorialLink" href="/html/phylonetTroubleshooting.html">PhyloNet Troubleshooting</a>
-          </div>
-        </div>
-    </div>
-     
+      
     
 
         

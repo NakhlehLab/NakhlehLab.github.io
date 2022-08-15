@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>PhyloNet Overview</title>
+    <title>PhyloNet Tutorial</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -116,15 +116,15 @@ Acquire the current release of PhyloNet by downloading the most recent version o
                         
 ### Installing the file
                         
-Place the jar file in the desired installation directory. The remainder of this document assumes that it is located in directory $PHYLONET_DIRECTORY. Installation is now complete. In order to run PhyloNet, you must execute the file PhyloNet_X.Y.Z.jar, as described in the next section.
+Place the jar file in the desired installation directory. The remainder of this document assumes that it is located in directory $PHYLONET_PATH. Installation is now complete. In order to run PhyloNet, you must execute the file PhyloNet_X.Y.Z.jar, as described in the next section.
                         
 # Basic Usage
                         
 The PhyloNet tool is executed by typing the following command into your console:
 ```
-java -jar $PHYLONET_DIRECTORY/PhyloNet_X.Y.Z.jar script.nex
+java -jar $PHYLONET_PATH/PhyloNet_X.Y.Z.jar script.nex
 ```
-Where $PHYLONET_DIRECTORY is the directory of jar file PhyloNet_X.Y.Z.jar, and script.nex is the NEXUS file containing the commands to be executed.
+Where $PHYLONET_PATH is the directory of jar file PhyloNet_X.Y.Z.jar, and script.nex is the NEXUS file containing the commands to be executed.
                         
 ### Scoring a candidate species phylogeny
                         
@@ -137,25 +137,25 @@ Where $PHYLONET_DIRECTORY is the directory of jar file PhyloNet_X.Y.Z.jar, and s
 ### Inferring a species phylogeny:
                         
 1. Maximum parsimony:
-  * Inferring a species tree (ILS): Infer_ST_MDC, Infer_ST_MDC_UR
-  * Inferring a species tree/network (ILS+introgression): InferNetwork_MP
+  * Inferring a species tree (ILS): [Infer_ST_MDC](/html/commands/Infer_ST_MDC.html), [Infer_ST_MDC_UR](/html/commands/Infer_ST_MDC_UR.html)
+  * Inferring a species tree/network (ILS+introgression): [InferNetwork_MP](/html/commands/InferNetwork_MP.html)
 2. Maximum likelihood:
-  * Inferring a species tree/network (ILS+introgression): InferNetwork_ML
-  * Inferring a species tree/network (ILS+introgression) with cross-validation: InferNetwork_ML_CV
+  * Inferring a species tree/network (ILS+introgression): [InferNetwork_ML](/html/commands/InferNetwork_ML.html)
+  * Inferring a species tree/network (ILS+introgression) with cross-validation: [InferNetwork_ML_CV](/html/commands/InferNetwork_ML_CV.html)
 3. Maximum pseudo-likelihood:
-  * Inferring a species tree/network (ILS+introgression): InferNetwork_MPL
+  * Inferring a species tree/network (ILS+introgression): [InferNetwork_MPL](/html/commands/InferNetwork_MPL.html)
 4. Bayesian:
-  * Inferring a species tree/network (ILS+introgression): MCMC_GT
-  * Inferring a species tree/network (ILS+introgression) from multilocus data: MCMC_SEQ
-  * Inferring a species tree/network (ILS+introgression) from bi-allelic marker data: MCMC_BiMarkers
+  * Inferring a species tree/network (ILS+introgression): [MCMC_GT](/html/commands/MCMC_GT.html)
+  * Inferring a species tree/network (ILS+introgression) from multilocus data: [MCMC_SEQ](/html/commands/MCMC_SEQ.html)
+  * Inferring a species tree/network (ILS+introgression) from bi-allelic marker data: [MCMC_BiMarkers](/html/commands/MCMC_BiMarkers.html)
 5. Larger data sets:
-  * Inferring a species tree/network (ILS+introgression) by divide-and-conquer: NetMerger
+  * Inferring a species tree/network (ILS+introgression) by divide-and-conquer: [NetMerger](/html/commands/NetMerger.html)
   * Inferring a species tree/network (ILS+introgression) while fixing the start tree topology: InferNetwork_MPL (-fs) and InferNetwork_MP (-fs)
 
 ### Comparing and Summarizing
 1. Summarizing networks: SummarizeNetworks
                         
-### For other tools in PhyloNet, please see [here](https://wiki.rice.edu/confluence/display/PHYLONET/List+of+PhyloNet+Commands) for a full list.
+### For other tools in PhyloNet, please see [here](/html/phylonetCommands.html) for a full list.
                         
 # Illustrating the Various Inference Methods in PhyloNet
                         
