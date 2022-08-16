@@ -26,3 +26,21 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 } 
+
+
+function setHeight(id, newheight){
+  var details = document.getElementById("tut" + id.toString());
+  console.log(details);
+  if(!details.hasAttribute("open")){
+    console.log("HAS OPEN");
+    details.style.height = newheight.toString + "px";
+
+    var div = document.getElementById("TUT" + id.toString());
+    var properHeight = newheight - document.getElementById("sum"+ id.toString()).style.height;
+    div.style.height = properHeight.toString() + "px";
+  }
+  else{
+    var div = document.getElementById("TUT" + id.toString());
+    div.style.height = "0px";
+  }
+}

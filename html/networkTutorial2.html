@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>PhyloGenPy Network and Node Tutorial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet">
+   
+  </head>
+
+<body class="htmlBody">
+    
+
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/tutorials.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+  <br>
+  <br>
+
+    <div class="container">
+        <div class="TutorialBody">
+                <p>
+                        PhyloGenPy is a network first library, as there is no separate tree class that is required
+                        to be void of reticulations or hybridizations. Every network or tree is represented the same way, 
+                        as a directed acyclic graph (the DAG class). 
+                </p>
+                <p>
+                        Furthermore, the type of network is described by the type of node that it contains. Ultrametric networks
+                        are built using UltrametricNode objects, and standard networks are built with the standard Node object. 
+                </p>
+                <br>
+                <p>
+                        To create a network is very easy and straightforward:
+                </p>
+
+                <pre class="prettyprint">
+                        from phylogenpy.Graph import DAG
+
+                        #Can initialize as an empty graph
+                        tree = DAG()
+
+                        #To make it a network, simply add in individual nodes
+                        #one at a time, or pass in an array of nodes
+                        tree.addNodes(individualNodeObj)
+                        tree.addNodes(arrayOfNodeObjs)
+
+                        #same applies to adding edges
+                        tree.addEdges(individualEdge)
+                        tree.addEdges(arrayOfEdges) #Where an edge can just be [NodeObj, NodeObj2]
+
+                        #Now you have a complete network. To grab the newick representation...
+                        newickStr = tree.newickString() 
+
+                        #You can now visualize your graph with IcyTree
+                        
+                        #You can also initialize trees with node and edge lists 
+                        tree2 = DAG(edgeList) #add nodes later
+                        tree3 = DAG(nodes = nodeList) #add edges later
+                        tree4 = DAG(edgeList, nodeList) #add both now
+
+
+                        #To see a description of all the nodes in your graph:
+                        tree.printGraph()
+
+                </pre>
+
+                <br>
+                <p>
+                        A Node object has the following initialization parameters, all of which are 
+                        defaults:
+                </p>
+                <ol>
+                        <li>branchLen = None</li>
+                        <li>parNode = [ ]</li>
+                        <li>attr = { }</li>
+                        <li>isReticulation = False</li>
+                        <li>name = None</li>
+                </ol>
+                <pre class="prettyprint">
+                        from phylogenpy.Node import Node
+
+                        #Can initialize as an empty Node
+                        new_node = Node()
+
+                        #To set the branch length
+                        new_node.setBranchLength(num)
+                        
+                        #To get the branch length
+                        node_len = new_node.branchLen()
+
+                        #To add a parent (must be a Node or UltrametricNode obj)
+                        new_node.addParent(par_node)
+
+                        #or to set the parent
+                        new_node.setParent(par_node)
+
+                        #To set the name of a Node
+                        new_node.setName("Homo Sapiens")
+
+                        #To get the name of the Node
+                        node_name = new_node.getName()
+
+                        #To set a custom attribute
+                        new_node.setAttribute(attribute, value) #i.e "t" : 5.4
+                
+                        #To look up an attribute
+                        attr_val = new_node.attrLookup(attribute) #i.e "t" returns 5.4
+
+                        #To visualize the values contained in a Node obj 
+                        new_node.asString()
+
+                        #A more typical way to create a Node
+                        new_node2 = Node(parNode = [par_node], attr = {"t":5.4}, name = "species2")
+                        
+                </pre>
+        </div>
+    </div>
+    
+  
+</main>
+
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+  
+</html>

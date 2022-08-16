@@ -42,6 +42,7 @@
     <link href="/css/background.css" rel="stylesheet">
     <link href="/css/tables.css" rel="stylesheet">
     <link href="/css/tutorials.css" rel="stylesheet">
+    <link href="/css/FAQ.css" rel="stylesheet">
    
   </head>
 
@@ -80,7 +81,111 @@
     </header>
   </div>
 
-    <div class="container">
+
+  <div class="container">
+    <h1 style="font-size: 50px; color: #4275d5b3; letter-spacing: .05em;">PhyloGenPy Tutorials</h1>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <details id="tut0" class="tutorialDetails" onclick="setHeight(0, 800)">
+      <summary id="sum0" class="q"> Network and Node Classes </summary>
+      <div id="TUT0" height="100%" width="100%">
+        <embed type="text/html" src="/html/networkTutorial2.html"  width="100%" height="100%">  
+      </div>
+    </details>  
+  </div>
+  <br>
+  <div class="container">    
+    <details id="tut1" class="tutorialDetails" onclick="setHeight(1, 650)">
+            <summary id="sum1" class="q"> Generating Trees/Networks </summary>
+            <div id="TUT1" height="100%" width="100%">
+              <embed type="text/html" src="/html/treeSim2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+  <br>
+  <div class="container">
+    <details id="tut2" class="tutorialDetails" onclick="setHeight(2, 800)">
+            <summary id="sum2" class="q"> Sequence Data and I/O</summary>
+            <div id="TUT2" height="100%" width="100%">
+              <embed type="text/html" src="/html/seqIO2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+  <br>
+  <div class="container">
+    <details id="tut3">
+            <summary class="q"> Bayesian Inference/Metropolis Hastings </summary>
+            <p class="questionP">There is not a tutorial for this yet. Check back later!</p>
+    </details>   
+  </div>
+  <br>
+  <div class="container">
+    <details id="tut4" onclick="setHeight(4, 1000)">
+            <summary id="sum4" class="q"> Complete Documentation</summary>
+            <div id="TUT4" height="100%" width="100%">
+              <embed type="text/html" src="/html/phylogenpyDocs2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+
+  <br>
+  <br>
+
+  <div class="container">
+    <h1 style="font-size: 50px; color: #4275d5b3; letter-spacing: .05em;">PhyloNet Tutorials</h1>
+  </div>
+  <br>
+  <br>
+  <div class="container">
+    <details id="tut5" class="tutorialDetails" onclick="setHeight(5, 800)">
+      <summary id="sum5" class="q"> General Overview </summary>
+      <div id="TUT5" height="100%" width="100%">
+        <embed type="text/html" src="/html/phylonetOverview2.html"  width="100%" height="100%">  
+      </div>
+    </details>  
+  </div>
+  <br>
+  <div class="container">    
+    <details id="tut6" class="tutorialDetails" onclick="setHeight(6, 650)">
+            <summary id="sum6" class="q"> Main Usage </summary>
+            <div id="TUT6" height="100%" width="100%">
+              <embed type="text/html" src="/html/phylonetTutorial2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+  <br>
+  <div class="container">
+    <details id="tut7" class="tutorialDetails" onclick="setHeight(7, 800)">
+            <summary id="sum7" class="q"> Command List</summary>
+            <div id="TUT7" height="100%" width="100%">
+              <embed type="text/html" src="/html/phylonetCommands2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+  <br>
+  <div class="container" onclick="setHeight(8, 800)">
+    <details id="tut8">
+      <summary id="sum8" class="q"> G-XRF Tutorial</summary>
+      <div id="TUT8" height="100%" width="100%">
+        <embed type="text/html" src="/html/gxrf2.html"  width="100%" height="100%">  
+      </div>
+    </details>   
+  </div>
+  <br>
+  <div class="container">
+    <details id="tut9" onclick="setHeight(9, 1000)">
+            <summary id="sum9" class="q"> Troubleshooting </summary>
+            <div id="TUT9" height="100%" width="100%">
+              <embed type="text/html" src="/html/phylonetTroubleshooting2.html"  width="100%" height="100%">  
+            </div>
+    </details>   
+  </div>
+
+
+
+    <div class="container" style="display:none;">
       <h1 style="text-align:center;"> PhyloGenPy Tutorials</h1>
       <br>
         <div class="grid-container-tutorial3">
@@ -105,14 +210,11 @@
             <a class="tutorialLink" href="/html/phylogenpyDocs.html"> Complete Documentation </a>
           </div>
 
-
-
-
         </div>
     </div>
 
     <br>
-    <div class="container">
+    <div class="container" style="display:none;">
       <h1 style="text-align:center;"> PhyloNet Tutorial</h1>
       <br>
         <div class="grid-container-tutorial3">
