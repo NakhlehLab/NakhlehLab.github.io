@@ -52,10 +52,7 @@ function setHeight(id, newheight){
 
   if(!details.hasAttribute("open")){
     //details is not currently open on the click (but is about to be)
-    //so set the height
-    details.style.height = newheight.toString() + "px";
-
-    //also set the height of the intern div to be that height minus the
+    //so set the height to be that height minus the
     //height of the summary bar to avoid overflow
     var div = document.getElementById("TUT" + id.toString());
     var properHeight = newheight - document.getElementById("sum"+ id.toString()).style.height;
