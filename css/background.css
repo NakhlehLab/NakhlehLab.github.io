@@ -15,7 +15,8 @@
         grid-template-columns: auto auto auto;
         gap: 50px 70px;
         width:100%;
-        overflow-x: scroll;
+        overflow-x: auto;
+        padding:15px;
 }
 
 .grid-item {
