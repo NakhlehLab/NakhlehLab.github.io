@@ -94,45 +94,39 @@
                 <script type="text/markdown">
 
 # Cmpnets
-
-## Description
-
-Computes the distance between two phylogenetic networks, based on their topologies.
-Three measures are currently implemented:
-* Tree-based measure. (-m tree)
-* Tripartition-based measure. (-m tri)
-* Cluster-based measure. (-m cluster)
-* Reduction-based measure (Nakhleh, L. (2010)). (-m luay)
   
 
+### Description
+Computes the dissimilarity between two phylogenetic networks. Measures that are currently implemented are:
+* Tree-based measure: `-m tree`
+* Tripartition-based measure: `-m tri`
+* Cluster-based measure: `-m cluster`
+* Reduction-based measure (Nakhleh, L. (2010)): `-m luay`
+* Rooted Network Branch Score (rNBS) (Yakici, B. (2022)) measure: `-m rnbs`
+* Average Path Distance (APD) (Yakici, B. (2022)) measure: `-m apd`
+* Normalized Average Path Distance (NormAPD) (Yakici, B. (2022)) measure: `-m normapd`
+* Weighted Average Path Distance (WAPD) (Yakici, B. (2022)) measure: `-m wapd`
+* Normalized Weighted Average Path Distance (NormWAPD) (Yakici, B. (2022)) measure: `-m normwapd`
+  
+
+### Usage
 The networks must be specified in the Rich Newick Format.
-  
-
-This program returns three numbers: the false negative rate (roughly, the trees/tripartitions/clusters 
-found in the first network but not the second, divided by the number of trees/tripartitions/clusters 
-in the first network), the false positive rate (roughly, the trees/tripartitions/clusters found 
-in the second network but not the first, divided by the number of trees/tripartitions/clusters in the second network), 
-and the average of the two rates (their sum divided by 2).
-  
-
-If reduction-based measure is used, this program returns only one number: the distance.
-  
-## Usage
 
 ```
-cmpnets network_ident1 network_ident2 -m [tree|tri|cluster|luay] [resultOutputFile]
+cmpnets network_ident1 network_ident2 -m [tree|tri|cluster|luay|rnbs|apd|normapd|wapd|normwapd] [resultOutputFile]
 ```
-
-| Settings                        |                                                            |           |
-|---------------------------------|------------------------------------------------------------|-----------|
-| *network_ident1*                | The name of the first network.                             | mandatory |
-| *network_ident2*                | The name of the second network.                            | mandatory |
-| *-m* [tree\|tri\|cluster\|luay] | Characterization mode. One of tree, tri, cluster, or luay. | mandatory |
-| resultOutputFile                | Optional file destination for command output.              | optional  |
-
   
 
-## Example
+|Argument|Description|Mandatory|
+|--- |--- |--- |
+|network_ident1|The name of the first network.|mandatory|
+|network_ident2|The name of the second network.|mandatory|
+|-m [tree\|tri\|cluster\|luay\|rnbs\|apd\|normapd\|wapd\|normwapd]|Characterization mode.|mandatory|
+|resultOutputFile|Optional file destination for command output.|optional|
+  
+
+###  Examples
+  
 
 ```
 #NEXUS
@@ -151,14 +145,33 @@ Cmpnets net1 net2 -m cluster;
  
 END;
 ```
+  
 
-## Command References
+### Output
+If tree-based, tripartition-based, or cluster-based measures are used, then this program returns three numbers:
+* The false negative rate (roughly, the trees/tripartitions/clusters found in the first network but not the second, divided by the number of trees/tripartitions/clusters in the first network)
+* The false positive rate (roughly, the trees/tripartitions/clusters found in the second network but not the first, divided by the number of trees/tripartitions/clusters in the second network)
+* The average of the two rates (their sum divided by 2).
+  
 
-  * L. Nakhleh, J. Sun, T. Warnow, R. Linder, B.M.E. Moret, and A. Tholse. Towards the development of computational tools for evaluating phylogenetic network reconstruction methods. In Proc. 8th Pacific Symp. on Biocomputing (PSB03), pages 315--326. World Scientific Pub., 2003.
-  * B.M.E. Moret, L. Nakhleh, T. Warnow, C.R. Linder, A. Tholse, A. Padolina, J. Sun, and R. Timme. Phylogenetic networks: modeling, reconstructibility, and accuracy. IEEE/ACM Transactions on Computational Biology and Bioinformatics, 1(1):13--23, 2004.
-  * L. Nakhleh and L.S.Wang. Phylogenetic networks, trees, and clusters. In Proceedings of the 2005 International Workshop on Bioinformatics Research and Applications (IWBRA 05), pages 919--926, 2005. LNCS #3515.
-  * L. Nakhleh and L.S. Wang. Phylogenetic networks: properties and relationship to trees and clusters. LNCS Transactions on Computational Systems Biology II, pages 82--99, 2005. LNBI #3680.
-  * Nakhleh, L. (2010). A metric on the space of reduced phylogenetic networks. IEEE/ACM Transactions on Computational Biology and Bioinformatics (TCBB), 7(2), 218-222.
+If reduction-based measure is used, this program returns only one number:
+* The distance.
+  
+
+If rNBS, APD, or WAPD based measures are used, this program returns only one number:
+* The dissimilarity.
+  
+
+### References
+* L. Nakhleh, J. Sun, T. Warnow, R. Linder, B.M.E. Moret, and A. Tholse. Towards the development of computational tools for evaluating phylogenetic network reconstruction methods. In Proc. 8th Pacific Symp. on Biocomputing (PSB03), pages 315--326. World Scientific Pub., 2003.
+
+* B.M.E. Moret, L. Nakhleh, T. Warnow, C.R. Linder, A. Tholse, A. Padolina, J. Sun, and R. Timme. Phylogenetic networks: modeling, reconstructibility, and accuracy. IEEE/ACM Transactions on Computational Biology and Bioinformatics, 1(1):13--23, 2004.
+
+* L. Nakhleh and L.S.Wang. Phylogenetic networks, trees, and clusters. In Proceedings of the 2005 International Workshop on Bioinformatics Research and Applications (IWBRA 05), pages 919--926, 2005. LNCS #3515.
+
+* L. Nakhleh and L.S. Wang. Phylogenetic networks: properties and relationship to trees and clusters. LNCS Transactions on Computational Systems Biology II, pages 82--99, 2005. LNBI #3680.
+    
+* Nakhleh, L. (2010). A metric on the space of reduced phylogenetic networks. IEEE/ACM Transactions on Computational Biology and Bioinformatics (TCBB), 7(2), 218-222.
           </script>
         </zero-md>
     </div>
