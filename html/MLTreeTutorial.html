@@ -83,6 +83,8 @@
 
     <div class="container">
         <div class="TutorialBody">
+                <br>
+                <br>
                 <p>
                        Calculating the maximum likelihood tree from a multiple sequence alignment 
                        is easy, and only requires nexus files containing the taxa and sequences.
@@ -104,13 +106,13 @@
                         
 
                         # Default, with substitution model JC() and number of iterations = 3000
-                        ML_TREE(filenames, tree_output, log_output)
+                        likelihoods_1 = ML_TREE(filenames, tree_output, log_output)
 
                         # num_iter keyword set
-                        ML_TREE(filenames, tree_output, log_output, num_iter=5000)
+                        likelihoods_2 = ML_TREE(filenames, tree_output, log_output, num_iter=5000)
 
                         # submodel keyword set
-                        ML_TREE(filenames, tree_output, log_output, submodel=K2P(.4, .6))
+                        likelihoods_3 = ML_TREE(filenames, tree_output, log_output, submodel=K2P(.4, .6))
 
 
                 </pre>
