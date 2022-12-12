@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>PhyloGenPy Docs</title>
+    <title>PhyNetPy Docs</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -67,14 +67,54 @@
 
   <div id="main">
         
-        
+        <div class="container" >
+                <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            
+                  <div>
+                          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                            <img width="250" height="125" src="/media/headerPhoto.png" >
+                          </a>
+                  </div>
+                  <div>
+                  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
+                    <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
+                    <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
+                    <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
+                    <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
+                    <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
+                    
+                    <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
+                  </ul>
+                  </div>
+            
+                  <div class="col-md-3 text-end">
+                  </div>
+            
+                </header>
+        </div>
 
-
+  <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a id="link1" class="hoverLink" onclick="activeLink(1)" href="#net">Network</a>
+        <a id="link2" class="hoverLink" onclick="activeLink(2)" href="#node">Node</a>
+        <a id="link3" class="hoverLink" onclick="activeLink(3)" href="#MH">Metropolis Hastings</a>
+        <a id="link4" class="hoverLink" onclick="activeLink(4)" href="#subModel">Substitution Model</a>
+        <a id="link5" class="hoverLink" onclick="activeLink(5)" href="#matrix">Matrix</a>
+        <a id="link6" class="hoverLink" onclick="activeLink(6)" href="#prob">Probability</a>
+        <a id="link7" class="hoverLink" onclick="activeLink(7)" href="#bd">Birth Death</a>
+        <a id="link8" class="hoverLink" onclick="activeLink(8)" href="#alpha">Alphabet</a>
+  </div>
+      
+      
+        <div class="navArrow">
+                <img id="hammy" onclick="openNav()" src="/media/rightArrow.png">
+        </div>
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       
         <div class="container" id="title">
-                <h1 style="font-size:40px;">PhyloGenPy Documentation</h1>
+                <h1>PhyNetPy Documentation</h1>
         </div>
 
         <div class="container" id="net">
@@ -177,6 +217,29 @@
                 </zero-md>
                 
         </div>
+      
+  
+
+
+  
+    
+        
+    <div class="container" height="150px" style="bottom:0;" >
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center" width="400px">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                <img width="75" height="37.5" src="/media/headerPhoto.png" >
+            </a>
+            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+          </ul>
+        </footer>
+     </div>
+  </div>
   
 </main>
 

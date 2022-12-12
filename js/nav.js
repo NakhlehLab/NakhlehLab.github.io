@@ -164,7 +164,7 @@ function nav(page){
 
 
 /**
- * Open the sidenav in /html/phylogenpyDocs.html
+ * Open the sidenav in /html/PhyNetPyDocs.html
  * 
  * @return nothing.      
  */
@@ -175,7 +175,7 @@ function openNav() {
 }
       
 /**
- * Close the sidenav in /html/phylogenpyDocs.html
+ * Close the sidenav in /html/PhyNetPyDocs.html
  * 
  * @return nothing.      
  */

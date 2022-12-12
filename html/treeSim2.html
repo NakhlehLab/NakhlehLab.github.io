@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>PhyloGenPy Tree Simulation</title>
+    <title>PhyNetPy Tree Simulation</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -71,7 +71,7 @@
 
             # Birth Death Models and Tree Simulation
 
-            In PhyloGenPy, the module for simulating trees (conditioned on
+            In PhyNetPy, the module for simulating trees (conditioned on
             either time or extant taxa) is the BirthDeath module. This module
             contains multiple models under which trees may be generated, the most basic of which is 
             the constant rate birth death sampling approach (the class CBDP). <br> <br> To sample any amount of trees under CBDP, we need a birth rate, extinction rate, a number of taxa, and optionally
@@ -80,7 +80,7 @@
     </zero-md>
     <br>
       <pre class="prettyprint">
-        from phylogenpy.BirthDeath import CBDP
+        from PhyNetPy.BirthDeath import CBDP
 
         # a birth rate of .05, an extinction rate of .01, 
         # 6 extant taxa, and the default 100% sampling rate
@@ -100,7 +100,7 @@
   <!--
     <div class="container">
         <div class="TutorialBody">
-                <p>In PhyloGenPy, the module for simulating trees (conditioned on
+                <p>In PhyNetPy, the module for simulating trees (conditioned on
                 either time or extant taxa) is the BirthDeath module. This module
                 contains multiple models under which trees may be generated, the most basic of which is 
                 the constant rate birth death sampling approach (the class CBDP).
@@ -112,7 +112,7 @@
                 </p>
 
                 <pre class="prettyprint">
-                        from phylogenpy.BirthDeath import CBDP
+                        from PhyNetPy.BirthDeath import CBDP
         
                         # a birth rate of .05, an extinction rate of .01, 
                         # 6 extant taxa, and the default 100% sampling rate
