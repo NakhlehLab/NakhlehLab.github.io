@@ -60,7 +60,7 @@
   <!-- Load the element definition -->
   <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
 
-  
+
   <div class="container" >
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
 
@@ -102,10 +102,10 @@ Polyploidy has been shown to be prevalent not only in plants but also in other g
 most work done thus far on phylogenetic network inference assumes diploid hybridization. 
 These inference methods have been applied, with varying degrees of success, to data sets with polyploid species, 
 even though polyploidy violates the mathematical assumptions underlying these methods. 
-
+  
 In this tutorial, we introduce an improved method (from the previously implemented InferMPAllop in PhyloNet) for inferring parsimonious phylogenetic networks on data that include polyploid species. 
 Taking gene tree topologies and a subgenome mapping as input, the method seeks a phylogenetic network that minimizes deep coalescences while accounting for polyploidy.
-
+  
 As of July 2023, this method has not yet been optimized for performance/runtime. However, the proposal kernel and its underlying network move
 has been improved, such that invalid networks will never be proposed, thereby reducing the potential number of iterations for hill climbing to converge.
 Also, with the new kernel, no assumptions about partitioning ploidy taxa need to be made-- every network state can be reached from any other network state
@@ -125,15 +125,16 @@ $ python phynetpy.mpallop [gene_trees] [subgenome_map] -i 1000 -s
 | -i                  | Number of iterations to use for Hill Climbing                                                                                | optional  |
 | -s                  | Use Stochastic Hill Climbing instead of classical Hill Climbing                                                              | optional  |
 
-
+  
 The *gene_trees* parameter should be a list of newick strings, separated by commas and surrounded by quotation marks.
 
 The *subgenome_map* parameter should be a mapping from network taxa labels to identifiers found in the *gene_trees* newick strings.
+  
 
 ```
 $ python phynetpy.mpallop "((01bA,((01yB,01zB),01xB)),(01aA,(01xA,(01yA,01zA))));" "{"B": ["01bA"], "A": ["01aA"], "X": ["01xA", "01xB"], "Y": ["01yA", "01yB"], "Z": ["01zA", "01zB"]}" -i 1000 -s
 ```
-
+  
 
 ## Installation
 
@@ -150,12 +151,12 @@ pip install phynetpy
 #### With an Anaconda VENV
 
 1. Create new environment
-
+  
 2. ```conda activate new_env_name```
-
+  
 3. ```conda install phynetpy```
 
-
+  
 ### Importing in an IDE
 
 First, make sure that IDE you use has the right interpreter of Python enabled.
@@ -163,7 +164,7 @@ Visual Studio, for example, shows this information in the bottom right hand corn
 
 ![Using Conda Python Interpreter](/media/wconda.png)
 
-<br>
+<\br>
 
 ![Using Local Python Interpreter](/media/wpip.png)
 
@@ -171,11 +172,11 @@ Visual Studio, for example, shows this information in the bottom right hand corn
 Now, we should be ready to code using PhyNetPy!
 
 At the top of your .py file, type
-
+  
 ```
 from PhyNetPy import PhyAllop
 ```
-  
+    
 
 
 ## Command Refernces
