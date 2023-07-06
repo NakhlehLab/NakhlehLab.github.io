@@ -179,7 +179,40 @@ At the top of your .py file, type
 ```
 from PhyNetPy import PhyAllop
 ```
-    
+
+
+## Data
+
+For this tutorial, we will be analyzing scenario J from [Zhi Yan et al](https://academic.oup.com/sysbio/article/71/3/706/6380964). The network we are aiming to infer
+is the following:
+
+
+![Scenario J](/media/ScenarioJ.png)
+
+Each highlighted section of the network represents an allopolyploid clade. Any unmarked taxa are non-tetroploid. 
+
+Download ![Scenario J]("/media/nexus/MP_ALLOP_J.txt")
+  
+  
+## Script
+
+```
+
+from PhyNetPy import PhyAllop
+from PhyNetPy.GeneTrees import GeneTrees 
+from PhyNetPy.NetworkParser import NetworkParser
+form PhyNetPy.Graph import DAG
+  
+dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/MP_ALLOP_J.txt").get_all_networks()
+scenarioJ_gene_trees = GeneTrees(dag_list)
+  
+#Any rng seed will do
+# print(scenarioJ_gene_trees.mp_allop_map()) #if you want to view the subgenome mapping for all the taxa in the gene trees
+PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
+
+```
+
+## Making Sense of the Output
 
 
 ## Command Refernces
