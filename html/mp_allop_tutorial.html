@@ -114,6 +114,8 @@ in a certain amount of moves. A proof of this will be provided in an upcoming pa
 
 ## Usage
 
+At this time, command line usage is not supported. Check the PhyNetPy release page on PyPI for release notes and updates.
+
 ```
 $ python phynetpy.mpallop [gene_trees] [subgenome_map] -i 1000 -s
 ```
@@ -164,14 +166,10 @@ First, make sure that IDE you use has the right interpreter of Python enabled.
 Visual Studio, for example, shows this information in the bottom right hand corner:
   
 ![Using Conda Python Interpreter](/media/wconda.png)
-
   
-
-
 ![Using Local Python Interpreter](/media/wpip.png)
 
   
-
 Now, we should be ready to code using PhyNetPy!
 
 At the top of your .py file, type
@@ -193,9 +191,74 @@ Each highlighted section of the network represents an allopolyploid clade. Any u
   
 
 Download <a href="/media/nexus/MP_ALLOP_J.txt" download>Scenario J Data</a>
+
+#### Subgenome mappings
+
+The other key piece of information required by MP_ALLOP (other than the list of gene trees) is the subgenome mapping. 
+To run analysis on custom datasets, this piece of information needs to be filled out correctly by the user.
+
+Take for example scenario D from [Zhi Yan et al](https://academic.oup.com/sysbio/article/71/3/706/6380964).
+
+The figure displays a Multilabeled Species Tree (MUL tree), with the tetroploid taxa highlighted in green. 
+The 8 leaves are labeled as follows: a, b, xA, xB, yA, yB, zA, zB. xA and xB denote 2 copies of gene X, with one found on subgenome A 
+and the other on subgenome B. Thus, in scenario D, there are 5 distinct genes which we will capitalize : A, B, X, Y, and Z. Each of X, Y, and Z 
+have multiple copies, and thus our mapping for this data in python will be
+
+```
+scenarioD_map = {'A':['a'], 'B': ['b'], 'X': ['xA', 'xB'], 'Y': ['yA', 'yB'], 'Z': ['zA', 'zB']}
+```
+
+PhyNetPy offers a method for automating this process of creating a subgenome map. To use it, the user must provide a naming sceme for their
+data. PhyNetPy standard naming as a regex is defined as:
+
+```
+[0-9]*[a-z][A-Z]
+```
+
+The label 01bA (which follows the regex), denotes the 1st sample from gene B on subgenome A. The automated method knows this naming scheme, 
+and defaults to it. So if your data uses this system, you can call that method out of the box.
+
+Otherwise, pseudocode for such a naming method may look like this:
+
+```
+def custom_naming_scheme(taxa_label : str) -> str:
+    """
+    Given a taxa label string, ensure that it 
+    1) follows regex rules defined by you
+    2) returns the name of the gene to which you'd like to map it to
+        ie in PhyNetPy std naming, '01bA' -> 'B'
+    """
+
+    key = parse taxa_label for key info
+    
+    if taxa label is valid name under some regex:
+        return key
+    else:
+        raise Exception("Error parsing taxa_label, does not follow naming convention")
+
+```
+
+Following the definition of a custom naming method:
+
+```
+from PhyNetPy.GeneTrees import GeneTrees
+from PhyNetPy.NetworkParser import NetworkParser
+
+dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/gene_trees.newick").get_all_networks()
+
+#simply pass the name of the function into the GeneTrees constructor
+user_gene_trees : GeneTrees() = GeneTrees(dag_list, naming_rule = custom_naming_scheme)
+
+#to get map
+user_gene_trees.mp_allop_map()
+
+.
+.
+.
+
+```
   
-  
-## Script
+## Scenario J Script
 
 ```
 
@@ -204,16 +267,46 @@ from PhyNetPy.GeneTrees import GeneTrees
 from PhyNetPy.NetworkParser import NetworkParser
 form PhyNetPy.Graph import DAG
   
-dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/MP_ALLOP_J.txt").get_all_networks()
+dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/MP_ALLOP_J.newick").get_all_networks()
 scenarioJ_gene_trees = GeneTrees(dag_list)
   
 #Any rng seed will do
 # print(scenarioJ_gene_trees.mp_allop_map()) #if you want to view the subgenome mapping for all the taxa in the gene trees
-PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
+output = PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
 
 ```
 
 ## Making Sense of the Output
+
+The MP_ALLOP method by default returns a "top 3" list of (network, parsimony score) tuples, in decreasing order of likelihood (the most likely/end network at index 0). 
+Networks can be returned either as newick strings or via the DAG PhyNetPy object. 
+
+```
+form PhyNetPy.Graph import DAG
+. 
+. 
+. 
+
+output : list[tuple[DAG, int]]  = PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
+
+#All the options for listing/printing DAG objects
+for net, score in output:
+    #Prints each node in the graph, along with node characteristics such as branch lengths, hybrization ratio, node parents, etc
+    net.print_graph()
+
+    #Prints the node -> parent(s) mapping and the node -> children mapping
+    net.print_adjacency()
+
+    #Lists all edges
+    net.pretty_print_edges()
+
+    #Converts network to a newick string
+    net.newick()
+```
+
+For scenario J, pluggin the resulting newick string of the most likely network into [IcyTree](https://icytree.org) yields 
+
+*INSERT SCREENSHOT*
 
 
 ## Command Refernces
