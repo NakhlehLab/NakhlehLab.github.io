@@ -204,7 +204,7 @@ The 8 leaves are labeled as follows: a, b, xA, xB, yA, yB, zA, zB. xA and xB den
 and the other on subgenome B. Thus, in scenario D, there are 5 distinct genes which we will capitalize : A, B, X, Y, and Z. Each of X, Y, and Z 
 have multiple copies, and thus our mapping for this data in python will be
 
-```
+```python
 scenarioD_map = {'A':['a'], 'B': ['b'], 'X': ['xA', 'xB'], 'Y': ['yA', 'yB'], 'Z': ['zA', 'zB']}
 ```
 
@@ -220,7 +220,7 @@ and defaults to it. So if your data uses this system, you can call that method o
 
 Otherwise, pseudocode for such a naming method may look like this:
 
-```
+```python
 def custom_naming_scheme(taxa_label : str) -> str:
     """
     Given a taxa label string, ensure that it 
@@ -240,7 +240,7 @@ def custom_naming_scheme(taxa_label : str) -> str:
 
 Following the definition of a custom naming method:
 
-```
+```python
 from PhyNetPy.GeneTrees import GeneTrees
 from PhyNetPy.NetworkParser import NetworkParser
 
@@ -260,19 +260,26 @@ user_gene_trees.mp_allop_map()
   
 ## Scenario J Script
 
-```
+```python
 
-from PhyNetPy import PhyAllop
-from PhyNetPy.GeneTrees import GeneTrees 
+from PhyNetPy.PhyAllop import MP_ALLOP
 from PhyNetPy.NetworkParser import NetworkParser
-form PhyNetPy.Graph import DAG
-  
-dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/MP_ALLOP_J.newick").get_all_networks()
-scenarioJ_gene_trees = GeneTrees(dag_list)
-  
-#Any rng seed will do
-# print(scenarioJ_gene_trees.mp_allop_map()) #if you want to view the subgenome mapping for all the taxa in the gene trees
-output = PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
+from PhyNetPy.GeneTrees import GeneTrees
+from PhyNetPy.Graph import DAG
+
+
+gene_treesJ : list[DAG] = NetworkParser("absolute/path/to/MP_ALLOP_J.nex").get_all_networks()
+
+# subgenome mapping for Scenario J
+subgenome_mapJ : dict[str, list[str]]=  {'F': ['01fA'], 'T': ['01tA', '01tB'], 'W': ['01wA', '01wB'], 'B': ['01bA'], 
+                   'V': ['01vA', '01vB'], 'A': ['01aA'], 'U': ['01uA', '01uB'], 'C': ['01cA'], 
+                   'E': ['01eA'], 'X': ['01xA', '01xB'], 'Y': ['01yA', '01yB'], 'O': ['01oA'], 
+                   'Z': ['01zB', '01zA'], 'D': ['01dA']} 
+
+#Using mapping auto generation
+#subgenome_mapJ = GeneTrees(gene_treesJ).mp_allop_map()
+
+output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_treesJ, subgenome_mapJ)
 
 ```
 
@@ -281,27 +288,28 @@ output = PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_ge
 The MP_ALLOP method by default returns a "top 3" list of (network, parsimony score) tuples, in decreasing order of likelihood (the most likely/end network at index 0). 
 Networks can be returned either as newick strings or via the DAG PhyNetPy object. 
 
-```
-form PhyNetPy.Graph import DAG
-. 
-. 
-. 
+```python
 
-output : list[tuple[DAG, int]]  = PhyAllop.MP_ALLOP("Users/absolute/path/to/MP_ALLOP_J.txt", scenarioJ_gene_trees.mp_allop_map(), seed = random.randint(0,1000))
+output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_treesJ, subgenome_mapJ)
 
-#All the options for listing/printing DAG objects
-for net, score in output:
+index = 0
+for net, score in output_networks:
+    print(f"Output networks at <{index}> scored {score}!")
+    
     #Prints each node in the graph, along with node characteristics such as branch lengths, hybrization ratio, node parents, etc
     net.print_graph()
-
+    
     #Prints the node -> parent(s) mapping and the node -> children mapping
     net.print_adjacency()
-
+    
     #Lists all edges
     net.pretty_print_edges()
-
+    
     #Converts network to a newick string
     net.newick()
+    
+    index += 1
+
 ```
 
 For scenario J, pluggin the resulting newick string of the most likely network into [IcyTree](https://icytree.org) yields 
@@ -309,6 +317,8 @@ For scenario J, pluggin the resulting newick string of the most likely network i
 *INSERT SCREENSHOT*
 
 
+
+Download <a href="/media/nexus/tutorial.py" download>Scenario J Python Script</a>
 ## Command Refernces
 * Zhi Yan and others, Maximum Parsimony Inference of Phylogenetic Networks in the Presence of Polyploid Complexes, Systematic Biology, Volume 71, Issue 3, May 2022, Pages 706-720, https://doi.org/10.1093/sysbio/syab081
 
