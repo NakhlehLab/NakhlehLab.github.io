@@ -178,6 +178,7 @@ At the top of your .py file, type
 from PhyNetPy import PhyAllop
 ```
 
+Download <a href="/media/nexus/tutorial.py" download>Scenario J Python Script</a>
 
 ## Data
 
@@ -190,9 +191,11 @@ is the following:
 Each highlighted section of the network represents an allopolyploid clade. Any unmarked taxa are non-tetroploid. 
   
 
-Download <a href="/media/nexus/MP_ALLOP_J.txt" download>Scenario J Data</a>
+Download <a href="/media/nexus/J_trimmed.txt" download>Scenario J Trimmed Data</a>  
 
-#### Subgenome mappings
+Download <a href="/media/nexus/J_untrimmed.txt" download>Scenario J Untrimmed Data</a>
+
+#### Subgenome Mappings
 
 The other key piece of information required by MP_ALLOP (other than the list of gene trees) is the subgenome mapping. 
 To run analysis on custom datasets, this piece of information needs to be filled out correctly by the user.
@@ -243,6 +246,7 @@ Following the definition of a custom naming method:
 ```python
 from PhyNetPy.GeneTrees import GeneTrees
 from PhyNetPy.NetworkParser import NetworkParser
+from PhyNetPY.Graph import DAG
 
 dag_list: list[DAG] = NetworkParser("Users/absolute/path/to/gene_trees.newick").get_all_networks()
 
@@ -252,35 +256,29 @@ user_gene_trees : GeneTrees() = GeneTrees(dag_list, naming_rule = custom_naming_
 #to get map
 user_gene_trees.mp_allop_map()
 
-.
-.
-.
-
 ```
   
-## Scenario J Script
+## Scenario J Trimmed Script
 
 ```python
-
+import random
 from PhyNetPy.PhyAllop import MP_ALLOP
 from PhyNetPy.NetworkParser import NetworkParser
 from PhyNetPy.GeneTrees import GeneTrees
 from PhyNetPy.Graph import DAG
 
-
-gene_treesJ : list[DAG] = NetworkParser("absolute/path/to/MP_ALLOP_J.nex").get_all_networks()
+#TODO: replace filename
+gene_trees_trimmedJ : list[DAG] = NetworkParser("absolute/path/to/J_trimmed.nex").get_all_networks()
 
 # subgenome mapping for Scenario J
-subgenome_mapJ : dict[str, list[str]]=  {'F': ['01fA'], 'T': ['01tA', '01tB'], 'W': ['01wA', '01wB'], 'B': ['01bA'], 
-                   'V': ['01vA', '01vB'], 'A': ['01aA'], 'U': ['01uA', '01uB'], 'C': ['01cA'], 
-                   'E': ['01eA'], 'X': ['01xA', '01xB'], 'Y': ['01yA', '01yB'], 'O': ['01oA'], 
-                   'Z': ['01zB', '01zA'], 'D': ['01dA']} 
+subgenome_map_trimmedJ : dict[str, list[str]]= {'U': ['01uA', '01uB'], 'T': ['01tA', '01tB'], 'B': ['01bA'], 'F': ['01fA'], 
+                                                'V': ['01vB', '01vA'], 'C': ['01cA'], 'A': ['01aA'], 'D': ['01dA'], 'O': ['01oA']}
 
 #Using mapping auto generation
-#subgenome_mapJ = GeneTrees(gene_treesJ).mp_allop_map()
+#subgenome_map_trimmedJ = GeneTrees(gene_treesJ).mp_allop_map()
 
-output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_treesJ, subgenome_mapJ)
-
+output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_trees_trimmedJ, subgenome_map_trimmedJ)
+  
 ```
 
 ## Making Sense of the Output
@@ -290,34 +288,25 @@ Networks can be returned either as newick strings or via the DAG PhyNetPy object
 
 ```python
 
-output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_treesJ, subgenome_mapJ)
+output_networks : list[tuple[DAG, int]] = MP_ALLOP(gene_trees_trimmedJ, subgenome_map_trimmedJ)
 
 index = 0
 for net, score in output_networks:
-    print(f"Output networks at <{index}> scored {score}!")
-    
-    #Prints each node in the graph, along with node characteristics such as branch lengths, hybrization ratio, node parents, etc
-    net.print_graph()
-    
-    #Prints the node -> parent(s) mapping and the node -> children mapping
-    net.print_adjacency()
-    
-    #Lists all edges
-    net.pretty_print_edges()
-    
+    print(f"This network scored {score}!")
+   
     #Converts network to a newick string
-    net.newick()
+    print(net.to_newick())
     
     index += 1
 
 ```
+  
 
-For scenario J, pluggin the resulting newick string of the most likely network into [IcyTree](https://icytree.org) yields 
-
-*INSERT SCREENSHOT*
-
-
-
+For the trimmed version of scenario J, plugging in the resulting newick string of the most likely network into [IcyTree](https://icytree.org) yields 
+  
+![Scenario J Trimmed Result](/media/J_trimmed.png)
+  
+  
 Download <a href="/media/nexus/tutorial.py" download>Scenario J Python Script</a>
 ## Command Refernces
 * Zhi Yan and others, Maximum Parsimony Inference of Phylogenetic Networks in the Presence of Polyploid Complexes, Systematic Biology, Volume 71, Issue 3, May 2022, Pages 706-720, https://doi.org/10.1093/sysbio/syab081
