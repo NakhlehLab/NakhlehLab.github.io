@@ -1,44 +1,54 @@
 import random
+from PhyNetPy.Graph import DAG
 from PhyNetPy.PhyAllop import MP_ALLOP
+
+#Import the following two only if using subgenome map autogeneration capabilities
 from PhyNetPy.NetworkParser import NetworkParser
 from PhyNetPy.GeneTrees import GeneTrees
-from PhyNetPy.Graph import DAG
 
-### TRIMMED SCENARIO J
-gene_trees_trimmedJ : list[DAG] = NetworkParser("/path/to/J_trimmed.nex").get_all_networks()
 
-### UNTRIMMED SCENARIO J
-#gene_trees_J : list[DAG] = NetworkParser("/path/to/J_untrimmed.nex").get_all_networks()
 
-### SUBGENOME MAPPINGS
-# subgenome_map_trimmedJ : dict[str, list[str]]=  {'U': ['01uA', '01uB'], 'T': ['01tA', '01tB'], 'B': ['01bA'], 'F': ['01fA'], 
-#                                          'V': ['01vB', '01vA'], 'C': ['01cA'], 'A': ['01aA'], 'D': ['01dA'], 'O': ['01oA']} 
+
+### STEP 1: COMPUTE SUBGENOME MAPPINGS (MANUALLY or AUTOMATICALLY)
+
+#Step 1a) Manual/Hardcoded mapping
+
+# TRIMMED SCENARIO J
+subgenome_map_trimmedJ : dict[str, list[str]]=  {'U': ['01uA', '01uB'], 'T': ['01tA', '01tB'], 'B': ['01bA'], 'F': ['01fA'], 
+                                                 'V': ['01vB', '01vA'], 'C': ['01cA'], 'A': ['01aA'], 'D': ['01dA'], 'O': ['01oA']} 
+
+# UNTRIMMED SCENARIO J
 # subgenome_mapJ : dict[str, list[str]]=  {'F': ['01fA'], 'T': ['01tA', '01tB'], 'W': ['01wA', '01wB'], 'B': ['01bA'], 
 #                    'V': ['01vA', '01vB'], 'A': ['01aA'], 'U': ['01uA', '01uB'], 'C': ['01cA'], 
 #                    'E': ['01eA'], 'X': ['01xA', '01xB'], 'Y': ['01yA', '01yB'], 'O': ['01oA'], 
 #                    'Z': ['01zB', '01zA'], 'D': ['01dA']} 
 
-#Using mapping auto generation. Comment out if using hard coded map above
-subgenome_map_trimmedJ = GeneTrees(gene_trees_trimmedJ).mp_allop_map()
+#Step 1b) Automatically generated mapping
 
-#Choose how many hill climbing runs to do. We recommend doing at least 10(especially for the untrimmed version), but 3 is chosen here for brevity
+# TRIMMED SCENARIO J
+# gene_trees_trimmedJ : list[DAG] = NetworkParser(".../Path/to/J_trimmed.nex").get_all_networks()
+# subgenome_map_trimmedJ = GeneTrees(gene_trees_trimmedJ).mp_allop_map()
+
+# UNTRIMMED SCENARIO J
+# gene_trees_J : list[DAG] = NetworkParser(".../Path/to/J_untrimmed.nex").get_all_networks()
+# subgenome_mapJ = GeneTrees(gene_trees_J).mp_allop_map()
+
+
+#STEP 2:
+#Choose how many hill climbing chains to do. We recommend doing at least 8-10 for the untrimmed version, and 3 should sufficed for the untrimmed version.
 num_hill_climbing_chains = 3
 
 for dummy in range(num_hill_climbing_chains):
     
-    #change Pathname to unpruned nexus file if doing that version.
-    output_networks : dict[tuple[DAG, int]] = MP_ALLOP("/path/to/J_trimmed.nex", subgenome_map_trimmedJ, iter_ct = 500, seed= random.randint(0, 1000))
+    #change pathname to unpruned nexus file if doing that version.
+    output_networks : dict[tuple[DAG, int]] = MP_ALLOP(".../Path/to/J_trimmed.nex", subgenome_map_trimmedJ, iter_ct = 500, seed = random.randint(0, 1000))
 
-    index = 0
+    #STEP 3: Analyze output
     for net, score in output_networks.items():
+        print(net.to_newick())
         print(f"This network scored {score}!")
     
         # Do any other analysis you'd like to do here with the net object:
         #
         # INSERT STUFF HERE. 
         #
-        
-        #Converts network to a newick string
-        print(net.to_newick())
-        
-        index += 1
