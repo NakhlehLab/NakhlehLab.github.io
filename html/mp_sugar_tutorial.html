@@ -113,8 +113,11 @@ in a certain amount of moves. A proof of this will be provided in an upcoming pa
 
 
 ## Installation
+If you do not have python installed, follow the instructions at (python.org).
 
 PhyNetPy is a python package that is easily installed via PyPI, the Python Package Index, using pip.
+Follow instructions at (https://pip.pypa.io/en/stable/installation/) in case your python installation did not 
+come pre-installed with pip for whatever reason.
 
 #### With Pip on Python >= 3.8
 
@@ -134,7 +137,9 @@ pip install phynetpy==0.0.8
 
   
 ### Importing in an IDE
-
+  
+If you do not have an IDE (Integrated Development environment) installed, we suggest installing [Visual Studio Code](https://code.visualstudio.com).
+  
 First, make sure that IDE you use has the right interpreter of Python enabled.
 Visual Studio, for example, shows this information in the bottom right hand corner:
   
@@ -151,7 +156,7 @@ At the top of your .py file, type
 from PhyNetPy import MPSugar
 ```
 
-Download <a href="/media/nexus/tutorial.py" download>Scenario J Python Script</a>
+Download <a href="/media/tutorial.py" download>Scenario J Python Script</a>
 
 ## Data
 
@@ -235,7 +240,7 @@ user_gene_trees.mp_sugar_map()
 
 Here is the full script required to run MP_SUGAR on a data set using PhyNetPy. Keep in mind that only 1 of the 2 ways
 to retrieve the taxon mapping is required, and in this example the hardcoded version is used. For running analysis
-on the untrimmed version of scenario J, simply change the filenames and then swap to the other taxon mapping 
+on the untrimmed version of scenario J, simply change the filenames and then *swap to the other taxon mapping* in the MP_SUGAR call 
 (and maybe also increase the number of chains run from 3 to about 9 or 10)!
 
 ```python
@@ -281,8 +286,9 @@ num_hill_climbing_chains = 5
 
 for dummy in range(num_hill_climbing_chains):
     
-    #change pathname to unpruned nexus file if doing that version.
-    output_networks : dict[tuple[DAG, int]] = MP_SUGAR(".../Path/to/J_trimmed.nex", taxon_map_trimmedJ, iter_ct = 500, seed = random.randint(0, 1000))
+    # Change pathname to trimmed nexus file if doing that version
+    # Use an absolute path if J_(un)trimmed.nex is not in current running directory, else just use "J_(un)trimmed.nex"
+    output_networks : dict[tuple[DAG, int]] = MP_SUGAR(".../Path/to/J_untrimmed.nex", taxon_mapJ, iter_ct = 500, seed = random.randint(0, 1000))
 
 ```
 
@@ -315,7 +321,7 @@ The resulting inferred network for trimmed J:
 The resulting inferred network for untrimmed J
 ![Scenario J Untrimmed Result](/media/untrimmed_J.png)
   
-Download <a href="/media/nexus/tutorial.py" download>Scenario J Python Script</a>
+Download <a href="/media/tutorial.py" download>Scenario J Python Script</a>
 ## Command Refernces
 * Zhi Yan and others, Maximum Parsimony Inference of Phylogenetic Networks in the Presence of Polyploid Complexes, Systematic Biology, Volume 71, Issue 3, May 2022, Pages 706-720, https://doi.org/10.1093/sysbio/syab081
 

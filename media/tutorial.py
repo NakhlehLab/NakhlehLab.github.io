@@ -21,7 +21,7 @@ taxon_mapJ : dict[str, list[str]]=  {'F': ['01fA'], 'T': ['01tA', '01tB'], 'W': 
                    'E': ['01eA'], 'X': ['01xA', '01xB'], 'Y': ['01yA', '01yB'], 'O': ['01oA'], 
                    'Z': ['01zB', '01zA'], 'D': ['01dA']} 
 
-#Step 1b) Automatically generated mapping
+#Step 1b) Automatically generated mapping. Comment this out if using hard-coded maps above
 
 # TRIMMED SCENARIO J
 # gene_trees_trimmedJ : list[DAG] = NetworkParser(".../Path/to/J_trimmed.nex").get_all_networks()
@@ -38,7 +38,8 @@ num_hill_climbing_chains = 3
 
 for dummy in range(num_hill_climbing_chains):
     
-    #change pathname to unpruned nexus file if doing that version.
+    # Change pathname to trimmed nexus file if doing that version, and ensure taxon map parameter is set to the correct variable 
+    # Use an absolute path if J_(un)trimmed.nex is not in current running directory, else just use "J_(un)trimmed.nex"
     output_networks : dict[tuple[DAG, int]] = MP_SUGAR(".../Path/to/J_untrimmed.nex", taxon_mapJ, iter_ct = 500, seed = random.randint(0, 1000))
 
     #STEP 3: Analyze output
