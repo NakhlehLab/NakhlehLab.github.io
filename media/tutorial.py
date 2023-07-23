@@ -39,7 +39,7 @@ num_hill_climbing_chains = 3
 for dummy in range(num_hill_climbing_chains):
     
     #change pathname to unpruned nexus file if doing that version.
-    output_networks : dict[tuple[DAG, int]] = MP_SUGAR(".../Path/to/J_trimmed.nex", taxon_mapJ, iter_ct = 500, seed = random.randint(0, 1000))
+    output_networks : dict[tuple[DAG, int]] = MP_SUGAR(".../Path/to/J_untrimmed.nex", taxon_mapJ, iter_ct = 500, seed = random.randint(0, 1000))
 
     #STEP 3: Analyze output
     for net, score in output_networks.items():
