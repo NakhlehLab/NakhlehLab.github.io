@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>PhyNetPy Network and Node Tutorial</title>
+    <title>PhyNetPy Graph and Network Tutorial</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
@@ -84,44 +84,165 @@
     <div class="container">
         <div class="TutorialBody">
                 <p>
-                        PhyNetPy is a network first library, as there is no separate tree class that is required
-                        to be void of reticulations or hybridizations. Every network or tree is represented the same way, 
-                        as a directed acyclic graph (the DAG class). 
+                        There are two main objects in PhyNetPy used to represent
+                        phylogenetic relationships -- the Graph object and the 
+                        Network object. The Graph object is both unrooted and
+                        undirected, while the Network object has 4 different 
+                        "levels", but is always rooted and directed.
+
+                        Notice that there is no object level distinction between
+                        trees and networks, algorithms in PhyNetPy apply to 
+                        either rooted and directed networks or unrooted and 
+                        undirected graphs; under the hood, methods will 
+                        recognize shortcuts they can take based on topology or
+                        network designation (if applicable).
+
+                        This way of dealing with the structures has the benefit 
+                        of abstracting away the details of implementation and 
+                        grants the user utmost flexibility. 
                 </p>
                 <br>
                 <p>
-                        To create a network is very easy and straightforward:
+                        To create a Network is very easy and straightforward:
                 </p>
 
                 <pre class="prettyprint">
-                        from PhyNetPy.Graph import DAG
+                        from PhyNetPy.Network import Network, DiEdge, Node
 
-                        #Can initialize as an empty graph
-                        tree = DAG()
+                        # Initialize as an empty network
+                        phynet : Network = Network()
 
-                        #To make it a network, simply add in individual nodes
-                        #one at a time, or pass in an array of nodes
-                        tree.addNodes(individualNodeObj)
-                        tree.addNodes(arrayOfNodeObjs)
+                        # To build the network, simply create node and edge
+                        # relationships
 
-                        #same applies to adding edges
-                        tree.addEdges(individualEdge)
-                        tree.addEdges(arrayOfEdges) #Where an edge can just be [NodeObj, NodeObj2]
+                        a : Node = Node("A")
+                        b : Node = Node("B")
+                        c : Node = Node("C")
+                        h0 : Node = Node("#H0")
+                        i1 : Node = Node("A-Parent")
+                        i2 : Node = Node("C-Parent")
+                        i3 : Node = Node("Root")
+                  
+                        # Parent is listed first, then child, for directed edges
+                        e1 : DiEdge = DiEdge(i1, a)
+                        e2 : DiEdge = DiEdge(h0, b)
+                        e3 : DiEdge = DiEdge(i2, c)
+                        e4 : DiEdge = DiEdge(i1, h0)
+                        e5 : DiEdge = DiEdge(i2, h0)
+                        e6 : DiEdge = DiEdge(i3, i2)
+                        e7 : DiEdge = DiEdge(i3, i1)
 
-                        #Now you have a complete network. To grab the newick representation...
-                        newickStr = tree.newickString() 
-
-                        #You can now visualize your graph with IcyTree
+                        # Add all nodes first, then edges
+                        phynet.add_nodes([a, b, c, h0, i1, i2, i3])
+                        phynet.add_edges([e1, e2, e3, e4, e5, e6, e7])
                         
-                        #You can also initialize trees with node and edge lists 
-                        tree2 = DAG(edgeList) #add nodes later
-                        tree3 = DAG(nodes = nodeList) #add edges later
-                        tree4 = DAG(edgeList, nodeList) #add both now
+                        # Now you have a complete network!! :D 
+                        # Will look like this:
+                        
+                        """
+                                  i3
+                                 /  \
+                                /    \
+                               i1     i2
+                              /  \   /  \
+                             /     h0    \
+                            /      |      \
+                           a       b       c
+                        """
 
+                        # Some built in methods :D
 
-                        #To see a description of all the nodes in your graph:
-                        tree.printGraph()
+                        # Most recent common ancestor (returns i1)
+                        should_be_i1 : Node = phynet.mrca(a, b) 
 
+                        # Leaf Descendant Set
+                        should_be_bc : set[Node] = phynet.leaf_descendants(i2)
+
+                        # Newick string representation
+                        newick_str : str = phynet.newick()
+
+                        # Cycle check
+                        has_cycle : bool = phynet.is_acyclic()
+
+                        # BFS/DFS with custom accumulators. Calling the function
+                        # mutates the data variable, but the function by default
+                        # returns the distance from each node to the root too.
+                        
+                        accumulated_v1 : dict = dict()
+                        accumulated_v2 : list = list()
+                        accumulated_v3 : set = set()
+                        accumulated_v4 : Network = Network()
+                       
+                        def myfunc(net : Network, cur_node : Node, data) -> None:
+                          """
+                          Counts the number of paths from the network's root to
+                          the current node that is being searched from within
+                          the bfs/dfs function. Mutates the data parameter!
+
+                          Args:
+                              net (Network): The network that cur_node is in.
+                              cur_node (Node): The node currently being 
+                                                searched.
+                              data (Any) : Any data structure of your choice!
+                            
+                          """
+                          #Get some sort of data from the current state of the
+                          #search and add it to the accumulated data.
+                          
+                          # IE, count the number of paths from the root to the
+                          # current node
+                          if net.in_degree(cur_node) == 0:
+                            data[cur_node] = 1
+                          else:
+                            # The number of paths to a node from the root is the 
+                            # sum of the number of paths to each parent node.
+                            data[cur_node] = sum([data[e.src] for e in net.in_edges(cur_node)])
+                          
+
+                        #use dfs kwarg = True to use DFS. This version runs BFS
+                        phynet.bfs_dfs(start_node = i3, 
+                                       accumulator = myfunc, 
+                                       accumulated = accumulated_v1)
+
+                        # accumulated_v1 = {i3 : 1, i2 : 1, i1 : 1, h0 : 2, 
+                                            b : 2, a : 1, c : 1}
+
+                        # Subnetwork Copying!
+
+                        # Copies the whole network. Faster than running a 
+                        # copy.deepcopy(phynet) by ____ seconds
+                        copy_net : Network = phynet.subnet_copy(start_node = i3)
+                        
+                        # Copy only a portion
+                        copy_subnet : Network = phynet.subnet_copy(start_node = i1)
+
+                        # In this instance, copy_subnet will have a node that has
+                        # one parent and one child. Such nodes are topologically
+                        # pointless. To remove this artifact...
+                        
+                        copy_subnet.clean()
+
+                        # copy_subnet will now look like: 
+                        """
+                            i1
+                           /  \
+                          /    \
+                         a      b 
+
+                         instead of
+                             i1
+                            /  \
+                           /    h0
+                          /      \
+                         a        b 
+                         
+                        """
+
+                        # Network copies copy all data and retain the same node 
+                        # labels. However, they are different python objects, 
+                        # exactly as would be accomplished with a deepcopy/memcopy.
+
+              
                 </pre>
 
                 <br>
