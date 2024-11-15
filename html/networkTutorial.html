@@ -174,29 +174,29 @@
                         accumulated_v4 : Network = Network()
                        
                         def myfunc(net : Network, cur_node : Node, data) -> None:
-                          """
-                          Counts the number of paths from the network's root to
-                          the current node that is being searched from within
-                          the bfs/dfs function. Mutates the data parameter!
+                            """
+                            Counts the number of paths from the network's root to
+                            the current node that is being searched from within
+                            the bfs/dfs function. Mutates the data parameter!
 
-                          Args:
-                              net (Network): The network that cur_node is in.
-                              cur_node (Node): The node currently being 
-                                                searched.
-                              data (Any) : Any data structure of your choice!
+                            Args:
+                                net (Network): The network that cur_node is in.
+                                cur_node (Node): The node currently being 
+                                                  searched.
+                                data (Any) : Any data structure of your choice!
+                              
+                            """
+                            #Get some sort of data from the current state of the
+                            #search and add it to the accumulated data.
                             
-                          """
-                          #Get some sort of data from the current state of the
-                          #search and add it to the accumulated data.
-                          
-                          # IE, count the number of paths from the root to the
-                          # current node
-                          if net.in_degree(cur_node) == 0:
-                            data[cur_node] = 1
-                          else:
-                            # The number of paths to a node from the root is the 
-                            # sum of the number of paths to each parent node.
-                            data[cur_node] = sum([data[e.src] for e in net.in_edges(cur_node)])
+                            # IE, count the number of paths from the root to the
+                            # current node
+                            if net.in_degree(cur_node) == 0:
+                              data[cur_node] = 1
+                            else:
+                              # The number of paths to a node from the root is the 
+                              # sum of the number of paths to each parent node.
+                              data[cur_node] = sum([data[par] for par in net.get_parents(cur_node)])
                           
 
                         #use dfs kwarg = True to use DFS. This version runs BFS
@@ -205,12 +205,12 @@
                                        accumulated = accumulated_v1)
 
                         # accumulated_v1 = {i3 : 1, i2 : 1, i1 : 1, h0 : 2, 
-                                            b : 2, a : 1, c : 1}
+                        #                   b : 2, a : 1, c : 1}
 
                         # Subnetwork Copying!
 
                         # Copies the whole network. Faster than running a 
-                        # copy.deepcopy(phynet) by ____ seconds
+                        # copy.deepcopy(phynet)
                         copy_net : Network = phynet.subnet_copy(start_node = i3)
                         
                         # Copy only a portion
@@ -247,52 +247,171 @@
 
                 <br>
                 <p>
-                        A Node object has the following initialization parameters, all of which are 
-                        defaults:
+                        Nodes and Edges are the internal backbones of a Network. 
+                        The following code snippets show how to initialize
+                        and work with these objects.
                 </p>
-                <ol>
-                        <li>branchLen = None</li>
-                        <li>parNode = [ ]</li>
-                        <li>attr = { }</li>
-                        <li>isReticulation = False</li>
-                        <li>name = None</li>
-                </ol>
+              
                 <pre class="prettyprint">
-                        from PhyNetPy.Node import Node
+                        from PhyNetPy.Network import Node, DiEdge, Edge
+                        from PhyNetPy.MSA import MSA, SeqRecord
 
-                        #Can initialize as an empty Node
-                        new_node = Node()
+                        #########################
+                        ######### NODES #########
+                        #########################
 
-                        #To set the branch length
-                        new_node.setBranchLength(num)
+                        # The minimum requirement, when initializing nodes, is 
+                        # to provide a label. 
+                        new_node : Node = Node("my_node")
+
+                        # There are additional fields, however, for which there 
+                        # are getters and setters provided:
                         
-                        #To get the branch length
-                        node_len = new_node.branchLen()
+                        new_node_2 : Node = Node("reticulation", is_reticulation = True)
+                        
+                        new_node_3 : Node = Node("store anything", attr = {"color" : blue})
+                        
+                        new_node_4 : Node = Node("speciation time", t = 3.1415)
 
-                        #To add a parent (must be a Node or UltrametricNode obj)
-                        new_node.addParent(par_node)
+                        req : SeqRecord = SeqRecord("CCGTAACA", "Dwayne (THE ROCK) Johnson's DNA")
+                        new_node_5 : Node = Node("leaf w/ seq data", seq = req)
+                        
+                        ###############################################
+                        ######### DIRECTED EDGES AND NETWORKS #########
+                        ###############################################
 
-                        #or to set the parent
-                        new_node.setParent(par_node)
+                        # Edges can be directed or undirected-- most contexts 
+                        # require directed edges, however the differences in 
+                        # usage are minimal
 
-                        #To set the name of a Node
-                        new_node.setName("Homo Sapiens")
+                        # Let's use the following network structure to illustrate...
+                        """
+                                  i3
+                                 /  \
+                                /    \
+                               i1     i2
+                              /  \   /  \
+                             /     h0    \
+                            /      |      \
+                           a       b       c
+                        """
 
-                        #To get the name of the Node
-                        node_name = new_node.getName()
+                        a : Node = Node("A")
+                        b : Node = Node("B")
+                        c : Node = Node("C")
+                        h0 : Node = Node("#H0")
+                        i1 : Node = Node("A-Parent")
+                        i2 : Node = Node("C-Parent")
+                        i3 : Node = Node("Root")
 
-                        #To set a custom attribute
-                        new_node.setAttribute(attribute, value) #i.e "t" : 5.4
+                        # In a directed context, the parent is listed first, then child
+                        new_edge : DiEdge = DiEdge(i1, a)
+
+                        # Suppose we have:
+                        c.set_time(10)
+                        i2.set_time(5)
+                        
+                        # Root time is always 0 in PhyNetPy, and child times are 
+                        # always greater than their parent's times.
+
+                        # Then we should do the following:
+                        new_edge_2 : DiEdge = DiEdge(i2, c)
+                        
+                        branch_length : float = new_edge_2.get_length()
+                      
+                        print(branch_length) 
+                        # Will print '5.0'. If both nodes have defined lengths 
+                        #prior to initialization, it will be auto calculated!
+
+                        # Times for node "A" and "A-Parent" have not been set. 
+                        # Times in general do not need to be set. In this case,
+                        # simply do the following:
+
+                        new_edge.set_length(5.0)
+
+                        # Or, provide the length during initialization.
+                      
+                        new_edge_3 : DiEdge(i3, i1, 5.0)
+
+                        # To access the source (parent) and destination (child) 
+                        # of a directed edge, use the following getter methods:
+                        src : Node = new_edge.get_src() # "A-Parent" / i1
+                        dest : Node = new_edge.get_dest() # "A" / a
+
+
+                        # Edges also may have weights associated with them 
+                        # (such as support values). 
+                        new_edge.set_weight(.99)
+                        w : float = new_edge.get_weight() 
+
+                        # To check/view an edge's node members, use:
+                        edge_node_names : tuple[str] = new_edge.to_names() # ("A-Parent" , "A")
+                      
+                        ###############################################
+                        ######### DIRECTED EDGES AND NETWORKS #########
+                        ###############################################
+
+                        """
+                                  m
+                                 /  \
+                                /    \
+                               n      o
+                              /  \   /  \
+                             /     p     \
+                            /      |      \
+                           q       r       s
+                        """
+
+                        m : Node = Node("M")
+                        n : Node = Node("N")
+                        o : Node = Node("O")
+                        p : Node = Node("P")
+                        q : Node = Node("Q")
+                        r : Node = Node("R")
+                        s : Node = Node("S")
+
+                        #Order of inputs for these edges does not matter.
+                        e1 : Edge = Edge(q, n)
+                        e2 : Edge = Edge(o, s)
+                        e3 : Edge = Edge(p, r)
+                        e4 : Edge = Edge(n, p)
+                        e5 : Edge = Edge(p, o)
+                        e6 : Edge = Edge(m, n)
+                        e7 : Edge = Edge(o, m)
+
+                        # Undirected Graphs (and therefore also unrooted) have
+                        # undirected edges. 
+
+                        # Two ways to initialize (Networks are the same way)
+                        
+                        # 1) empty constructor 2) use the add_nodes() and add_edges() methods
+                        g_1 : Graph = Graph()
+
+                        g_1.add_nodes(m, n, o, p, q, r, s)
+                        # g_1.add_nodes([m, n, o, p, q, r, s]) #this works too
+
+                        g_1.add_edges(e1, e2, e3, e4, e5, e6, e7)
+                        # g_1.add_edges([e1, e2, e3, e4, e5, e6, e7]) #this works too
+
+                        # Or... build and EdgeSet and NodeSet and pass those as parameters
+                        ns : NodeSet = NodeSet(directed = False) #True is default
+                        es : EdgeSet = EdgeSet(directed = False) #True is default
+
+                        ns.add
+
+                        
+
+                      
+
+
+                        
+
+
+
+
+
+
                 
-                        #To look up an attribute
-                        attr_val = new_node.attrLookup(attribute) #i.e "t" returns 5.4
-
-                        #To visualize the values contained in a Node obj 
-                        new_node.asString()
-
-                        #A more typical way to create a Node
-                        new_node2 = Node(parNode = [par_node], attr = {"t":5.4}, name = "species2")
-                        
                 </pre>
         </div>
     </div>
