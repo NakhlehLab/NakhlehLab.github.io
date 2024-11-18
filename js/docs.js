@@ -24,7 +24,7 @@ function activeLink(num){
         for(i=1; i<=8; i++){
                 if(i - num == 0){
                         var link = document.getElementById("link" + i.toString());
-                        link.classList.add('link-clicked');   
+                        link.classList.add('link-clicked');  
                 }else{
                         var link = document.getElementById("link" + i.toString());
                         link.classList.remove('link-clicked'); 

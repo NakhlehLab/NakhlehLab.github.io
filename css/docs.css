@@ -69,7 +69,7 @@
 }
 
 .link-clicked{
-        text-decoration: none;
+        text-decoration: underline;
         font-weight: bold;
 }
 
