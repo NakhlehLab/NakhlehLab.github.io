@@ -68,9 +68,11 @@
         font-weight: bold;
 }
 
-.link-clicked{
+.hoverLink:active{
         text-decoration: underline;
         font-weight: bold;
 }
+
+
 
 
