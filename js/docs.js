@@ -39,17 +39,19 @@ function activeLink(num){
 
 
 function openDoc(id){
-        var doc1 = document.getElementById('net')
-        var doc2 = document.getElementById('io')
-        var doc3 = document.getElementById('md')
-        var doc4 = document.getElementById('includes')
-        var doc5= document.getElementById('extras')
+        var doc1 = document.getElementById("net")
+        var doc2 = document.getElementById("io")
+        var doc3 = document.getElementById("md")
+        var doc4 = document.getElementById("includes")
+        var doc5 = document.getElementById("extras")
+        var title = document.getElementById("title")
 
-        doc1.style.display = 'none'
-        doc2.style.display = 'none'
-        doc3.style.display = 'none'
-        doc4.style.display = 'none'
-        doc5.style.display = 'none'
+        doc1.style.display = "none"
+        doc2.style.display = "none"
+        doc3.style.display = "none"
+        doc4.style.display = "none"
+        doc5.style.display = "none"
+        title.style.display = "none"
         
         var doc = document.getElementById(id);
         doc.style.display = "block"
