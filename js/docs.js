@@ -22,12 +22,12 @@ function closeNav() {
 function activeLink(num){
         
         for(i=3; i<=3; i++){
-                if(i - int(num) == 0){
+                if(i - num == 0){
                         var link = document.getElementById("link" + i.toString());
                         link.classList.add('link-clicked');  
                 }else{
                         var link = document.getElementById("link" + i.toString());
-                        if(link != Null){
+                        if(link != null){
                                 link.classList.remove('link-clicked'); 
                         }
                 }
