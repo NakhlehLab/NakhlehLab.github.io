@@ -32,6 +32,13 @@ function activeLink(num){
                         link.style.display = "none"
                 }
         }
+
+        /* deactivate all modules for the display */
         
 }
 
+
+function openDoc(id){
+        var doc = document.getElementById(id);
+        doc.style.display = "block"
+}
