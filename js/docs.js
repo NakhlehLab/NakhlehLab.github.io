@@ -45,13 +45,11 @@ function openDoc(id){
         var doc4 = document.getElementById("includes")
         var doc5 = document.getElementById("extras")
         
-
         doc1.style.display = "none"
         doc2.style.display = "none"
         doc3.style.display = "none"
         doc4.style.display = "none"
         doc5.style.display = "none"
-        
         
         var doc = document.getElementById(id);
         doc.style.display = "block"
