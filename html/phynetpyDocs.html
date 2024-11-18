@@ -111,6 +111,53 @@
       
       <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
       
+        <div class="container" id="default" style="display:block">
+                <zero-md>
+                        <script type="text/markdown">
+                                # Network Data Structures
+
+* ### PhyNetPy.Network module
+
+  * **NetworkError** class  
+  * **NodeError** class  
+  * **EdgeError** class  
+  * **Node** class  
+    * Core building block for phylogenetic networks and population genetics graphs  
+  * **Edge** class  
+    * Directed edge for connecting two Node objects  
+  * **UEdge** class  
+    * Undirected edge for connecting two Node objects  
+  * **EdgeSet** class  
+    * A container/bookkeeper for edges   
+  * **NodeSet** class  
+    * A container/bookkeeper for nodes  
+  * **Network** class  
+    * A rooted, directed (Edge objects only), acyclic phylogenetic network  
+  * **Graph** class  
+    * An unrooted, undirected graph (UEdge objects only).
+
+* ### PhyNetPy.MSA module
+
+  * **MSA** class  
+    * Wrapper class for a set of taxa that have one or more DataSequence object associations per taxa.  
+  * **DataSequence** class  
+    * Wrapper class for a list of biological data symbols (DNA, RNA, Codons, etc.). 
+
+* ### PhyNetPy.Matrix module
+
+  * **MatrixError** class  
+  * **Matrix** class
+
+* ### PhyNetPy.GeneTrees module
+
+  * **GeneTreeError** class  
+  * **GeneTrees** class  
+    * Wrapper class for a set of gene trees (Network objects) defined on a set of taxa
+
+  ### 
+                        </script>    
+                </zero-md>    
+        </div> 
         
         <div class="container" id="net" style="display:none">
                 
