@@ -70,10 +70,9 @@
 }
 
 a.hoverLink.active{
-  color: white;
+  color: #f1f1f1;
   font-weight: bold;
   text-decoration: underline;
-  background-color: #4275d5c3;
 }
 
 
