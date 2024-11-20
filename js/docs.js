@@ -60,12 +60,12 @@ function openDoc(id){
 
 function linkclick(a)
 {
-    items = document.querySelectorAll('.hoverLink.active');
+    var links = document.getElementsByClassName("hoverLink active")
 
-    if(items.length) 
+    for(var link of links) 
     {
-        items[0].className = 'hoverLink';
+        link.className = 'hoverLink';
     }
-
-    a.className = 'hoverLink active';
+    activate_link = document.getElementById(a)
+    activate_link.className = 'hoverLink active';
 }
