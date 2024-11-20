@@ -27,11 +27,6 @@
         color: #f1f1f1;
       }
       
-      .sidenav a.active{
-        text-decoration: underline;
-        font-weight: bold;
-        background-color: #4275d5c3;
-      }
 
       /* Position and style the close button (top right corner) */
       .sidenav .closebtn {
@@ -74,7 +69,12 @@
         font-weight: bold;
 }
 
-
+a.hoverLink.active{
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #4275d5c3;
+}
 
 
 
