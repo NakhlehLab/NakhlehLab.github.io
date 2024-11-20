@@ -27,7 +27,7 @@
         color: #f1f1f1;
       }
       
-      .sidenav a.hoverLink:active{
+      .sidenav a.active{
         text-decoration: underline;
         font-weight: bold;
         background-color: #4275d5c3;
