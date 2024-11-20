@@ -73,6 +73,7 @@ a.hoverLink.active{
   color: #f1f1f1;
   font-weight: bold;
   text-decoration: underline;
+  background-color: transparent;
 }
 
 
