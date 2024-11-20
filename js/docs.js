@@ -55,13 +55,17 @@ function openDoc(id){
         
         var doc = document.getElementById(id);
         doc.style.display = "block"
+}
 
-        items = document.querySelectorAll('.hoverLink.active');
 
-        if(items.length) 
-        {
-                items[0].className = 'hoverLink';
-        }
+function linkclick(a)
+{
+    items = document.querySelectorAll('.hoverLink.active');
 
-        doc.className = 'hoverLink active';
+    if(items.length) 
+    {
+        items[0].className = 'hoverLink';
+    }
+
+    a.className = 'hoverLink active';
 }
