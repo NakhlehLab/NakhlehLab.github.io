@@ -69,3 +69,12 @@ function linkclick(a)
     activate_link = document.getElementById(a)
     activate_link.className = 'hoverLink active';
 }
+
+
+function makeGrid(classname){
+
+}
+
+function makeMethods(classGrid){
+        
+}
