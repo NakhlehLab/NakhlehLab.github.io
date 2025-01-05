@@ -23,11 +23,11 @@ headerTemplate.innerHTML = `
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
+                <li><a href="/html/phynetpyDocs.html" class="headClick nav-link px-2 link-dark">Documentation</a></li>
                 <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
                 <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
                 <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
                 <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
-                <li><a href="/html/phynetpyDocs.html" class="headClick nav-link px-2 link-dark">Documentation</a></li>
                 <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
             </ul>
         </div>
