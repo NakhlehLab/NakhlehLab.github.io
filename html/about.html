@@ -45,38 +45,12 @@
 
 <body class="htmlBody">
     
-
-
 <main class="mainContainer">
   <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/header.js" charset="utf-8"></script>
 
-  <div class="container" >
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-
-      <div>
-              <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img width="250" height="125" src="/media/headerPhoto.png" >
-              </a>
-      </div>
-      <div>
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
-        <li><a href="/html/software.html" class="headClick nav-link px-2 link-dark">Software</a></li>
-        <li><a href="/html/tutorials.html" class="headClick nav-link px-2 link-dark">Tutorials</a></li>
-        <li><a href="https://scholar.google.com/citations?hl=en&user=46HLWf8AAAAJ&view_op=list_works&sortby=pubdate" class="headClick nav-link px-2 link-dark">Publications</a></li>
-        <li><a href="/html/people.html" class="headClick nav-link px-2 link-dark">People</a></li>
-        
-        <li><a href="/html/FAQ.html" class="headClick nav-link px-2 link-dark">FAQs</a></li>
-      </ul>
-      </div>
-
-      <div class="col-md-3 text-end">
-      </div>
-
-    </header>
-  </div>
-
+  <phylogenetics-header></phylogenetics-header>
+  
   <div class="container" id="2">
     <p>  The Bioinformatics Group at <a href="https://www.rice.edu/">Rice University</a>'s Department of Computer Science is led by <a href="https://www.cs.rice.edu/~nakhleh/">Dr. Luay Nakhleh</a> and conducts research into developing methodologies, implementing software tools and conducting analyses--all aimed at answering and enabling research into biological questions. </p>
     <p>  We work on a variety of biological questions in the general areas of phylogenomics, population genomics and cellular networks. Work in our group involves mathematical modeling, algorithm design, software development, performance studies, and data analysis. In particular, we are actively pursuing three broad lines of research:</p>
@@ -88,30 +62,24 @@
     </ul>
 
     <p>We are always looking for motivated individuals (undergraduate, graduate and post-doctoral) who are intrigued by both the biology and computational aspects of our interdisciplinary projects to join our group.</p>
-</div>
-     
-    
+  </div>
+                                 
 
-        
-                                  
-              
+  <div class="container" height="150px" style="bottom:0;" >
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center" width="400px">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <img width="75" height="37.5" src="/media/headerPhoto.png" >
+          </a>
+          <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+        </div>
     
-
-    <div class="container" height="150px" style="bottom:0;" >
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <div class="col-md-4 d-flex align-items-center" width="400px">
-            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <img width="75" height="37.5" src="/media/headerPhoto.png" >
-            </a>
-            <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
-          </div>
-      
-          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
-            <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
-          </ul>
-        </footer>
-     </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+        </ul>
+      </footer>
+    </div>
   
 </main>
 
