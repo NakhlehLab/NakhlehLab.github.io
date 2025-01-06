@@ -76,6 +76,19 @@ a.hoverLink.active{
   background-color: #4275d588;
 }
 
+.grid-method {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto auto;
+  max-width: 90%;
+}
 
+.method-title {
+  background-color: #4275d588;
+  color: whitesmoke;
+  border-top: darkblue;
+  border-width: 2px;
+  font-family: 'Courier New', Courier, monospace;
+}
 
 
