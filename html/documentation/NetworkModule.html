@@ -1490,8 +1490,377 @@
         </div>
      </div>
     </div>
-    <div id="" class="container">
-      
+    <div id="Edge" class="container">
+      <div class='class-description'>
+        <div class='class-name'>
+           <h1 class='class-title'> <i>class</i> Edge</h1>
+        </div>
+        <div>
+           <p class='class-docstring'> 
+              Class for directed edges. 
+              Instead of being a wrapper for a "set" of member nodes, we can now think 
+              about an Edge as a wrapper for a tuple of member nodes (a, b), where 
+              now the direction is encoded in the ordering (where a is the source, and b 
+              the destination).
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.__init__(self,
+              source : Node, 
+              destination : Node, 
+              length : float | None = None,
+              gamma : float | None = None,
+              weight : float | None = None,
+              tag : str | None = None
+              ) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              An Edge has a source (parent) and a destination (child). Edges in a 
+              phylogenetic context are *generally* directed.
+              source -----> destination
+              Raises:
+              ValueError: If @gamma is not a probabilistic value between 0 and 1 
+              (inclusive, but if a hybrid edge pair has 0 and 1 then
+              those hybrid edges may as well not exist).
+              EdgeError: If @length does not match the difference between 
+              @source.get_time() and @destination.get_time().
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              source (Node): The parent node.
+              destination (Node): The child node.
+              length (float, optional): Branch length value. Defaults to None.
+              gamma (float, optional): Inheritance Probability, MUST be from 
+              [0,1]. Defaults to None.
+              weight (float, optional): Edge weight, can be any real number. 
+              Defaults to None.
+              tag (str, optional): A name tag for identifiability of hybrid edges
+              should each have a gamma of 0.5. 
+              Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.src(self) -> Node:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the source (parent) node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Node: source Node obj
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.dest(self) -> Node:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the dest (child) node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Node: destination Node obj
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.set_tag(self, new_tag : str) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set the name/identifiability tag of this edge.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_tag (str): a unique string identifier.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.get_tag(self) -> str:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the name/identifiability tag for this edge.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              str: The name/identifiabity tag for this edge.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.set_gamma(self, gamma : float) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set the inheritance probability of this edge. Only applicable to 
+              hybrid edges, but no warning will be raised if you attempt to set the 
+              probability of a non-hybrid edge.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              gamma (float): A probability (between 0 and 1 inclusive).
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.get_gamma(self) -> float:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Gets the inheritance probability for this edge.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              float: A probability (between 0 and 1).
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.copy(self, 
+              new_src : Node | None = None, 
+              new_dest : Node | None = None) -> Edge:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Craft an identical edge to this edge object, just in a new object.
+              Useful in building subnetworks of a network that is in hand.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_src (Node | None, optional): _description_. Defaults to None.
+              new_dest (Node | None, optional): _description_. Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Edge: An identical edge to this one, with respect to the data they 
+              hold.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.set_length(self, 
+              branch_length : float, 
+              warn_times : bool = False,
+              enforce_times : bool = False) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set the length of this Edge, and optionally let the user decide if they
+              allow possible discrepancies between Edge lengths and the Edge's 
+              src/dest .t (time) attribute values.
+              Raises:
+              EdgeError: if user chooses to enforce that the branch length and .t 
+              attributes of src and dest match, but they don't.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              branch_length (float): The new length/weight of the Edge
+              warn_times (bool, optional): Option that, if enabled, warns instead 
+              of crashes the program in the event 
+              that the branch_length parameter does 
+              not match the time attributes of the 
+              edge's src and dest Node objects.
+              Defaults to False (will not warn).
+              enforce_times (bool, optional): Option that, if enabled, will allow 
+              this method to raise an exception if
+              the branch_length parameter does 
+              not match the time attributes of the 
+              edge's src and dest Node objects.
+              Defaults to False (will not throw).
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.get_length(self) -> float:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the Edge length.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              float: Edge length/branch length
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.set_weight(self, new_weight : float) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set a weight value for this Edge (not! equivalent to its length in a 
+              phylogenetic context, this is for any other potential use for the
+              inclusion of weighting edges).
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_weight (float): A new weight value
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.get_weight(self) -> float:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the weight value for this Edge (not! equivalent to its length in a 
+              phylogenetic context, this is for any other potential use for the
+              inclusion of weighting edges).
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              float: The weight of this Edge
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Edge.to_names(self) -> tuple[str, str]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Return this Edge as a two-tuple where the first element is the
+              src Node object's label, and the second element is the dest Node
+              object's label
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              tuple[str, str]: a two-tuple of names, (src name , dest name)
+           </p>
+        </div>
+     </div>
     </div>
     <div id="" class="container">
       
