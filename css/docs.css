@@ -97,14 +97,14 @@ a.hoverLink.active{
   border-top : darkblue !important;
   border-width : 10px !important;
   font-family : 'Courier New', Courier, monospace !important;
-  font-size : 22px !important;
+  font-size : 36px !important;
   font-weight: bold !important;
   text-decoration: underline !important;
 }
 
 .class-docstring{
   font-size : 16px !important;
-  margin-left : 25px !important;
+  margin-left : 30px !important;
 }
 
 .method-signature{
@@ -116,10 +116,10 @@ a.hoverLink.active{
 .method-io{
   font-size : 18px !important;
   font-weight : bold !important;
-  margin-left : 12.5px !important;
+  margin-left : 30px !important;
 }
 
 .method-text{
   font-size : 16px !important;
-  margin-left : 25px !important;
+  margin-left : 60px !important;
 }
