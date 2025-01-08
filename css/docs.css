@@ -86,16 +86,16 @@ a.hoverLink.active{
 .method-title {
   background-color : #E1EFF8 !important;
   color : black !important;
-  border-top : darkblue !important;
-  border-width : 10px !important;
+  border : 8px darkblue !important;
+  border-style : solid none !important;
   font-family : 'Courier New', Courier, monospace !important;
 }
 
 .class-title {
   background-color : #E1EFF8 !important;
   color : black !important;
-  border-top : darkblue !important;
-  border-width : 10px !important;
+  border : 8px darkblue !important;
+  border-style : solid none !important;
   font-family : 'Courier New', Courier, monospace !important;
   font-size : 36px !important;
   font-weight: bold !important;
