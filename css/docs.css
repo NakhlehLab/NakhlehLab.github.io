@@ -84,38 +84,38 @@ a.hoverLink.active{
 }
 
 .method-title {
-  background-color : #E1EFF8;
-  color : black;
-  border-top : darkblue;
-  border-width : 5px;
-  font-family : 'Courier New', Courier, monospace;
+  background-color : #E1EFF8 !important;
+  color : black !important;
+  border-top : darkblue !important;
+  border-width : 5px !important;
+  font-family : 'Courier New', Courier, monospace !important;
 }
 
 .class-title {
-  background-color : #E1EFF8;
-  color : black;
-  border-top : darkblue;
-  border-width : 5px;
-  font-family : 'Courier New', Courier, monospace;
-  font-size : 18px;
-  font-weight: bold;
+  background-color : #E1EFF8 !important;
+  color : black !important;
+  border-top : darkblue !important;
+  border-width : 5px !important;
+  font-family : 'Courier New', Courier, monospace !important;
+  font-size : 18px !important;
+  font-weight: bold !important;
 }
 
 .class-docstring{
-  font-size : 13.5px;
+  font-size : 13.5px !important;
 }
 
 .method-signature{
-  font-size : 15px;
-  color : black;
-  font-weight: bold;
+  font-size : 15px !important;
+  color : black !important;
+  font-weight: bold !important;
 }
 
 .method-io{
-  font-size : 14px;
-  font-weight: bold;
+  font-size : 14px !important;
+  font-weight: bold !important;
 }
 
 .method-text{
-  font-size : 13.5px;
+  font-size : 13.5px !important;
 }
