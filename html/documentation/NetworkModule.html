@@ -70,25 +70,97 @@
     <div class="container" >
       <phylogenomics-header></phylogenomics-header>
     </div>
-    <div class='grid-method'>                 
-      <div class='method-title'>                     
-        <h2> Network.Network.mrca(self, set_of_nodes: set[Node] | set[str]) -> Node:</h2>
-      </div>                 
-      <div>                    
-        <p>Computes the Least Common Ancestor of a set of graph nodes</p>                
-      </div>                
-      <div>                    
-        <h4> Inputs: </h4>                    
-        <p>
-          set_of_nodes (set[Node] | set[str]): A set of Nodes, or node names.
-       </p>                
-      </div>                
-      <div>                    
-        <h4> Returns: </h4>                    
-        <p>
-          Node: The node that is the LCA of the set.
-        </p>                
-      </div>                             
+    <div class="container">
+      <div class='class-description'>
+        <div>
+           <h1 class='class-title'> GeneTrees</h1>
+        </div>
+        <div>
+           <p class='class-docstring'> 
+              A container for a set of networks that are binary and represent a 
+              gene tree.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.GeneTrees.__init__(self, 
+              gene_tree_list : list[Network] | None = None, 
+              naming_rule : Callable[..., Any] = phynetpy_naming) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Wrapper class for a set of networks that represent gene trees
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              gene_tree_list (list[Network], optional): A list of networks, 
+              of the binary tree 
+              variety. Defaults to None.
+              naming_rule (Callable[..., Any], optional): A function 
+              f : str -> str. 
+              Defaults to 
+              phynetpy_naming.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'> N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.GeneTrees.add(self, tree : Network) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Add a gene tree to the collection. Any new gene labels that belong to
+              this tree will also be added to the collection of all 
+              gene tree leaf labels.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              tree (Network): A network that is a tree, must be binary.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              None
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.GeneTrees.mp_allop_map(self) -> dict[str, list[str]]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Create a subgenome mapping from the stored set of gene trees
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[str, list[str]]: subgenome mapping
+           </p>
+        </div>
+     </div>
+
     </div>
 
 

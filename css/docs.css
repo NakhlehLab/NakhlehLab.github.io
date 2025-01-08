@@ -84,11 +84,38 @@ a.hoverLink.active{
 }
 
 .method-title {
-  background-color: #4275d588;
-  color: whitesmoke;
-  border-top: darkblue;
-  border-width: 2px;
-  font-family: 'Courier New', Courier, monospace;
+  background-color : #E1EFF8;
+  color : black;
+  border-top : darkblue;
+  border-width : 5px;
+  font-family : 'Courier New', Courier, monospace;
 }
 
+.class-title {
+  background-color : #E1EFF8;
+  color : black;
+  border-top : darkblue;
+  border-width : 5px;
+  font-family : 'Courier New', Courier, monospace;
+  font-size : 18px;
+  font-weight: bold;
+}
 
+.class-docstring{
+  font-size : 13.5px;
+}
+
+.method-signature{
+  font-size : 15px;
+  color : black;
+  font-weight: bold;
+}
+
+.method-io{
+  font-size : 14px;
+  font-weight: bold;
+}
+
+.method-text{
+  font-size : 13.5px;
+}
