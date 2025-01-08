@@ -70,7 +70,7 @@
     <div class="container" >
       <phylogenomics-header></phylogenomics-header>
     </div>
-    <div class="container">
+    <div id="GeneTrees" class="container">
       <div class='class-description'>
         <div>
            <h1 class='class-title'> <i>class</i> GeneTrees</h1>
@@ -162,7 +162,398 @@
      </div>
 
     </div>
-
+    <div id="Node" class="container">
+      <div class='class-description'>
+        <div class='class-name'>
+           <h1 class='class-title'> <i>class</i> Node</h1>
+        </div>
+        <div>
+           <p class='class-docstring'> 
+              Node class that provides support for managing network constructs like 
+              reticulation nodes and other phylogenetic attributes.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.__init__(self, 
+              name : str, 
+              is_reticulation : bool = False, 
+              attr : dict[Union[str, Any], Any] = dict(),
+              seq : Union[DataSequence, None] = None,
+              t : Union[float, None] = None) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Initialize a node with a name, attribute mapping, and a hybrid flag.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              name (str): A Node label.
+              is_reticulation (bool, optional): Flag that marks a node as a 
+              reticulation node if set to True. 
+              Defaults to False.
+              attr (dict[Union[str, Any], Any], optional): Fill a mapping with any 
+              other user defined 
+              values. Defaults to an 
+              empty dictionary.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.get_attributes(self) -> dict[Union[str, Any], Any]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Retrieve the attribute mapping.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[Union[str, Any], Any]: A storage of key value pairs that 
+              correspond to user defined node 
+              attributes. Typically keys are    
+              string labels, but they can be anything.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.set_attributes(self, new_attr : dict[Union[str, Any], Any]) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set a node's attributes to a mapping of key labels to attribute values.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_attr (dict[Union[str, Any], Any]): Attribute storage mapping.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.get_time(self) -> float:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Get the speciation time for this node.
+              Closer to 0 implies a time closer to the origin (the root). A larger 
+              time implies a time closer to the present (leaves). 
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              float: Speciation time, typically in coalescent units.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.set_time(self, new_t : float) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Set the speciation time for this node. The arg 't' must be a 
+              non-negative number.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              t (float): The new speciation/hybridization time for this node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.to_string(self) -> str:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Create a description of a node and summarize its attributes.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              str: A string description of the node.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.label(self) -> str:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns the name of the node
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              str: Node label.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.set_name(self, new_name : str) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Sets the name of the node to new_name.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_name (str): A new string label for this node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.set_is_reticulation(self, new_is_retic : bool) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Sets whether a node is a reticulation Node (or not).
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_is_retic (bool): Hybrid flag. True if this node is a 
+              reticulation node, false otherwise
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.is_reticulation(self) -> bool:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Retrieves whether a node is a reticulation Node (or not)
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              bool: True, if this node is a reticulation. False otherwise.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.add_attribute(self, 
+              key : Any, 
+              value : Any, 
+              append : bool = False) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Put a key and value pair into the node attribute dictionary.
+              If the key is already present, it will overwrite the old value.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              key (Any): Attribute key.
+              value (Any): Attribute value for the key.
+              append (bool, optional): If True, appends the given value to the 
+              existing value for the key.   
+              If false, simply replaces. 
+              Defaults to False.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.attribute_value(self, key : Any) -> object:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              If key is a key in the attributes mapping, then
+              its value will be returned.
+              Otherwise, returns None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              key (Any): A lookup key.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              object: The value of key, if key is present.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.set_seq(self, new_sequence : DataSequence) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Associate a data sequence with this node, if this node is a leaf in a 
+              network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              new_sequence (DataSequence): A data sequence wrapper. Grab from MSA 
+              object upon parsing.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.get_seq(self) -> DataSequence:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Gets the data sequence associated with this node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              DataSequence: Data sequence wrapper.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Node.copy(self) -> Node:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Duplicate this node by copying all data into a separate Node object.
+              Useful for crafting copies of networks without having to deep copy. 
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Node: An equivalent node to this node, with all the same data but 
+              technically are not "=="
+           </p>
+        </div>
+     </div>
+    </div>
 
     
 
