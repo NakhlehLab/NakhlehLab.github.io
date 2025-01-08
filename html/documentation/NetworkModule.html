@@ -554,7 +554,954 @@
         </div>
      </div>
     </div>
-
+    <div id="Network" class="container">
+      <div class='class-description'>
+        <div class='class-name'>
+           <h1 class='class-title'> <i>class</i> Network(Graph)</h1>
+        </div>
+        <div>
+           <p class='class-docstring'> 
+              This class represents a directed (and potentially acyclic) graph containing 
+              nodes and edges.
+              An 'Edge' object is a wrapper class for a tuple of two nodes, (a, b),
+              where a and b are Node objects, and the direction of the edge is from 
+              a to b (a is b's parent) -- thus (a, b) is NOT the same as (b, a).
+              Use of 'UEdge' objects is strictly prohibited here.
+              Notes and Allowances:
+              1) You may create cycles -- however we have provided a method to check if 
+              this graph object is acyclic. This method is internally called on 
+              methods that assume that a network has no cycles, so be mindful of the 
+              state of networks that are passed as arguments.
+              2) You may have multiple roots. Be mindful of whether this graph is 
+              connected and what root you wish to operate on.
+              3) You may end up with floater nodes/edges, ie this may be an unconnected 
+              network with multiple connected components. We will provide a method to 
+              check for whether your object is one single connected component. 
+              We have also provided methods to remove such artifacts.      
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).__init__(self,
+              edges : Union[EdgeSet, None] = None, 
+              nodes : Union[NodeSet, None] = None) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Initialize a Network object.
+              You may initialize with any combination of edges/nodes,
+              or provide none at all.
+              If you provide an EdgeSet and no nodes, each node present in the 
+              EdgeSet *WILL* be added to the network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              edges (EdgeSet, optional): A set of Edges. 
+              Defaults to None.
+              nodes (NodeSet, optional): A set of Nodes. 
+              Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).add_edges(self, edges : Union[Edge, list[Edge]]) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              If edges is a list of Edges, then add each Edge to the list of edges.
+              If edges is a singleton Edge then just add to the edge array.
+              Note: Each edge that you attempt to add must be between two nodes that
+              exist in the network. Otherwise, an error will be thrown.
+              Raises:
+              NetworkError: if input edge/edges are malformed in any way
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              edges (Edge | list[Edge]): a single edge, or multiple.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).remove_nodes(self, node : Node) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Removes node from the list of nodes.
+              Also prunes all edges from the graph that are connected to the node.
+              Has no effect if node is not in this network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              node (Node): a Node obj
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).remove_edge(self, 
+              edge : Union[Edge, UEdge, list[Node]], 
+              gamma : float | None = None) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Removes edge from the list of edges. Does not delete nodes with no edges
+              Has no effect if 'edge' is not in the graph.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              edge (Edge | list[Node]): an edge to remove from the graph
+              gamma (float): an inheritance probability from [0,1], if the edge is
+              provided as a list of nodes, and there is an 
+              identifiability issue that needs resolving (ie,
+              the edge that needs to be removed is a bubble
+              edge). Optional. Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).get_edge(self, 
+              n1 : Node, 
+              n2 : Node, 
+              gamma : float | None = None, 
+              tag : str | None = None) -> Edge:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Note, that in the event of bubbles, 2 edges will exist with the same 
+              source and destination. If this is possible, please supply the 
+              inheritance probability of the correct branch. If both edges are known 
+              to be identical (gamma = 0.5), then one will be chosen at random.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              n1 (Node): parent node
+              n2 (Node): child node
+              gamma (float): inheritance probability. Optional. Defaults to None
+              tag (str): A name/identifiability tag for hybrid edges should both
+              gammas be = .5. Optional. Defaults to None.                   
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Edge: the edge containing n1 and n2 and has the proper gamma value 
+              (if applicable).
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).__reclassify_node(self, 
+              node : Node, 
+              is_par : bool,
+              is_addition : bool) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Whenever an edge is added or removed from a network, the nodes that make
+              up the edge need to be reclassified. 
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              node (Node): A node in the graph
+              is_par (bool): flag that tells the method whether the node is being 
+              operated on as a parent (true) or child (false)
+              is_addition (bool): flag that tells the method whether the node arg 
+              is an addition (true) or subtraction (false)
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).root(self) -> Node:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Return the root of the Network. Phylogenetic networks only have one 
+              root, but for generality and practical use, multiple roots have been 
+              allowed. To get all roots, should multiple exist, call the function
+              "roots". This function only returns 1 root.
+              Raises:
+              NetworkError: If there are no roots in the network (cycle, or empty)
+              Warning: If there is more than 1 root in the network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Node] | Node: If singular is set to True, returns a Node. If 
+              False, returns a list of Nodes.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).roots(self) -> list[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Return the root(s) of the Network. Phylogenetic networks only have one 
+              root, but for generality and practical use, multiple roots have been 
+              allowed. This function, by default, only returns 1 root-- change the
+              flag to false to return all.
+              Raises:
+              NetworkError: If there are no roots in the network (cycle, or empty)
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              singular (bool, optional): Flag that signals whether to return one
+              or all roots. If True, returns one. 
+              If false, returns all. Defaults to True.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Node] | Node: If singular is set to True, returns a Node. If 
+              False, returns a list of Nodes.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).get_leaves(self) -> list[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns the set X (a subset of V), the set of all leaves (nodes with
+              out-degree 0). Only returns the leaves that are connected/reachable from
+              the root.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Node]: the connected elements of X, in list format.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).get_parents(self, node : Node) -> list[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns a list of the parents of a node. 
+              There are no assumptions placed on the length of this array.
+              Raises:
+              NetworkError: if the node is not in the network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              node (Node): any node in V.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Node]: the list of nodes in the network that have the given    
+              node as a child node via an edge.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).get_children(self, node : Node) -> list[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns a list of the children of a node.
+              There are no assumptions placed on the length of this array.
+              Raises:
+              NetworkError: if the node is not in the network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              node (Node): any node in V.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Node]: the list of nodes in the network are child nodes of the
+              given node.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).clean(self, options : list[bool] = [True, True, True]) -> None:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              All the various ways that the graph can be cleaned up and streamlined
+              while not altering topology or results of algorithms.
+              Algorithm Indeces:
+              0) Remove nodes that have in/out degree of 0 (floater nodes)
+              1) Remove a spurious root/root edge (root node with only one out edge)
+              2) Consolidate all chains of nodes with in/out degree of 1 into 1 edge.
+              Default behavior is to run all three. To not run a certain routine, 
+              set the options list at the indeces listed above to False.
+              Ie. To run the first and third algo, use [True, False, True].
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              options (list[bool], optional): a list of booleans that designate 
+              which of the cleaning algorithms to 
+              run. Defaults to [True, True, True],
+              aka runs all 3.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              N/A
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).mrca(self, set_of_nodes: set[Node] | set[str]) -> Node:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Computes the Least Common Ancestor of a set of graph nodes
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              set_of_nodes (set[Node] | set[str]): A set of Nodes, or node names.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Node: The node that is the LCA of the set.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).leaf_descendants(self, node : Node) -> set[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Compute the set of all leaf nodes that are descendants of the parameter 
+              node. Uses DFS to find paths to leaves.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              node (Node): The node for which to compute leaf children
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              set[Node]: The list of all leaves that descend from 'node'
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).diff_subtree_edges(self, rng : np.random.Generator) -> list[Edge]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns 2 random edges such that there does not exist a directed path 
+              from one edge source node to the other edge source node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              rng (np.random.Generator): an rng object.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              list[Edge]: a list of 2 edges such that neither edge 
+              is reachable from either starting point.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).subgenome_count(self, n : Node) -> int:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Given a node in this graph, return the subgenome count.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              n (Node): Any node in the graph. 
+              It is an error to input a node that is not in the graph.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              int: subgenome count
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).edges_downstream_of_node(self, n : Node) -> list[Edge]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns the set (as a list) of edges that are in the subgraph of a node.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              n (Node): A node in a graph.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              edges (list[Edge]): The set of all edges in the subgraph of n.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).edges_upstream_of_node(self, n : Node) -> list[Edge]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Returns the set (as a list) of edges that are in all paths from the root
+              to this node.
+              Useful in avoiding the creation of cycles when adding edges.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              n (Node): A node in a graph.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              edges (list[Edge]): The set of all edges in the subgraph of n.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).subgenome_ct_edges(self, 
+              downstream_node : Node | None= None, 
+              delta : float = math.inf, 
+              start_node : Node | None = None)                            -> dict[Edge, int]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Maps edges to their subgenome counts.
+              Raises:
+              NetworkError: If the graph has more than one root to start.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              downstream_node (Node, optional): No edges will be included in the
+              map that are in a subgraph of this 
+              node. Defaults to None.
+              delta (float, optional): Only include edges in the mapping that have
+              subgenome counts <= delta. 
+              Defaults to math.inf.
+              start_node (Node, optional): Provide a node only if you don't want 
+              to start at the root. 
+              Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[DiEdge, int]: a map from edges to subgenome counts
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).edges_to_subgenome_count(self, 
+              downstream_node : Node | None= None, 
+              delta : float = math.inf, 
+              start_node : Node | None = None)                                  -> dict[int, list[Edge]]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Maps edges to their subgenome counts.
+              Raises:
+              NetworkError: If the graph has more than one root to start.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              downstream_node (Node, optional): No edges will be included in the
+              map that are in a subgraph of this 
+              node. Defaults to None.
+              delta (float, optional): Only include edges in the mapping that have
+              subgenome counts <= delta. 
+              Defaults to math.inf.
+              start_node (Node, optional): Provide a node only if you don't want 
+              to start at the root. 
+              Defaults to None.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[Edge, int]: a map from edges to subgenome counts
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).__leaf_desc_help(self, 
+              node : Node, 
+              leaves : list[Node], 
+              desc_map : dict[Node, set[Node]]) -> set[Node]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Helper function for "leaf_descedants_all".  
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              net (Network): A network
+              node (Node): a node in 'net'
+              leaves (list[Node]): _description_
+              desc_map (dict[Node, set[Node]]): _description_
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              set[Node]: the leaf descendents of the 'node' param
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).leaf_descendants_all(self) -> dict[Node, set[Node]]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Map each node in the graph to its set of leaf descendants
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[Node, set[Node]]: map from graph nodes to their 
+              leaf descendants
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).__newick_help(self, 
+              node : Node, 
+              processed_retics : set[Node]) -> str:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Helper function to "newick". Generates the newick string (sans ending 
+              semicolon) of the subnetwork defined by 'node'.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              net (Network): A Network
+              node (Node): a Node in 'net'
+              processed_retics (set[Node]): A set of all reticulation nodes that
+              have already been seen by the search 
+              function. Helps to avoid rewriting the
+              subnetwork string of a reticulation.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              str: The newick representation of a subnetwork.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).newick(self) -> str:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Generates the extended newick representation of this Network
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              str: a newick string
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).is_cyclic_util(self, 
+              v : Node,
+              visited : dict[Node, bool], 
+              rec_stack : dict[Node, bool]):
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              is_acyclic helper function
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              v (Node): _description_
+              visited (dict[Node, bool]): _description_
+              rec_stack (dict[Node, bool]): _description_
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              _type_: _description_
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).is_acyclic(self) -> bool:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Checks if each of this graph's connected components is acyclic
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              bool: True if acyclic, False if cyclic. 
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).bfs_dfs(self, 
+              start_node : Node | None = None,
+              dfs : bool = False, 
+              is_connected : bool = False, 
+              accumulator : Callable[..., None] | None = None, 
+              accumulated : Any = None) -> tuple[dict[Node, int], Any]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              General bfs-dfs routine, with the added utility of checking 
+              whether or not this graph is made up of multiple connected components.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              start_node (Node, optional): Give a node to start the search from. 
+              Defaults to None, in which case the 
+              search will start at the root.
+              dfs (bool, optional): Flag that specifies whether to use bfs or dfs. 
+              Defaults to False (bfs), if true is passed, 
+              will run dfs.
+              is_connected (bool, optional): Flag that, if enabled, will check for 
+              the connected component status. 
+              Defaults to False (won't run).
+              accumulator (Callable, optional): A function that takes the 
+              currently searched Node in the 
+              graph and does some sort 
+              of bookkeeping.
+              accumulated (Any): Any type of structure that stores the data 
+              given by the accumulator function.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              dict[Node, int]: Mapping from nodes to their distance 
+              from the start node.
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).rootpaths(self, start : Node) -> list[list[Edge]]:
+              #     
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              #     Get all paths (list of edges)
+              #     
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              #         start (Node): Start the search from this node
+              #     
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              #         list[list[Edge]]: a list of all paths (lists of edges) to the root  
+              #                           from 'start'
+              #     
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).subnet(self, retic_node : Node) -> Network:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Make a copy of a subnetwork of this Network, rooted at 'retic_node', 
+              with unique node names.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              retic_node (Node): A node in this network that is a reticulation 
+              node
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              Network: A subnetwork of the DAG being operated on
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).copy(self) -> tuple[Network, dict[Node, Node]]:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Copy this network into a new network object, also with new node and 
+              edge objects.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              tuple[Network, dict[Node, Node]]: A carbon copy of this Network, 
+              along with a mapping from the old
+              network's nodes to the nodes in 
+              the new network. 
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).to_networkx(self) -> nx.Graph:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Generates a networkx object from this network, for viewing purposes!
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              N/A
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              nx.Graph: _description_
+           </p>
+        </div>
+     </div>
+     <div class='grid-method'>
+        <div class='method-title'>
+           <h2 class='method-signature'> Network.Network(Graph).compare_network(self, net : Network, measure : str) -> float:
+           </h2>
+        </div>
+        <div>
+           <p class='method-text'>
+              Compares the topology of this network compared to another network.
+              The following are options for the distance measure:
+              [tree|tri|cluster|luay|rnbs|apd|normapd|wapd|normwapd]
+              If [tree | tri | cluster] is used, the return value will be the average
+              of the false positive and false negative rates.
+              If [luay] is used, the return value will be the distance between the
+              two networks.
+              If [rnbs | apd | normapd | wapd | normwapd] is used, the return value
+              is the dissimilarity between the two networks.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Inputs: </h4>
+           <p class='method-text'> 
+              net (Network): The other network.
+           </p>
+        </div>
+        <div>
+           <h4 class='method-io'> Returns: </h4>
+           <p class='method-text'>
+              float: Measure of the two networks similarity/distance.
+           </p>
+        </div>
+     </div>
+    </div>
+    <div id="" class="container">
+      
+    </div>
+    <div id="" class="container">
+      
+    </div>
+    <div id="" class="container">
+      
+    </div>
+    <div id="" class="container">
+      
+    </div>
     
 
 
