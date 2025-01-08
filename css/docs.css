@@ -99,10 +99,12 @@ a.hoverLink.active{
   font-family : 'Courier New', Courier, monospace !important;
   font-size : 22px !important;
   font-weight: bold !important;
+  text-decoration: underline !important;
 }
 
 .class-docstring{
   font-size : 16px !important;
+  margin-left : 25px !important;
 }
 
 .method-signature{
