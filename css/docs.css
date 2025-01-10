@@ -123,11 +123,12 @@ a.hoverLink.active{
   margin-left : 60px !important;
 }
 
-.arrow-details{
-  color:rgb(89,159,214);
-  font-size: 16px;
-  font-weight: lighter;
-  width : 100%;
+
+
+details summary::marker {
+  color: rgb(89,159,214); 
+  font-size: lighter; 
+  font-size: 10px;
 }
 
 details > summary {
