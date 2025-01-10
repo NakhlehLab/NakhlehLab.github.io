@@ -127,7 +127,7 @@ a.hoverLink.active{
   color:rgb(89,159,214);
   font-size: 16px;
   font-weight: lighter;
-  width : 90%;
+  width : 100%;
 }
 
 details > summary {
