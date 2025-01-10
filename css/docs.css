@@ -126,34 +126,23 @@ a.hoverLink.active{
 summary::marker {
   color: rgb(89,159,214) !important; 
   font-size: lighter !important; 
-  font-size: 10px !important;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
+  font-size: 30px !important;
 }
 
 details > summary::after {
   color: rgb(89,159,214) !important; 
-  font-size: lighter !important; 
-  font-size: 10px !important;
-  content:  '▶';
+  font-size: 25px !important;
 }
 
 details[open] > summary::after {
   color: rgb(89,159,214) !important; 
-  font-size: bold !important; 
-  font-size: 10px !important;
-  content: "▼";
+  font-size: 25 px !important;
 }
 
 details > summary {
   cursor: pointer !important;
   padding: .5rem 1rem !important;
   color:black ;
-  list-style: none;
-  display: flex;
-  align-items: center;
 }
 
 /* details > summary > * {
