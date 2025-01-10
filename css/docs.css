@@ -122,3 +122,20 @@ a.hoverLink.active{
   font-size : 16px !important;
   margin-left : 60px !important;
 }
+
+.arrow-details{
+  color:rgb(89,159,214);
+  font-size: 16px;
+  font-weight: lighter;
+  width : 100%;
+}
+
+details > summary {
+  cursor: pointer;
+  padding: .5rem 1rem;
+  border-bottom: 4px solid #4275d5b3;
+}
+
+details > summary > * {
+  display: inline;
+}

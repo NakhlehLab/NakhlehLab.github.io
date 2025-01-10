@@ -1,9 +1,4 @@
-.q{
-        color:#4275d5b3;
-        font-size: 30px;
-        background-color: rgb(232, 232, 232);
-        width:100%;
-}
+
 
 .questionP{
         color:#4275d5b3;
@@ -22,6 +17,12 @@
 }
 
 
+.q{
+        color:#4275d5b3;
+        font-size: 30px;
+        background-color: rgb(232, 232, 232);
+        width:100%;
+}
 
 details > summary {
         cursor: pointer;
