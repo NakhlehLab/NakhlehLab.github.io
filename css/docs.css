@@ -123,22 +123,21 @@ a.hoverLink.active{
   margin-left : 60px !important;
 }
 
-
-
-details summary::marker {
-  color: rgb(89,159,214); 
-  font-size: lighter; 
-  font-size: 10px;
+summary::marker {
+  color: rgb(89,159,214) !important; 
+  font-size: lighter !important; 
+  font-size: 10px !important;
 }
 
 details > summary {
-  cursor: pointer;
-  padding: .5rem 1rem;
-  border-bottom: 4px solid #4275d5b3;
-  color:black;
+  cursor: pointer !important;
+  padding: .5rem 1rem !important;
+  border-bottom: 4px solid #4275d5b3 !important;
+  color:black !important;
+  list-style-type:circle !important; 
 }
 
 details > summary > * {
-  display: inline;
-  color: black;
+  display: inline !important;
+  color: black !important;
 }
