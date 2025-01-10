@@ -149,3 +149,22 @@ details > summary {
   display: inline !important;
   color: black !important;
 } */
+
+.sig-text{
+  color:black !important; 
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
+
+.func-name{
+  color: black !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+.param{
+  color : rgb(89,159,214) !important;
+  font-size: 18px !important;
+  font-weight: 400;
+  font-style: italic;
+}
