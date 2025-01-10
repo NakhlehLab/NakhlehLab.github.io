@@ -134,8 +134,10 @@ details > summary {
   cursor: pointer;
   padding: .5rem 1rem;
   border-bottom: 4px solid #4275d5b3;
+  color:black;
 }
 
 details > summary > * {
   display: inline;
+  color: black;
 }
