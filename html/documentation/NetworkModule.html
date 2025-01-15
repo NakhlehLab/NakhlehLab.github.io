@@ -127,7 +127,7 @@
             <div>
                <h4 class='method-io'> Returns: </h4>
                <p class='method-text'>
-                  None
+                  N/A
                </p>
             </div>
          </div>
@@ -1855,9 +1855,66 @@
       </details>
     </div>
     <br>
-    <div id="" class="container">
-      
-    </div>
+    <div id='MUL' class='container'>
+      <details>
+         <summary class='class-title arrow-details'> <i>class </i> MUL</summary>
+         <div>
+            <p class='class-docstring'> 
+               A subclass of a Network, that is a binary tree that results from the 
+               transformation of a standard network into a Multilabeled Species Tree.
+            </p>
+         </div>
+         <div class='grid-method'>
+            <div class='method-title'>
+               <p> <span class='func-name'>__init__</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>gene_map</span><span class='sig-text'>) -> </span><span class='ret-type'>None</span><span class='sig-text'>:</span></p>
+            </div>
+            <div>
+               <p class='method-text'>
+                  Initialize a MUL tree (Multilabeled Species Tree) with a map of species
+                  to the genes associates with them, and a rng.
+               </p>
+            </div>
+            <div>
+               <h4 class='method-io'> Inputs: </h4>
+               <p class='method-text'> 
+                  gene_map (dict[str, list[str]]): A subgenome mapping.
+                  rng (np.random.Generator): A random seed generator
+               </p>
+            </div>
+            <div>
+               <h4 class='method-io'> Returns: </h4>
+               <p class='method-text'>
+                  N/A
+               </p>
+            </div>
+         </div>
+         <div class='grid-method'>
+            <div class='method-title'>
+               <p> <span class='func-name'>to_mul</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>net</span><span class='sig-text'>) -> </span><span class='ret-type'>Network</span><span class='sig-text'>:</span></p>
+            </div>
+            <div>
+               <p class='method-text'>
+                  Creates a (MU)lti-(L)abeled Species Tree from a network
+                  Raises:
+                  NetworkError: If the network is malformed with regards to ploidy
+               </p>
+            </div>
+            <div>
+               <h4 class='method-io'> Inputs: </h4>
+               <p class='method-text'> 
+                  net (Network): A Network
+               </p>
+            </div>
+            <div>
+               <h4 class='method-io'> Returns: </h4>
+               <p class='method-text'>
+                  Network: a MUL tree (as a Network obj)
+               </p>
+            </div>
+         </div>
+      </details>
+   </div>
+   <br>
     <div id="" class="container">
       
     </div>
