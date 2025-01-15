@@ -154,8 +154,8 @@
             </div>
          </div>
       </details>
-   </div>
-   <br>
+    </div>
+    <br>
     <div id="Node" class="container">
       <details>
         <summary class='class-title arrow-details'> <i>class </i> Node </summary>
@@ -1857,7 +1857,7 @@
     <br>
     <div id='MUL' class='container'>
       <details>
-         <summary class='class-title arrow-details'> <i>class </i> MUL</summary>
+         <summary class='class-title arrow-details'> <i>class </i> MUL(Network)</summary>
          <div>
             <p class='class-docstring'> 
                A subclass of a Network, that is a binary tree that results from the 
@@ -1913,14 +1913,292 @@
             </div>
          </div>
       </details>
-   </div>
-   <br>
-    <div id="" class="container">
-      
     </div>
-    <div id="" class="container">
-      
+    <br>
+    <div id='UEdge' class='container'>
+    <details>
+       <summary class='class-title arrow-details'> <i>class </i> UEdge</summary>
+       <div>
+          <p class='class-docstring'> 
+             Undirected dge class that is essentially a wrapper class for a set
+             {a, b} where a and b are Node objects. There is no ordering/direction.
+          </p>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>__init__</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>n1</span><span class='sig-text'>, </span><span class='param'>n2</span><span class='sig-text'>, </span><span class='param'>length</span><span class='sig-text'>, </span><span class='param'>weight</span><span class='sig-text'>) -> </span><span class='ret-type'>None</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Initialize an undirected Edge.
+                Raises:
+                EdgeError: If 'length' does not match the difference in node times
+                should both n1 and n2 have set time attributes.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                n1 (Node): A Node (designated member #1 for efficient retrieval)
+                n2 (Node): A Node (designated member #2 for efficient retrieval)
+                length (float, optional): _description_. Defaults to None.
+                weight (float, optional): _description_. Defaults to None.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                N/A
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>n1</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>) -> </span><span class='ret-type'>Node</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Retrieves the first node given as a parameter to this undirected edge
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                N/A
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                Node: The first node given as a parameter to this undirected edge
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>n2</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>) -> </span><span class='ret-type'>Node</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Retrieves the second node given as a parameter to this undirected edge
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                N/A
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                Node: The second node given as a parameter to this undirected edge
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>__contains__</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>x</span><span class='sig-text'>) -> </span><span class='ret-type'>bool</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                An undirected edge contains two member nodes.
+                IE.
+                e : UEdge
+                n : Node
+                "n in e" gives True or False.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                x (Node): A Node
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                bool: True if 'x' is a member node of this UEdge, False if not.
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>get_length</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>) -> </span><span class='ret-type'>float</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Gets the branch length of this edge. If it is not equivalent to the
+                current times of the source and destination nodes, then a warning
+                is raised that the branch lengths are not equivalent, and that either
+                the times are outdated or the branch length field is outdated.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                N/A
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                float: branch length.
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>set_length</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>branch_length</span><span class='sig-text'>, </span><span class='param'>enforce_times</span><span class='sig-text'>) -> </span><span class='ret-type'>None</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Sets the branch length of this edge.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                length (float): a branch length value (>0).
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                N/A
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>copy</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>new_n1</span><span class='sig-text'>, </span><span class='param'>new_n2</span><span class='sig-text'>) -> </span><span class='ret-type'>UEdge</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Make an equivalent UEdge (same as a deepcopy essentially).
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                new_n1 (Node | None, optional): Provide new nodes in
+                case you'd like finer control 
+                over naming. Defaults to None.
+                new_n2 (Node | None, optional): Provide new nodes in
+                case you'd like finer control 
+                over naming. Defaults to None.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                UEdge: A new but functionally equivalent UEdge
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>to_directed</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>src</span><span class='sig-text'>) -> </span><span class='ret-type'>Edge</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Convert this edge to a directed edge. 
+                Raises: 
+                EdgeError: If 'src' is not a node in this Edge.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                src (Node): Must be one of the Nodes that is in this edge. Sets this
+                Node as the source node, and the other node as the 
+                destination
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                Edge: An equivalent edge to this undirected edge, but with a 
+                direction now enforced.
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>get_weight</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>) -> </span><span class='ret-type'>float</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Get the weight value for this UEdge (not! equivalent to its length in a 
+                phylogenetic context, this is for any other potential use for the
+                inclusion of weighting edges).
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                N/A
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                float: The weight of this UEdge
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>set_weight</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>, </span><span class='param'>new_weight</span><span class='sig-text'>) -> </span><span class='ret-type'>None</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Set a weight value for this UEdge (not! equivalent to its length in a 
+                phylogenetic context, this is for any other potential use for the
+                inclusion of weighting edges).
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                new_weight (float): A new weight value
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                N/A
+             </p>
+          </div>
+       </div>
+       <div class='grid-method'>
+          <div class='method-title'>
+             <p> <span class='func-name'>to_names</span><span class='sig-text'>(</span><span class='param'>self</span><span class='sig-text'>) -> </span><span class='ret-type'>tuple[str, str]</span><span class='sig-text'>:</span></p>
+          </div>
+          <div>
+             <p class='method-text'>
+                Return this UEdge as a two-tuple of the two member nodes' labels.
+                While you should not presume an order, the order will be n1 then n2 if 
+                you remember which order you passed them in as during initialization.
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Inputs: </h4>
+             <p class='method-text'> 
+                N/A
+             </p>
+          </div>
+          <div>
+             <h4 class='method-io'> Returns: </h4>
+             <p class='method-text'>
+                tuple[str, str]: a two-tuple of names, (n1 name , n2 name)
+             </p>
+          </div>
+       </div>
+    </details>
     </div>
+    <br>
+    
     
 
 
