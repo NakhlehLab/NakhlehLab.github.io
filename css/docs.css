@@ -168,3 +168,38 @@ details > summary {
   font-weight: 400;
   font-style: italic;
 }
+
+.input-section{
+
+}
+
+.output-section{
+
+}
+
+.arg-name{
+  font-weight: 600 !important;
+  color : rgb(89,159,214) !important;
+  font-style: italic !important;
+}
+
+.arg-type{
+  font-weight: 600 !important;
+  color : rgb(89,159,214) !important;
+  
+}
+
+.arg-description{
+  font-weight: 300 !important;
+  color:black !important;
+}
+
+.out-type{
+  font-weight: 600 !important;
+  color : rgb(89,159,214) !important;
+}
+
+.out-description{
+  font-weight: 300 !important;
+  color:black !important;
+}
