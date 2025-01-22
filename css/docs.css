@@ -170,11 +170,11 @@ details > summary {
 }
 
 .input-section{
-
+  margin-left: 60px !important;
 }
 
 .output-section{
-
+  margin-left: 60px !important;
 }
 
 .arg-name{
@@ -185,7 +185,7 @@ details > summary {
 
 .arg-type{
   font-weight: 600 !important;
-  color : rgb(89,159,214) !important;
+  color : #749ebd !important;
   
 }
 
@@ -196,7 +196,7 @@ details > summary {
 
 .out-type{
   font-weight: 600 !important;
-  color : rgb(89,159,214) !important;
+  color : #749ebd !important;
 }
 
 .out-description{
