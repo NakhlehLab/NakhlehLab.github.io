@@ -71,9 +71,9 @@
       <phylogenomics-header></phylogenomics-header>
     </div>
     
-    <div id='' class='container'>
+    <div id='snp_alphabet' class='container'>
         <details>
-           <summary class='class-title arrow-details'> <i>Function </i> </summary>
+           <summary class='class-title arrow-details'> <i>function </i> snp_alphabet</summary>
            <div>
               <p class='class-docstring'> 
                  For SNP alphabet initialization. For data sets in which the maximum ploidy 
@@ -155,14 +155,15 @@
                  This state mapping is primarily based on Base10 -> Binary 
                  conversions such that the decimal numbers become a generalized
                  version of the one-hot encoding scheme.
+                 
                  DNA MAPPING INFORMATION
                  Symbol(s)  Name       Partial Likelihood
                  A        Adenine          [1,0,0,0] -> 1
                  C        Cytosine         [0,1,0,0] -> 2
                  G        Guanine          [0,0,1,0] -> 4
-                 T U      Thymine  [0,0,0,1] -> 8
+                 T U      Thymine          [0,0,0,1] -> 8
                  Symbol(s)  Name       Partial Likelihood
-                 N ? X  Any        A C G T ([1,1,1,1] -> 15)
+                 N ? X      Any            A C G T ([1,1,1,1] -> 15)
                  V          Not T          A C G ([1,1,1,0] -> 7)
                  H          Not G          A C T ([1,1,0,1] -> 11)
                  D          Not C          A G T ([1,0,1,1] -> 13)
@@ -171,7 +172,7 @@
                  R          Purine         A G ([1,0,1,0] -> 5)
                  W          Weak           A T ([1,0,0,1] -> 9)
                  S          Strong         C G ([0,1,1,0] -> 6)
-                 Y          Pyrimidine C T ([0,1,0,1] -> 10)
+                 Y          Pyrimidine     C T ([0,1,0,1] -> 10)
                  K          Keto           G T ([0,0,1,1] -> 12)
               </p>
            </div>
