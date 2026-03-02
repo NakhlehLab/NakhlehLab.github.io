@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PhyNetPy v0.3.0 Release Notes">
+    <title>PhyNetPy v0.3.0 Release Notes — Nakhleh Lab</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+
+    <style>
+      body { background-color: whitesmoke; }
+
+      .rn-hero {
+        background: linear-gradient(135deg, #4275d5 0%, #2a5298 100%);
+        color: #fff;
+        padding: 3rem 2rem;
+        border-radius: .5rem;
+        margin-bottom: 2.5rem;
+      }
+      .rn-hero h1 { font-weight: 700; }
+      .rn-hero .badge-version {
+        display: inline-block;
+        background: rgba(255,255,255,.2);
+        padding: .35rem .9rem;
+        border-radius: 2rem;
+        font-size: .95rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .rn-section { margin-bottom: 2.5rem; }
+      .rn-section h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        border-bottom: 3px solid #4275d5;
+        padding-bottom: .4rem;
+        margin-bottom: 1rem;
+      }
+      .rn-section h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-top: 1.2rem;
+      }
+
+      .highlight-card {
+        border-left: 4px solid #4275d5;
+        background: #fff;
+        padding: 1.25rem 1.5rem;
+        border-radius: .35rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      }
+      .highlight-card h4 {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: .4rem;
+      }
+      .highlight-card .badge-new {
+        background: #28a745;
+        color: #fff;
+        font-size: .7rem;
+        padding: .2rem .55rem;
+        border-radius: 2rem;
+        vertical-align: middle;
+        margin-left: .4rem;
+      }
+      .highlight-card .badge-improved {
+        background: #4275d5;
+        color: #fff;
+        font-size: .7rem;
+        padding: .2rem .55rem;
+        border-radius: 2rem;
+        vertical-align: middle;
+        margin-left: .4rem;
+      }
+
+      .module-table th { background: #f8f9fa; }
+      .module-table td, .module-table th { vertical-align: middle; }
+
+      code {
+        background: #f1f3f5;
+        padding: .15rem .4rem;
+        border-radius: .25rem;
+        font-size: .9em;
+        color: #333;
+      }
+
+      .doc-link {
+        display: inline-block;
+        margin-top: .5rem;
+        font-weight: 600;
+        color: #4275d5;
+      }
+      .doc-link:hover { text-decoration: underline; }
+
+      .stats-row .stat-box {
+        text-align: center;
+        padding: 1.2rem;
+        background: #fff;
+        border-radius: .4rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      }
+      .stats-row .stat-box .stat-num {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #4275d5;
+      }
+      .stats-row .stat-box .stat-label {
+        font-size: .85rem;
+        color: #666;
+        margin-top: .2rem;
+      }
+    </style>
+  </head>
+
+<body>
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/header.js" charset="utf-8"></script>
+  <div class="container">
+    <phylogenomics-header></phylogenomics-header>
+  </div>
+
+  <div class="container py-4">
+
+    <!-- Hero -->
+    <div class="rn-hero">
+      <span class="badge-version">v0.3.0</span>
+      <h1>PhyNetPy Release Notes</h1>
+      <p class="mb-1" style="max-width:700px;">A major release introducing a unified I/O system, a blazing-fast vectorized BiMarkers algorithm with GPU support, Tree of Blobs decomposition, a full MCMC inference pipeline, and much more.</p>
+      <a href="/v0.3.0/index.html" class="btn btn-outline-light btn-sm mt-2">View Full Documentation &rarr;</a>
+    </div>
+
+    <!-- At a glance -->
+    <div class="row stats-row mb-4">
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stat-box">
+          <div class="stat-num">27</div>
+          <div class="stat-label">Total Modules</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stat-box">
+          <div class="stat-num">15</div>
+          <div class="stat-label">New Modules</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stat-box">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Updated Modules</div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div class="stat-box">
+          <div class="stat-num">GPU</div>
+          <div class="stat-label">Acceleration Support</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="rn-section">
+      <h2>Highlights</h2>
+
+      <!-- IO -->
+      <div class="highlight-card">
+        <h4>Unified IO Module <span class="badge-new">New</span></h4>
+        <p>
+          The new <code>IO</code> module consolidates all file-format handling into a single, clean API.
+          It replaces the former <code>NetworkParser</code> class and absorbs functionality that was previously
+          spread across multiple modules.
+        </p>
+        <h3>What changed</h3>
+        <ul>
+          <li><strong>New format support</strong> &mdash; FASTA (<code>read_fasta</code>, <code>write_fasta</code>), VCF (<code>read_vcf</code>, <code>write_vcf</code>), and more.</li>
+          <li><strong>Improved Newick &amp; Nexus</strong> &mdash; dedicated <code>read_newick</code>/<code>write_newick</code> and <code>read_nexus</code>/<code>write_nexus</code> functions with auto-detection of Newick convention (PhyNetPy / PhyloNet / Beast).</li>
+          <li><strong>Simpler imports</strong> &mdash; <code>from PhyNetPy import read_nexus, read_newick</code> instead of instantiating a parser class.</li>
+          <li><strong>Removed</strong> &mdash; <code>NetworkParser</code> module (functionality fully absorbed by <code>IO</code>).</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/IO.html">IO module docs &rarr;</a>
+      </div>
+
+      <!-- BiMarkers -->
+      <div class="highlight-card">
+        <h4>Vectorized BiMarkers Algorithm <span class="badge-new">New</span></h4>
+        <p>
+          A completely new SNP (biallelic marker) likelihood module built from the ground up for performance.
+          The vectorized approach drastically reduces compute times and opens the door to GPU acceleration.
+        </p>
+        <h3>Key features</h3>
+        <ul>
+          <li><strong>Vectorized computation</strong> &mdash; sparse merge/split tensor operations replace element-wise loops.</li>
+          <li><strong>GPU support</strong> &mdash; transparent CPU-to-GPU switching via the new <code>Executor</code> abstraction (NumPy on CPU, CuPy on CUDA).</li>
+          <li><strong>Site batching</strong> &mdash; process large datasets in configurable batches to stay within memory limits.</li>
+          <li><strong>Auto GPU detection</strong> &mdash; <code>GPUSpecs</code> performs pre-flight VRAM checks and falls back to CPU gracefully.</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/BiMarkers.html">BiMarkers module docs &rarr;</a>
+      </div>
+
+      <!-- Tree of Blobs -->
+      <div class="highlight-card">
+        <h4>Tree of Blobs Decomposition <span class="badge-improved">Improved</span></h4>
+        <p>
+          Networks can now be decomposed into a <em>Tree of Blobs</em> for more efficient likelihood computation.
+          This is supported by several new and updated components:
+        </p>
+        <ul>
+          <li><strong><code>MUL</code> class</strong> (Network module) &mdash; multi-labeled trees that represent the blob-level decomposition of a phylogenetic network.</li>
+          <li><strong>Typed model nodes</strong> (<code>ModelGraph</code>) &mdash; <code>LeafNode</code>, <code>InternalNode</code>, <code>ReticulationNode</code>, <code>RootNode</code>, and <code>RootAggregatorNode</code> enable node-specific computation dispatch.</li>
+          <li><strong><code>NodeVPI</code> tensors</strong> (BiMarkers) &mdash; per-node probability bundles used during traversal.</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/Network.html">Network module docs &rarr;</a>
+      </div>
+
+      <!-- MCMC Pipeline -->
+      <div class="highlight-card">
+        <h4>Full MCMC Inference Pipeline <span class="badge-new">New</span></h4>
+        <p>
+          v0.3.0 ships a complete Bayesian inference stack, from model construction to posterior sampling:
+        </p>
+        <ul>
+          <li><strong>ModelFactory</strong> &mdash; component-based, dependency-aware model assembly.</li>
+          <li><strong>State</strong> &mdash; dual-model (current / proposed) accept/reject management.</li>
+          <li><strong>MetropolisHastings &amp; HillClimbing</strong> &mdash; pluggable search algorithms with <code>ProposalKernel</code> ABC.</li>
+          <li><strong>ModelMove</strong> &mdash; topology proposals: <code>AddReticulation</code>, <code>RemoveReticulation</code>, <code>FlipReticulation</code>, <code>SwitchParentage</code>, <code>SPR</code>.</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/MetropolisHastings.html">MetropolisHastings docs &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="rn-section">
+      <h2>Architecture &amp; Design Patterns</h2>
+      <p>v0.3.0 introduces a formal design-pattern layer that decouples <em>what</em> to compute, <em>how</em> to dispatch, and <em>in what order</em> to traverse.</p>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="highlight-card h-100">
+            <h4>Strategy <span class="badge-new">New</span></h4>
+            <p>Abstract interface for node-level computations: <code>compute_at_leaf</code>, <code>compute_at_internal</code>, <code>compute_at_reticulation</code>, <code>compute_at_root</code>.</p>
+            <a class="doc-link" href="/v0.3.0/Strategy.html">Docs &rarr;</a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="highlight-card h-100">
+            <h4>Visitor <span class="badge-new">New</span></h4>
+            <p>Auto-dispatching visitor pattern: <code>visit_leaf</code>, <code>visit_internal</code>, <code>visit_reticulation</code>, <code>visit_root</code>.</p>
+            <a class="doc-link" href="/v0.3.0/Visitor.html">Docs &rarr;</a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="highlight-card h-100">
+            <h4>Traversal <span class="badge-new">New</span></h4>
+            <p>Iterator-based graph traversal with pre-order, post-order, and level-order modes. <code>LevelParallelTraversal</code> groups nodes by level for parallel execution.</p>
+            <a class="doc-link" href="/v0.3.0/Traversal.html">Docs &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Modules -->
+    <div class="rn-section">
+      <h2>New Modules</h2>
+      <div class="table-responsive">
+        <table class="table table-hover module-table">
+          <thead>
+            <tr>
+              <th>Module</th>
+              <th>Category</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/v0.3.0/IO.html">IO</a></td>
+              <td>I/O</td>
+              <td>Unified file I/O: FASTA, VCF, Newick, Nexus with format auto-detection and cross-convention conversion.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/BiMarkers.html">BiMarkers</a></td>
+              <td>Inference</td>
+              <td>Vectorized SNP likelihood computation with GPU acceleration and site batching.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/MetropolisHastings.html">MetropolisHastings</a></td>
+              <td>Inference</td>
+              <td>MCMC and Hill Climbing search algorithms with pluggable proposal kernels.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/State.html">State</a></td>
+              <td>Inference</td>
+              <td>Dual-model accept/reject state management for MCMC chains.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/ModelGraph.html">ModelGraph</a></td>
+              <td>Models</td>
+              <td>Probabilistic graphical model with typed nodes and visitor-pattern support.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/ModelFactory.html">ModelFactory</a></td>
+              <td>Models</td>
+              <td>Component-based, dependency-aware model builder.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/ModelMove.html">ModelMove</a></td>
+              <td>Models</td>
+              <td>Network topology moves for MCMC: Add/Remove/Flip reticulation, SPR, etc.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Strategy.html">Strategy</a></td>
+              <td>Infrastructure</td>
+              <td>Abstract Strategy interface for node-level computations.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Visitor.html">Visitor</a></td>
+              <td>Infrastructure</td>
+              <td>Abstract Visitor interface with auto-dispatching by node type.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Traversal.html">Traversal</a></td>
+              <td>Infrastructure</td>
+              <td>Iterator-based graph traversal: pre-order, post-order, level-order, parallel level.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Executor.html">Executor</a></td>
+              <td>Infrastructure</td>
+              <td>CPU/GPU computation backend abstraction (NumPy / CuPy).</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/graph_core.html">graph_core</a></td>
+              <td>Infrastructure</td>
+              <td>Low-level graph data structures with optional Cython acceleration.</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Phylo.html">Phylo</a></td>
+              <td>Core</td>
+              <td>Core <code>Branch</code> class for edge attributes (length, inheritance probability).</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/SNPSimulator.html">SNPSimulator</a></td>
+              <td>Simulation</td>
+              <td>Forward-in-time SNP data simulator with random network generation (Yule process).</td>
+            </tr>
+            <tr>
+              <td><a href="/v0.3.0/Logger.html">Logger</a></td>
+              <td>Infrastructure</td>
+              <td>Minimal structured logging for debugging model moves and inference.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Updated Modules -->
+    <div class="rn-section">
+      <h2>Updated Modules</h2>
+
+      <div class="highlight-card">
+        <h4>Network <span class="badge-improved">Improved</span></h4>
+        <ul>
+          <li>Added <code>NodeSet</code>, <code>UEdge</code> (undirected edge), <code>EdgeSet</code>, and <code>Graph</code> base class.</li>
+          <li>Added <code>MUL</code> class for multi-labeled trees (Tree of Blobs decomposition).</li>
+          <li><code>Node</code> now exposes a <code>label</code> property in addition to <code>get_name()</code>.</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/Network.html">Docs &rarr;</a>
+      </div>
+
+      <div class="highlight-card">
+        <h4>GeneTrees <span class="badge-improved">Improved</span></h4>
+        <ul>
+          <li>Now includes concordance factor computation.</li>
+        </ul>
+        <a class="doc-link" href="/v0.3.0/GeneTrees.html">Docs &rarr;</a>
+      </div>
+
+      <div class="highlight-card">
+        <h4>Other Shared Modules</h4>
+        <p>The following modules received documentation updates and sidebar navigation improvements:
+        <code>Alphabet</code>, <code>BirthDeath</code>, <code>GraphUtils</code>, <code>GTR</code>,
+        <code>Matrix</code>, <code>MSA</code>, <code>NetworkMoves</code>, <code>Newick</code>,
+        <code>PhyloNet</code>, <code>Validation</code>.</p>
+      </div>
+    </div>
+
+    <!-- Bug Fixes -->
+    <div class="rn-section">
+      <h2>Bug Fixes</h2>
+      <div class="highlight-card">
+        <ul class="mb-0">
+          <li>Various stability and correctness fixes across the codebase.</li>
+          <li>Improved error handling and validation throughout shared modules.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Migration -->
+    <div class="rn-section">
+      <h2>Migration from v0.2.0</h2>
+      <div class="highlight-card">
+        <h4>Import changes</h4>
+        <p>Top-level imports are now preferred:</p>
+        <p>
+          <strong>Before:</strong> <code>from PhyNetPy.Network import Network, Node, Edge</code><br>
+          <strong>After:</strong>&nbsp; <code>from PhyNetPy import Network, Node, Edge</code>
+        </p>
+        <h4 style="margin-top:1rem;">NetworkParser removed</h4>
+        <p>
+          <strong>Before:</strong> <code>from PhyNetPy.NetworkParser import NetworkParser</code><br>
+          <strong>After:</strong>&nbsp; <code>from PhyNetPy import read_nexus, read_newick</code>
+        </p>
+      </div>
+    </div>
+
+    <!-- Install -->
+    <div class="rn-section">
+      <h2>Installation</h2>
+      <div class="highlight-card">
+        <p class="mb-0"><code>pip install phynetpy</code></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="container" height="150px" style="bottom:0;">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center" width="400px">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <img width="75" height="37.5" src="/media/headerPhoto.png">
+        </a>
+        <span class="text-muted" width="350px">&copy; 2022 Luay Nakhleh Lab Group</span>
+      </div>
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="https://github.com/NakhlehLab"><img width="35" height="35" src="/media/gitLogo.png"></a></li>
+        <li class="ms-3"><a class="text-muted" href="https://twitter.com/ricecompsci"><img width="35" height="35" src="/media/twitterLogo.png"></a></li>
+      </ul>
+    </footer>
+  </div>
+
+</main>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
