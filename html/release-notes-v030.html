@@ -406,15 +406,15 @@
       <h2>Migration from v0.2.0</h2>
       <div class="highlight-card">
         <h4>Import changes</h4>
-        <p>Top-level imports are now preferred:</p>
+        <p>Top-level imports are now optional and the import name matches install name:</p>
         <p>
           <strong>Before:</strong> <code>from PhyNetPy.Network import Network, Node, Edge</code><br>
-          <strong>After:</strong>&nbsp; <code>from PhyNetPy import Network, Node, Edge</code>
+          <strong>After:</strong>&nbsp; <code>from phynetpy import Network, Node, Edge</code>
         </p>
         <h4 style="margin-top:1rem;">NetworkParser removed</h4>
         <p>
           <strong>Before:</strong> <code>from PhyNetPy.NetworkParser import NetworkParser</code><br>
-          <strong>After:</strong>&nbsp; <code>from PhyNetPy import read_nexus, read_newick</code>
+          <strong>After:</strong>&nbsp; <code>from phynetpy import read_nexus, read_newick</code>
         </p>
       </div>
     </div>
