@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetworkMoves - PhyNetPy Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>PhyNetPy Documentation</h1>
+        <p>Library for the Development and Use of Phylogenetic Network Methods</p>
+    </div>
+    
+    <div class="document">
+        <div class="documentwrapper">
+            <div class="body">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> &raquo; NetworkMoves
+                </div>
+                
+                <h1>NetworkMoves Module <span class="version-badge">v1.0.0</span></h1>
+                
+                <p>Network topology modification operations for MCMC search (add/remove hybrid, NNI, node height).</p>
+                
+                <div class="module-info">
+                    <dl>
+                        <dt>Author:</dt>
+                        <dd>Mark Kessler</dd>
+                        <dt>Source:</dt>
+                        <dd>NetworkMoves.py</dd>
+                    </dl>
+                </div>
+                
+                <div class="toc">
+                    <h4>Contents</h4>
+                    <ul>
+                        <li><a href="#functions">Module Functions</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="functions">Module Functions</h2>
+                        <div class="function-def">
+                            <div class="function-header">
+                                <span class="name">add_hybrid</span>(<span class="params">net: Network, source: Edge, destination: Edge, t_src: float = None, t_dest: float = None</span>) <span class="keyword">-&gt;</span> None
+                            </div>
+                            <div class="function-body">
+                                <p>Add a hybrid (reticulation) edge between *source* and *destination*. Two new internal nodes are inserted -- one splitting *source* and one splitting *destination* -- and a directed edge is created from the source-side node to the destination-side node (which is marked as a reticulation). If *source* and *destination* are the same edge, a bubble (parallel pair of edges) is created instead.</p>
+                                                                <table class="param-table">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">net</span></td>
+                                        <td><span class="param-type"></span></td>
+                                        <td>The network to modify in place.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">source</span></td>
+                                        <td><span class="param-type"></span></td>
+                                        <td>The edge on which to place the new outgoing node.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">destination</span></td>
+                                        <td><span class="param-type"></span></td>
+                                        <td>The edge on which to place the new reticulation node.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">t_src</span></td>
+                                        <td><span class="param-type"></span></td>
+                                        <td>Optional time at which to place the source-side node.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">t_dest</span></td>
+                                        <td><span class="param-type"></span></td>
+                                        <td>Optional time at which to place the destination-side node.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="function-def">
+                            <div class="function-header">
+                                <span class="name">remove_hybrid</span>(<span class="params">net: Network, hybrid_edge: Edge</span>) <span class="keyword">-&gt;</span> None
+                            </div>
+                            <div class="function-body">
+                                <p>Removes a hybrid edge from a network. src: dest: a x | | | | | | v v n1- - - - - - - - -&gt;n2 | | | | v v b y</p>
+                                                                <table class="param-table">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">net</span></td>
+                                        <td><span class="param-type">Network</span></td>
+                                        <td>A network.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">hybrid_edge</span></td>
+                                        <td><span class="param-type">Edge</span></td>
+                                        <td>An edge in E, whose destination node is a reticulation node.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="function-def">
+                            <div class="function-header">
+                                <span class="name">nni</span>(<span class="params">net: Network</span>) <span class="keyword">-&gt;</span> None
+                            </div>
+                            <div class="function-body">
+                                <p>Perform a nearest neighbor interchange (NNI) on the network.</p>
+                                                                <table class="param-table">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">net</span></td>
+                                        <td><span class="param-type">Network</span></td>
+                                        <td>A network.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="function-def">
+                            <div class="function-header">
+                                <span class="name">node_height_change</span>(<span class="params">n: Node, net: Network, height: float, extend: bool = False</span>) <span class="keyword">-&gt;</span> None
+                            </div>
+                            <div class="function-body">
+                                <p>Alter the node height of a node in a network, without altering the node heights of any surrounding nodes (parents, children). A node height can be moved up or down within the range min child height &lt; new h &lt; max parent height (refer to assumptions.txt). It is an error to attempt to move a node outside of these bounds -- the operation will abort and no changes to the network will be made. If extend is set (True), then the subtree branch lengths will be retained instead of altered. The new height of 'n', then, must not be closer to the root than the parent of 'n' whose height is furthest from the root. Attempting this is an error -- the operation will abort and no changes to the network will be made.</p>
+                                                                <table class="param-table">
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">n</span></td>
+                                        <td><span class="param-type">Node</span></td>
+                                        <td>A node whose height needs to be changed.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">net</span></td>
+                                        <td><span class="param-type">Network</span></td>
+                                        <td>The network that contains node n.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">height</span></td>
+                                        <td><span class="param-type">float</span></td>
+                                        <td>The new height of node n.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="param-name">extend</span></td>
+                                        <td><span class="param-type">bool, optional</span></td>
+                                        <td>Flag to retain subtree branch lengths. Defaults to False.</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                
+                <div class="footer">
+                    <p>PhyNetPy Documentation - Copyright 2025 Mark Kessler, Luay Nakhleh</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sphinxsidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+            
+            <h3>Modules</h3>
+            <ul>
+                <li><a href="Alphabet.html">Alphabet</a></li>
+                <li><a href="BiMarkers.html">BiMarkers</a></li>
+                <li><a href="BirthDeath.html">BirthDeath</a></li>
+                <li><a href="Executor.html">Executor</a></li>
+                <li><a href="GTR.html">GTR</a></li>
+                <li><a href="GeneTrees.html">GeneTrees</a></li>
+                <li><a href="GraphUtils.html">GraphUtils</a></li>
+                <li><a href="IO.html">IO</a></li>
+                <li><a href="Logger.html">Logger</a></li>
+                <li><a href="MSA.html">MSA</a></li>
+                <li><a href="Matrix.html">Matrix</a></li>
+                <li><a href="MetropolisHastings.html">MetropolisHastings</a></li>
+                <li><a href="ModelFactory.html">ModelFactory</a></li>
+                <li><a href="ModelGraph.html">ModelGraph</a></li>
+                <li><a href="ModelMove.html">ModelMove</a></li>
+                <li><a href="Network.html">Network</a></li>
+                <li><a href="NetworkMoves.html" class="current">NetworkMoves</a></li>
+                <li><a href="Newick.html">Newick</a></li>
+                <li><a href="Phylo.html">Phylo</a></li>
+                <li><a href="PhyloNet.html">PhyloNet</a></li>
+                <li><a href="SNPSimulator.html">SNPSimulator</a></li>
+                <li><a href="State.html">State</a></li>
+                <li><a href="Strategy.html">Strategy</a></li>
+                <li><a href="Traversal.html">Traversal</a></li>
+                <li><a href="Validation.html">Validation</a></li>
+                <li><a href="Visitor.html">Visitor</a></li>
+                <li><a href="graph_core.html">graph_core</a></li>
+            </ul>
+            
+            <h3>This Page</h3>
+            <ul>
+                <li><a href="#functions">Module Functions</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
