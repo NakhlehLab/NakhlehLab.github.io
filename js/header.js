@@ -73,9 +73,10 @@ headerTemplate.innerHTML = `
                 <li><a href="/index.html" class="headClick nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="/html/about.html" class="headClick nav-link px-2 link-dark">About</a></li>
                 <li class="docs-dropdown">
-                    <a href="/v0.3.0/index.html" class="headClick nav-link px-2 link-dark">Documentation <span class="caret">&#9660;</span></a>
+                    <a href="/v0.5.0/docs/index.html" class="headClick nav-link px-2 link-dark">Documentation <span class="caret">&#9660;</span></a>
                     <div class="docs-dropdown-menu">
-                        <a href="/v0.3.0/index.html">v0.3.0 <span class="badge-latest">latest</span></a>
+                        <a href="/v0.5.0/docs/index.html">v0.5.0 <span class="badge-latest">latest</span></a>
+                        <a href="/v0.3.0/index.html">v0.3.0</a>
                         <a href="/html/phynetpy-docs/index.html">v0.2.0</a>
                     </div>
                 </li>
