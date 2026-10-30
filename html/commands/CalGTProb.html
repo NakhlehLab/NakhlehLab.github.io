@@ -123,6 +123,7 @@ CalGTProb network_ident geneTreeList [-a taxa map] [-b threshold] [-bl] [-o] [-p
 | -b threshold        | Specifies gene trees bootstrap threshold. Edges in the gene trees that have support lower than threshold will be contracted. | optional  |
 | -bl                 | The branch lengths of the input gene trees need to be considered in the computation                                          | optional  |
 | -o                  | The network has only topologies, so the branch lengths and inheritance probabilities of it need to be optimized.             | optimal   |
+| -pseudo             | Score using pseudo-likelihood                                                                                                | optional  |
 | -p (rel, abs)       | The original stopping criterion of Brent’s algorithm. Default value is (0.01, 0.001).                                        | optional  |
 | -r maxRound         | Maximum number of rounds to optimize branch lengths for a network topology. Default value is 100.                            | optional  |
 | -t maxTryPerBr      | Maximum number of trial per branch in one round to optimize branch lengths for a network topology. Default value is 100.     | optional  |
@@ -222,6 +223,33 @@ END;
 BEGIN PHYLONET;
  
 CalGTProb net (geneTree1,geneTree2,geneTree3,geneTree4) -bl -o;
+ 
+END;
+```
+
+```
+#NEXUS
+ 
+BEGIN NETWORKS;
+ 
+Network net = ((((B)#H1,E),(C,A)),(#H1,D));
+ 
+END;
+ 
+ 
+BEGIN TREES;
+ 
+Tree geneTree1 = ((C:3,((B:1,D:1):1,A:2):1):1,E:4);
+Tree geneTree2 = (B:4,(D:3,(C:2,(A:1,E:1):1):1):1);
+Tree geneTree3 = (D:4,(B:3,((C:1,E:1):1,A:2):1):1);
+Tree geneTree4 = (D:3,((B:1,E:1):1,(C:1,A:1):1):1);
+ 
+END;
+ 
+ 
+BEGIN PHYLONET;
+ 
+CalGTProb net (geneTree1,geneTree2,geneTree3,geneTree4) -pseudo -o;
  
 END;
 ```

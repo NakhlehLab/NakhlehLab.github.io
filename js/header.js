@@ -76,6 +76,7 @@ headerTemplate.innerHTML = `
                     <a href="/v0.7.0/index.html" class="headClick nav-link px-2 link-dark">Documentation <span class="caret">&#9660;</span></a>
                     <div class="docs-dropdown-menu">
                         <a href="/v0.7.0/index.html">v0.7.0 <span class="badge-latest">latest</span></a>
+                        <a href="/v0.6.0/docs/index.html">v0.6.0</a>
                         <a href="/v0.5.0/docs/index.html">v0.5.0</a>
                         <a href="/v0.3.0/index.html">v0.3.0</a>
                         <a href="/html/phynetpy-docs/index.html">v0.2.0</a>
