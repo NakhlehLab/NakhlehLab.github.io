@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comparing phylogenetic networks with PhyNetPy, with a worked example of the joint reticulation-and-tree dissimilarity.">
+    <meta name="author" content="Mark Kessler">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>PhyNetPy Network Comparison Tutorial</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
+    <link href="/css/background.css" rel="stylesheet">
+    <link href="/css/tables.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet">
+
+    <style>
+      .tut { font-size: 17px; line-height: 1.6; color: #333; padding-bottom: 2rem; }
+      .tut h2 { color: #4275d5; font-size: 30px; letter-spacing: .03em; margin: 2.2rem 0 .8rem; }
+      .tut h3 { color: #4275d5b3; font-size: 22px; margin: 1.6rem 0 .6rem; }
+      .tut p code, .tut li code, .tut td code { color: #2c57a8; background: #eef3fb; padding: .05em .3em; border-radius: 3px; font-size: 92%; }
+      .tut ul, .tut ol { padding-left: 1.4rem; }
+      .tut li { margin-bottom: .35rem; }
+      .tut table { margin: 1rem 0 1.5rem; background: #fff; }
+      .tut th, .tut td { text-align: left; padding: 10px 14px; color: #333; font-size: 15.5px; vertical-align: top; }
+      .tut th { color: #4275d5c3; }
+      .tut .fig { margin: 1.2rem auto 1.6rem; max-width: 760px; }
+      .tut .fig svg { width: 100%; height: auto; display: block; }
+      .tut .fig .figCaption { font-size: 14.5px; color: #555; margin-top: .4rem; text-align: center; }
+      .tut .formula { font-family: monospace; font-size: 16px; background: #fff; border-left: 4px solid #4275d5b3; padding: .6rem 1rem; margin: .8rem 0 1rem; }
+      .tut pre.prettyprint, .tut pre.plain { background: #fff; border: 1px solid #d7e0f0; border-radius: 7px; padding: 1rem 1.2rem; overflow-x: auto; font-size: 14px; line-height: 1.5; box-shadow: 0 0 20px rgba(0,0,0,.06); margin: 0 0 1.2rem; }
+      .tut pre.plain { color: #333; }
+      .codeToolbar { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .8rem 0 .5rem; }
+      .codeToolbar .blueBtn { font-size: 14px; padding: .3rem .9rem; border-radius: 5px; }
+      .codeToolbar .blueBtn:hover { color: #4275d5; border-color: #4275d5; }
+      .codeToolbar .toolbarNote { font-size: 14px; color: #666; margin-left: .3rem; }
+      .tut .callout { background: #e8eefb; border-radius: 7px; padding: .8rem 1.1rem; margin: 1rem 0 1.2rem; font-size: 15.5px; }
+      .tutTitle { font-size: 50px; color: #4275d5b3; letter-spacing: .05em; }
+      .tutLead { font-size: 19px; color: #555; max-width: 60rem; }
+    </style>
+   
+  </head>
+
+<body class="htmlBody">
+    
+
+
+<main class="mainContainer">
+  <script src="/js/nav.js" charset="utf-8"></script>
+  <script src="/js/tutorials.js" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+  <script>
+    function copyDemo(btn) {
+      var text = document.getElementById('demoCode').textContent;
+      // The syntax highlighter drops the final newline when it re-renders the block.
+      if (text.slice(-1) !== '\n') { text += '\n'; }
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = old; }, 1500);
+      };
+      var fallback = function () {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else {
+        fallback();
+      }
+    }
+  </script>
+
+  <br>
+  <br>
+
+    <div class="container">
+      <div class="TutorialBody tut">
+
+        <h2>Why compare networks?</h2>
+        <p>
+          Almost every use of a phylogenetic network method ends with a comparison. A simulation
+          study checks an inferred network against the network that generated the data; a
+          bootstrap or a posterior sample asks how much a set of networks disagree; two methods
+          run on the same data return two answers. Each of these needs a number that says how far
+          apart two networks are.
+        </p>
+        <p>
+          For trees, the Robinson&ndash;Foulds distance is the standard answer. Networks are
+          harder. The classical network measures (cluster distances, the
+          <code>mu</code>-distance, displayed-tree distances) compare a network in bulk, and
+          because nearly all of a network is tree-like, a misplaced hybrid edge barely moves them.
+          The hybrid edges are usually the reason the analysis was run, so PhyNetPy 0.7.0 adds a
+          measure that scores them separately: the <strong>joint reticulation-and-tree
+          dissimilarity</strong>.
+        </p>
+
+        <h2>Comparing networks in PhyNetPy</h2>
+        <p>
+          Every comparison measure takes two <code>Network</code> objects on the same taxon set
+          and is importable from the top-level <code>phynetpy</code> namespace.
+          <code>read_newick</code> reads extended Newick, where a <code>#H</code> label marks a
+          reticulation.
+        </p>
+        <pre class="prettyprint lang-py">from phynetpy import read_newick, joint_dissimilarity, mu_distance, hybrid_ancestry_error
+
+estimate = read_newick("((A,(B)#H1),(#H1,C));")
+truth = read_newick("(((A)#H1,B),(#H1,C));")
+
+joint_dissimilarity(estimate, truth).D_joint_normalized   # in [0, 1]
+mu_distance(estimate, truth)                              # a count
+hybrid_ancestry_error(estimate, truth)                    # asymmetric: estimate first
+</pre>
+        <table>
+          <thead>
+            <tr><th>Function</th><th>What it compares</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>joint_dissimilarity</code></td><td>Matched reticulations plus the reticulation-free remainders. New in 0.7.0; described below.</td></tr>
+            <tr><td><code>mu_distance</code></td><td>Multisets of path-count vectors (Cardona et al., 2009). A metric on reduced networks.</td></tr>
+            <tr><td><code>hardwired_cluster_distance</code><br><code>softwired_cluster_distance</code></td><td>Symmetric difference of the cluster sets, hardwired or pooled over all displayed trees.</td></tr>
+            <tr><td><code>tripartition_distance</code><br><code>displayed_tree_distance</code><br><code>robinson_foulds_distance</code></td><td>Symmetric difference of tree-node tripartitions, of displayed-tree topologies, or of non-trivial clusters.</td></tr>
+            <tr><td><code>average_path_distance</code><br><code>weighted_average_path_distance</code></td><td>Branch-length-aware leaf-to-leaf path differences averaged over displayed trees (Yakici, Ogilvie &amp; Nakhleh, 2022).</td></tr>
+            <tr><td><code>hybrid_ancestry_error</code></td><td>Balanced false-positive and false-negative rate of the set of taxa below a reticulation. Asymmetric: pass the estimate first.</td></tr>
+            <tr><td><code>compare_networks</code></td><td>Reticulation precision, recall and F1 from a tripartition matching, alongside a global metric.</td></tr>
+            <tr><td><code>is_isomorphic</code></td><td>Exact topological identity, ignoring labels and branch lengths.</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The symmetric-difference measures accept <code>normalize=True</code> to return a value
+          in [0, 1]. The displayed-tree measures enumerate up to 2<sup>k</sup> trees for
+          <em>k</em> reticulations, so keep them to small networks.
+        </p>
+
+        <h2>The joint dissimilarity</h2>
+        <p>
+          Take two rooted networks <em>N</em><sub>1</sub> and <em>N</em><sub>2</sub> on the same
+          taxa, with <em>r</em><sub>1</sub> and <em>r</em><sub>2</sub> reticulations, and let
+          <em>m</em> = max(<em>r</em><sub>1</sub>, <em>r</em><sub>2</sub>). The measure has two
+          parts.
+        </p>
+        <ol>
+          <li>
+            <strong>Reticulations.</strong> Every reticulation <em>h</em> is summarised by a
+            <strong>tripartition</strong> (<em>A</em>, <em>B</em>, <em>C</em>): <em>B</em> is the
+            block below <em>h</em>, and <em>A</em> and <em>C</em> are the blocks below its two
+            parents once <em>h</em> is deleted. Two tripartitions cost
+            <code>d(B, B') + min(d(A, A') + d(C, C'), d(A, C') + d(C, A'))</code>, a number in
+            [0, 3] that does not care which parent is called <em>A</em>. The shorter list is
+            padded with dummies to length <em>m</em>, a real&ndash;dummy pair costs 3, and
+            <code>D_ret</code> is the cost of the cheapest one-to-one matching (one Hungarian
+            solve).
+          </li>
+          <li>
+            <strong>Remainder.</strong> Deleting the block below every reticulation and hanging
+            one marker leaf per surviving parent edge, labelled by the taxa that were below the
+            reticulation, leaves a tree-like remainder <em>T</em>(<em>N</em>).
+            <code>D_tree</code> is the dissimilarity of the two remainders.
+          </li>
+        </ol>
+        <div class="formula">D_joint = D_ret + 3 &middot; D_tree</div>
+        <p>
+          <code>D_ret_normalized = D_ret / 3m</code> (0 when both are trees) and
+          <code>D_joint_normalized = D_joint / 3(m + 1)</code> both lie in [0, 1].
+        </p>
+        <p>
+          The structure dissimilarity <code>d</code> used on blocks and remainders is chosen by
+          the <code>kind</code> argument, from coarse to fine:
+        </p>
+        <ul>
+          <li><code>"leaf"</code>: Jaccard distance of the two leaf-label sets.</li>
+          <li><code>"cluster"</code>: multiset dissimilarity of the hardwired clusters, one per vertex.</li>
+          <li><code>"nakhleh"</code> (default): multiset dissimilarity of Nakhleh's vertex-equivalence classes (Nakhleh, 2010), which sees the full shape of each structure.</li>
+        </ul>
+        <p>
+          Under every instantiation the measure is symmetric, is 0 on identical networks, and is
+          a metric on the tripartition and remainder representations. Branch lengths,
+          inheritance probabilities and internal-node labels are ignored. Each network must have
+          one root, labelled leaves with no label used twice, and reticulations with exactly two
+          distinct parents and one child; anything else raises <code>NetworkError</code> rather
+          than being scored silently.
+        </p>
+
+        <h3>A worked example</h3>
+        <div class="fig">
+          
+<svg class="netFigure" viewBox="0 0 740 310" role="img"
+     aria-label="Two three-taxon networks that differ in which taxon the hybrid edge delivers">
+  <style>
+    .edge { stroke: #4275d5; stroke-width: 2.5; }
+    .hybrid { stroke: #d9822b; stroke-width: 2.5; stroke-dasharray: 6 5; }
+    .node { fill: #fff; stroke: #4275d5; stroke-width: 2.5; }
+    .retic { fill: #d9822b; stroke: #d9822b; stroke-width: 2.5; }
+    .leaf { fill: #fff; stroke: #4275d5; stroke-width: 2.5; }
+    .leafLabel { fill: #4275d5; font: 700 15px sans-serif; text-anchor: middle; }
+    .nodeLabel { fill: #d9822b; font: 700 13px sans-serif; }
+    .newick { fill: #333; font: 14px monospace; text-anchor: middle; }
+    .caption { fill: #555; font: 14px sans-serif; text-anchor: middle; }
+  </style>
+  <line class="edge" x1="190" y1="40" x2="120" y2="110"/>
+<line class="edge" x1="190" y1="40" x2="260" y2="110"/>
+<line class="edge" x1="120" y1="110" x2="80" y2="240"/>
+<line class="edge" x1="260" y1="110" x2="300" y2="240"/>
+<line class="edge" x1="190" y1="170" x2="190" y2="240"/>
+<line class="hybrid" x1="120" y1="110" x2="190" y2="170"/>
+<line class="hybrid" x1="260" y1="110" x2="190" y2="170"/>
+<circle class="node" cx="190" cy="40" r="7"/>
+<circle class="node" cx="120" cy="110" r="7"/>
+<circle class="node" cx="260" cy="110" r="7"/>
+<circle class="retic" cx="190" cy="170" r="7"/>
+<circle class="leaf" cx="80" cy="240" r="14"/><text class="leafLabel" x="80" y="245">A</text>
+<circle class="leaf" cx="190" cy="240" r="14"/><text class="leafLabel" x="190" y="245">B</text>
+<circle class="leaf" cx="300" cy="240" r="14"/><text class="leafLabel" x="300" y="245">C</text>
+<text class="nodeLabel" x="212" y="175">#H1</text>
+<text class="newick" x="190" y="278">N1 = ((A,(B)#H1),(#H1,C));</text>
+<text class="caption" x="190" y="298">tripartition: ( {A} | {B} | {C} )</text>
+  <line class="edge" x1="570" y1="40" x2="500" y2="110"/>
+<line class="edge" x1="570" y1="40" x2="640" y2="110"/>
+<line class="edge" x1="500" y1="110" x2="460" y2="240"/>
+<line class="edge" x1="640" y1="110" x2="680" y2="240"/>
+<line class="edge" x1="570" y1="170" x2="570" y2="240"/>
+<line class="hybrid" x1="500" y1="110" x2="570" y2="170"/>
+<line class="hybrid" x1="640" y1="110" x2="570" y2="170"/>
+<circle class="node" cx="570" cy="40" r="7"/>
+<circle class="node" cx="500" cy="110" r="7"/>
+<circle class="node" cx="640" cy="110" r="7"/>
+<circle class="retic" cx="570" cy="170" r="7"/>
+<circle class="leaf" cx="460" cy="240" r="14"/><text class="leafLabel" x="460" y="245">B</text>
+<circle class="leaf" cx="570" cy="240" r="14"/><text class="leafLabel" x="570" y="245">A</text>
+<circle class="leaf" cx="680" cy="240" r="14"/><text class="leafLabel" x="680" y="245">C</text>
+<text class="nodeLabel" x="592" y="175">#H1</text>
+<text class="newick" x="570" y="278">N2 = (((A)#H1,B),(#H1,C));</text>
+<text class="caption" x="570" y="298">tripartition: ( {B} | {A} | {C} )</text>
+</svg>
+
+          <div class="figCaption">
+            Two one-reticulation networks on A, B and C. Dashed orange edges are the hybrid edges;
+            the networks differ only in which taxon the reticulation delivers.
+          </div>
+        </div>
+        <p>
+          Under <code>kind="leaf"</code>, the hybrid blocks {B} and {A} are disjoint, so
+          <code>d(B, B') = 1</code>. The cheaper pairing of the parent sides matches {A} with
+          {B} (cost 1) and {C} with {C} (cost 0), so the tripartition cost is 2 and
+          <code>D_ret = 2</code>. Each remainder keeps the taxa outside its hybrid block plus a
+          marker for the reticulation, giving label sets {A, C, m(B)} and {B, C, m(A)}: four of
+          the five labels differ, so <code>D_tree = 0.8</code>. Then
+          <code>D_joint = 2 + 3 &times; 0.8 = 4.4</code>, and dividing by 3(<em>m</em> + 1) = 6
+          gives <code>D_joint_normalized = 0.733</code>. The script below reproduces these numbers
+          and shows the finer instantiations on the same pair.
+        </p>
+
+        <h3>Reading the result</h3>
+        <p>
+          <code>joint_dissimilarity</code> returns a frozen <code>JointDissimilarityResult</code>:
+        </p>
+        <table>
+          <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><code>kind</code></td><td>The instantiation used.</td></tr>
+            <tr><td><code>r1</code>, <code>r2</code>, <code>m</code></td><td>Reticulation numbers of the two networks and their maximum.</td></tr>
+            <tr><td><code>D_ret</code></td><td>Matching cost of the tripartitions, in [0, 3<em>m</em>].</td></tr>
+            <tr><td><code>D_tree</code></td><td>Dissimilarity of the two remainders, in [0, 1].</td></tr>
+            <tr><td><code>D_joint</code></td><td><code>D_ret + 3 D_tree</code>, in [0, 3(<em>m</em> + 1)].</td></tr>
+            <tr><td><code>D_ret_normalized</code>, <code>D_joint_normalized</code></td><td>The two terms rescaled into [0, 1].</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The same call is available as a method, <code>net1.joint_dissimilarity(net2, kind)</code>.
+        </p>
+
+        <h2>Example script</h2>
+        <p>
+          The script below is self-contained: it needs PhyNetPy and nothing else, since the
+          networks are written inline. Copy it, download it, or open it in Google Colab, which
+          installs PhyNetPy and runs the same code in your browser.
+        </p>
+        <div class="codeToolbar">
+          <button type="button" class="btn blueBtn" onclick="copyDemo(this)">Copy to clipboard</button>
+          <a class="btn blueBtn" href="/media/joint_dissimilarity_demo.py" download>Download .py</a>
+          <a class="btn blueBtn" href="https://colab.research.google.com/github/NakhlehLab/NakhlehLab.github.io/blob/master/media/joint_dissimilarity_demo.ipynb" target="_blank" rel="noopener">Run in Google Colab</a>
+          <span class="toolbarNote">Also in the PhyNetPy repository as <code>examples/joint_dissimilarity_demo.py</code>.</span>
+        </div>
+        <pre class="prettyprint lang-py" id="demoCode">"""
+joint_dissimilarity_demo.py -- compare two phylogenetic networks with PhyNetPy.
+
+Runs anywhere PhyNetPy is installed and needs no other files:
+
+    pip install phynetpy
+    python joint_dissimilarity_demo.py
+
+The joint dissimilarity scores two rooted networks on the same taxa in two
+parts.  Every reticulation is summarised by a tripartition (the block below
+it and the two parent blocks with it deleted), and D_ret is the cost of the
+best one-to-one matching of the two tripartition collections, with an
+unmatched reticulation charged 3.  Deleting every reticulation block leaves a
+tree-like remainder in each network, and D_tree compares those.  Then
+
+    D_joint = D_ret + 3 * D_tree
+
+with normalised forms in [0, 1].  Blocks and remainders are compared by one
+of three structure dissimilarities: "leaf" (which taxa), "cluster" (which
+clusters) or "nakhleh" (which vertex-equivalence classes; the default).
+"""
+
+import warnings
+
+from phynetpy import read_newick, joint_dissimilarity
+
+# The reader warns once per node when a Newick string carries no branch
+# lengths.  The measure ignores lengths, so the warning is noise here.
+warnings.filterwarnings("ignore", message="No branch length")
+
+
+def report(title, r):
+    """Print every field of a JointDissimilarityResult."""
+    print(title)
+    print(f"  reticulations        r1 = {r.r1}, r2 = {r.r2}   (m = {r.m})")
+    print(f"  D_ret   (matching)   {r.D_ret:.3f}   normalised {r.D_ret_normalized:.3f}")
+    print(f"  D_tree  (remainder)  {r.D_tree:.3f}")
+    print(f"  D_joint              {r.D_joint:.3f}   normalised {r.D_joint_normalized:.3f}")
+    print()
+
+
+# Two one-reticulation networks on taxa A, B, C.  They differ only in which
+# taxon the hybrid edge delivers: B in the estimate, A in the truth.
+estimate = read_newick("((A,(B)#H1),(#H1,C));")
+truth = read_newick("(((A)#H1,B),(#H1,C));")
+
+# 1. The headline call.  Order does not matter: the measure is symmetric.
+report("estimate vs truth", joint_dissimilarity(estimate, truth))
+
+# 2. The three instantiations differ only in how two structures are compared.
+#    Under "leaf", the hybrid blocks {B} and {A} cost 1 and the parent sides
+#    cost 1 more, so D_ret = 2; the remainders share one of five labels, so
+#    D_tree = 0.8 and D_joint = 2 + 3 * 0.8 = 4.4.
+for kind in ("leaf", "cluster", "nakhleh"):
+    r = joint_dissimilarity(estimate, truth, kind=kind)
+    print(f"kind = {kind:8s}  D_ret = {r.D_ret:.3f}  D_tree = {r.D_tree:.3f}"
+          f"  D_joint_normalized = {r.D_joint_normalized:.3f}")
+print()
+
+# 3. A tree has no reticulation, so the network's one is left unmatched and
+#    charged the full cost of 3: the normalised reticulation term is 1.
+tree = read_newick("((A,B),C);")
+report("tree vs estimate", joint_dissimilarity(tree, estimate))
+
+# 4. Identical topologies score 0.  Branch lengths, inheritance probabilities
+#    and internal labels are ignored.
+same = read_newick("((A:0.1,(B:0.2)#H1[&amp;gamma=0.6]:0.3)X:0.4,(#H1:0.5,C:0.6)Y:0.7)Root;")
+report("estimate vs itself, with branch lengths", joint_dissimilarity(estimate, same))
+
+# 5. The same measure is available as a Network method.
+r = estimate.joint_dissimilarity(truth, kind="cluster")
+print(f"method form, kind = cluster:  D_joint_normalized = {r.D_joint_normalized:.3f}")
+</pre>
+
+        <h3>Running it locally</h3>
+        <p>In a fresh virtual environment with a C compiler available:</p>
+        <pre class="plain">pip install phynetpy
+python joint_dissimilarity_demo.py</pre>
+
+        <h3>Expected output</h3>
+        <pre class="plain">estimate vs truth
+  reticulations        r1 = 1, r2 = 1   (m = 1)
+  D_ret   (matching)   2.000   normalised 0.667
+  D_tree  (remainder)  0.923
+  D_joint              4.769   normalised 0.795
+
+kind = leaf      D_ret = 2.000  D_tree = 0.800  D_joint_normalized = 0.733
+kind = cluster   D_ret = 2.000  D_tree = 0.923  D_joint_normalized = 0.795
+kind = nakhleh   D_ret = 2.000  D_tree = 0.923  D_joint_normalized = 0.795
+
+tree vs estimate
+  reticulations        r1 = 0, r2 = 1   (m = 1)
+  D_ret   (matching)   3.000   normalised 1.000
+  D_tree  (remainder)  0.800
+  D_joint              5.400   normalised 0.900
+
+estimate vs itself, with branch lengths
+  reticulations        r1 = 1, r2 = 1   (m = 1)
+  D_ret   (matching)   0.000   normalised 0.000
+  D_tree  (remainder)  0.000
+  D_joint              0.000   normalised 0.000
+
+method form, kind = cluster:  D_joint_normalized = 0.795
+</pre>
+
+        <h2>References</h2>
+        <ul>
+          <li>L. Nakhleh. <em>Reticulation-Aware Dissimilarity for Phylogenetic Networks.</em> Manuscript, 2026.</li>
+          <li>L. Nakhleh. <em>A metric on the space of reduced phylogenetic networks.</em> IEEE/ACM Transactions on Computational Biology and Bioinformatics 7 (2010), 218&ndash;222.</li>
+          <li>G. Cardona, M. Llabr&eacute;s, F. Rossell&oacute; and G. Valiente. <em>Metrics for phylogenetic networks I: generalizations of the Robinson&ndash;Foulds metric.</em> IEEE/ACM Transactions on Computational Biology and Bioinformatics 6 (2009), 46&ndash;61.</li>
+          <li>B. Yakici, H. Ogilvie and L. Nakhleh. <em>Phylogenetic network dissimilarity measures that take branch lengths into account.</em> RECOMB-CG 2022, LNCS 13234, 86&ndash;102.</li>
+          <li>PhyNetPy on <a href="https://pypi.org/project/phynetpy/">PyPI</a> and <a href="https://github.com/NakhlehLab/PhyNetPy">GitHub</a>; release notes for 0.7.0 are in the repository.</li>
+        </ul>
+
+      </div>
+    </div>
+  
+</main>
+
+
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+  
+</html>
